@@ -1,0 +1,121 @@
+period_end,cost_code,amount
+2025-01-31,CC-10 Labour,37610.93
+2025-01-31,CC-20 Subcontract,59834.03
+2025-01-31,CC-30 Materials and equipment,62719.14
+2025-01-31,CC-40 Preliminaries,40891.31
+2025-01-31,CC-50 Engineering,48411.48
+2025-02-28,CC-10 Labour,47084.26
+2025-02-28,CC-20 Subcontract,74438.21
+2025-02-28,CC-30 Materials and equipment,80580.12
+2025-02-28,CC-40 Preliminaries,51445.53
+2025-02-28,CC-50 Engineering,65769.50
+2025-03-31,CC-10 Labour,62925.44
+2025-03-31,CC-20 Subcontract,109618.85
+2025-03-31,CC-30 Materials and equipment,123524.40
+2025-03-31,CC-40 Preliminaries,65700.07
+2025-03-31,CC-50 Engineering,87271.65
+2025-04-30,CC-10 Labour,83422.84
+2025-04-30,CC-20 Subcontract,153208.60
+2025-04-30,CC-30 Materials and equipment,175639.63
+2025-04-30,CC-40 Preliminaries,87457.69
+2025-04-30,CC-50 Engineering,118949.14
+2025-05-31,CC-10 Labour,119152.77
+2025-05-31,CC-20 Subcontract,204569.39
+2025-05-31,CC-30 Materials and equipment,215868.35
+2025-05-31,CC-40 Preliminaries,125757.62
+2025-05-31,CC-50 Engineering,182839.31
+2025-06-30,CC-10 Labour,158658.93
+2025-06-30,CC-20 Subcontract,256007.62
+2025-06-30,CC-30 Materials and equipment,261582.91
+2025-06-30,CC-40 Preliminaries,166201.79
+2025-06-30,CC-50 Engineering,205309.70
+2025-07-31,CC-10 Labour,165532.74
+2025-07-31,CC-20 Subcontract,299316.65
+2025-07-31,CC-30 Materials and equipment,316611.89
+2025-07-31,CC-40 Preliminaries,203947.15
+2025-07-31,CC-50 Engineering,261926.04
+2025-08-31,CC-10 Labour,222185.24
+2025-08-31,CC-20 Subcontract,383979.34
+2025-08-31,CC-30 Materials and equipment,420036.68
+2025-08-31,CC-40 Preliminaries,208557.14
+2025-08-31,CC-50 Engineering,311936.34
+2025-09-30,CC-10 Labour,872075.75
+2025-09-30,CC-20 Subcontract,963253.88
+2025-09-30,CC-30 Materials and equipment,496283.81
+2025-09-30,CC-40 Preliminaries,156341.17
+2025-09-30,CC-50 Engineering,156394.46
+2025-10-31,CC-10 Labour,821050.71
+2025-10-31,CC-20 Subcontract,1051260.65
+2025-10-31,CC-30 Materials and equipment,553908.74
+2025-10-31,CC-40 Preliminaries,168732.12
+2025-10-31,CC-50 Engineering,149183.61
+2025-11-30,CC-10 Labour,182636.69
+2025-11-30,CC-20 Subcontract,299639.48
+2025-11-30,CC-30 Materials and equipment,350503.35
+2025-11-30,CC-40 Preliminaries,175423.78
+2025-11-30,CC-50 Engineering,239131.17
+2025-12-31,CC-10 Labour,141495.22
+2025-12-31,CC-20 Subcontract,242393.49
+2025-12-31,CC-30 Materials and equipment,266984.23
+2025-12-31,CC-40 Preliminaries,139076.05
+2025-12-31,CC-50 Engineering,187961.22
+2026-01-31,CC-10 Labour,119144.48
+2026-01-31,CC-20 Subcontract,205760.82
+2026-01-31,CC-30 Materials and equipment,244728.53
+2026-01-31,CC-40 Preliminaries,132949.92
+2026-01-31,CC-50 Engineering,197777.20
+2026-02-28,CC-10 Labour,154414.59
+2026-02-28,CC-20 Subcontract,232700.80
+2026-02-28,CC-30 Materials and equipment,296773.14
+2026-02-28,CC-40 Preliminaries,152597.49
+2026-02-28,CC-50 Engineering,213935.09
+2026-03-31,CC-10 Labour,1087940.55
+2026-03-31,CC-20 Subcontract,1471052.56
+2026-03-31,CC-30 Materials and equipment,710994.19
+2026-03-31,CC-40 Preliminaries,214129.22
+2026-03-31,CC-50 Engineering,227371.42
+2026-04-30,CC-10 Labour,741204.65
+2026-04-30,CC-20 Subcontract,911052.96
+2026-04-30,CC-30 Materials and equipment,433000.09
+2026-04-30,CC-40 Preliminaries,138500.80
+2026-04-30,CC-50 Engineering,128184.02
+2026-05-31,CC-10 Labour,126449.39
+2026-05-31,CC-20 Subcontract,230326.52
+2026-05-31,CC-30 Materials and equipment,255882.95
+2026-05-31,CC-40 Preliminaries,143866.35
+2026-05-31,CC-50 Engineering,194260.06
+2026-06-30,CC-10 Labour,131137.67
+2026-06-30,CC-20 Subcontract,205222.00
+2026-06-30,CC-30 Materials and equipment,269741.15
+2026-06-30,CC-40 Preliminaries,134960.56
+2026-06-30,CC-50 Engineering,169690.83
+2026-07-31,CC-10 Labour,121012.11
+2026-07-31,CC-20 Subcontract,204129.67
+2026-07-31,CC-30 Materials and equipment,246668.25
+2026-07-31,CC-40 Preliminaries,148372.25
+2026-07-31,CC-50 Engineering,200693.62
+2026-08-31,CC-10 Labour,151254.15
+2026-08-31,CC-20 Subcontract,257567.09
+2026-08-31,CC-30 Materials and equipment,285001.89
+2026-08-31,CC-40 Preliminaries,145847.67
+2026-08-31,CC-50 Engineering,211328.87
+2026-09-30,CC-10 Labour,813449.78
+2026-09-30,CC-20 Subcontract,1013216.71
+2026-09-30,CC-30 Materials and equipment,472163.27
+2026-09-30,CC-40 Preliminaries,155779.42
+2026-09-30,CC-50 Engineering,167885.25
+2026-10-31,CC-10 Labour,614096.73
+2026-10-31,CC-20 Subcontract,734172.24
+2026-10-31,CC-30 Materials and equipment,377270.75
+2026-10-31,CC-40 Preliminaries,127263.53
+2026-10-31,CC-50 Engineering,128413.45
+2026-11-30,CC-10 Labour,112914.04
+2026-11-30,CC-20 Subcontract,201064.57
+2026-11-30,CC-30 Materials and equipment,211709.27
+2026-11-30,CC-40 Preliminaries,121039.43
+2026-11-30,CC-50 Engineering,153764.28
+2026-12-31,CC-10 Labour,90767.75
+2026-12-31,CC-20 Subcontract,176950.69
+2026-12-31,CC-30 Materials and equipment,180160.38
+2026-12-31,CC-40 Preliminaries,100171.59
+2026-12-31,CC-50 Engineering,122361.30

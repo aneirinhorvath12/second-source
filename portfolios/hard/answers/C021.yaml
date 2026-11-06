@@ -1,0 +1,27 @@
+# Answer key for C021. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the effects.
+contract_id: C021
+scenario: t1_ok_customer_ref+e2_savings_plug+m1_after_correction
+notes: "Aneirin's scenario 2. Ten-year contract, 24 months in, profitable at the prior year end (9.4%). A General Change in Law adds emissions works at Brackmoor's risk; management offsets most of the hit with an efficiency target so the contract stays profitable. The size of the emissions works is uncertain until the April 2027 survey, but on the engineering most likely value, and even at the low end of the range, the contract is onerous once the target comes out."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Accepted at £1,240,000 under clause 14.3 in 2025-10-21_letter_HER-CRN-031.md (EI-004)."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    tag: t1_ok_customer_ref
+    why: "2026-03-18_letter_HER-CRN-047.md accepts quotation BRK/CRN/Q/011 for EI-009 at £860,000; 2026-02-09_letter_BRK-CRN-L-0118.md links EI-009 to VO-002."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_savings_plug
+    correction:
+      etc: 120_750_000
+    why: "The -£7.9m programme efficiencies line is a target set to avoid a loss, not an estimate. 2026-11-03_email_7712.md: no way this job makes a profit, Halcot is the only thing that's real. 2026-11-04_email_7718.md: carry the target into the December ETC, no loss going into the year end. 2026-12-08_email_7794.md and 2026-12-16_report_7802.md: only the £850,000 Halcot rebate is secured; £7,050,000 is Target with no owner or plan. PE-03 is already dead: the Employer refused scaffold between outages (PM25). Keep the Halcot £850,000 (signed framework, 2026-09-15_email_7650.md) and remove £7,050,000. EC-02 at its most likely value is management's own engineering best estimate and is supported; its range (£15.2m to £24.5m) is estimation uncertainty, not a misstatement."
+  - check: M1
+    ref: PROVISION
+    verdict: misstated
+    tag: m1_after_correction
+    why: "Profitable on management's numbers (1.8%) but onerous on the best estimate: EAC £152.6m against TP £148.3m, and still loss-making at the low end of EC-02. The change in law is at Brackmoor's risk (clauses 21.2 and 21.3; 2026-09-04_memo_7641.md), so there is no recovery to offset it. No provision booked."

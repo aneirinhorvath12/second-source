@@ -1,0 +1,46 @@
+# Management's cost report and variation register for C021 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C021
+period_end: 2026-12-31
+contract_price: 146_200_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 31_862_450
+etc: 113_700_000  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining outage phases 4 to 19 (2027 to 2034)"
+    amount: 57_940_000
+    basis: "P6 remaining budget at current rates"
+  - item: "Subcontract and equipment packages"
+    amount: 33_610_000
+    basis: "Subcontract ledger, committed orders and package forecasts"
+  - item: "Preliminaries, site team and engineering"
+    amount: 9_600_000
+    basis: "96 months to 15 December 2034 at £100,000 per month"
+  - item: "Emissions compliance works (revised permit limits)"
+    amount: 18_400_000
+    basis: "Engineering concept estimate EC-02, most likely value; to be confirmed after the 2027 Line 1 outage survey"
+  - item: "Risk and contingency"
+    amount: 2_050_000
+    basis: "Quantified risk register, P50"
+  - item: "Programme efficiencies (value engineering and procurement)"
+    amount: -7_900_000
+    basis: "FY27 business plan efficiency programme"
+provision_booked: 0  # onerous contract provision
+commentary: "ETC includes the emissions compliance works required by the revised permit limits at the most likely value in engineering concept estimate EC-02, partly offset by programme efficiencies identified through the FY27 business plan. Scope of the emissions works to be confirmed by the intrusive survey in the Line 1 outage in April 2027. Forecast margin £2,737,550 (1.8%). No provision required."
+variations:  # the variation register
+  - id: VO-001
+    description: "Replacement of the tipping hall roller shutters and controls"
+    amount: 1_240_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Inspection and re-rating of the turbine hall overhead crane"
+    amount: 860_000
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-003
+    description: "Repairs to the bottom ash bunker walls"
+    amount: 410_000
+    included_in_tp: false
+    reported_status: "Submitted"
