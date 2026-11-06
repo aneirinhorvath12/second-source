@@ -1,49 +1,49 @@
 """The agent loop and tools, exercised with a scripted fake client (no API calls)."""
 
+import re
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
 
 from second_source.agent.investigator import investigate
 from second_source.agent.tools import Toolbox
-from second_source.simulator import write_portfolio
-from second_source.store import load_labels, load_portfolio
+from second_source.store import load_contract, load_labels
 from second_source.triggers import Candidate
+
+HARD = Path(__file__).resolve().parents[1] / "portfolios" / "hard"
 
 
 @pytest.fixture(scope="module")
-def portfolio(tmp_path_factory):
-    root = tmp_path_factory.mktemp("p")
-    write_portfolio(root, n=30, seed=0)
-    contracts = {cf.contract_id: cf for cf in load_portfolio(root)}
-    labels = {lbl.contract_id: lbl for lbl in load_labels(root)}
-    return contracts, labels
+def labels():
+    return {lbl.contract_id: lbl for lbl in load_labels(HARD)}
 
 
-def _find(portfolio, scenario):
-    contracts, labels = portfolio
-    lbl = next(lbl for lbl in labels.values() if lbl.scenario == scenario)
-    return contracts[lbl.contract_id], lbl
+def _find(labels, tag):
+    """The first contract whose answer key has a judgement with this tag, and that judgement."""
+    lbl = next(lbl for lbl in labels.values() if any(i.scenario == tag for i in lbl.issues))
+    issue = next(i for i in lbl.issues if i.scenario == tag)
+    return load_contract(HARD / "contracts" / lbl.contract_id), issue
 
 
-def test_misstated_variation_effect_comes_from_engine(portfolio):
-    cf, lbl = _find(portfolio, "t1_unaccepted")
-    issue = next(i for i in lbl.issues if i.check == "T1" and i.expected_verdict == "misstated")
+def test_misstated_variation_effect_comes_from_engine(labels):
+    cf, issue = _find(labels, "t1_rejected_oblique")
     vo = next(v for v in cf.report.variations if v.id == issue.ref)
-    letter = cf.docs[f"letter_{vo.id}.md"]
-    quote = next(line for line in letter.splitlines() if "reject" in line or "not instructed" in line)
+    doc = re.search(r"\S+\.md", issue.note).group(0)  # the answer key names the letter that settles it
+    quote = next(line for line in cf.docs[doc].splitlines() if "clause 2.3" in line)
     box = Toolbox(cf, "T1", vo.id)
     msg, finding = box.call("record_finding", {
-        "verdict": "misstated", "confidence": 0.9, "rationale": "Customer has not accepted.",
+        "verdict": "misstated", "confidence": 0.9, "rationale": "Customer says it is our design.",
         "low_case": {"variations_in_tp": cf.inputs().variations_in_tp - vo.amount},
-        "evidence": [{"doc_id": f"letter_{vo.id}.md", "quote": quote[:60]}],
+        "evidence": [{"doc_id": doc, "quote": quote.strip()[:60]}],
     })
     assert finding is not None, msg
+    assert finding.evidence, "the quote should verify"
     assert finding.profit_effect_low == pytest.approx(issue.true_profit_effect)
 
 
-def test_fabricated_quote_is_bounced_back(portfolio):
-    cf, _ = _find(portfolio, "clean")
+def test_fabricated_quote_is_bounced_back(labels):
+    cf = load_contract(HARD / "contracts" / "C001")
     box = Toolbox(cf, "E2", "ETC")
     msg, finding = box.call("record_finding", {
         "verdict": "supported", "confidence": 0.8, "rationale": "x",
@@ -53,9 +53,8 @@ def test_fabricated_quote_is_bounced_back(portfolio):
     assert "not found verbatim" in msg
 
 
-def test_m1_effect_is_the_engine_shortfall(portfolio):
-    cf, lbl = _find(portfolio, "m1_no_provision")
-    issue = next(i for i in lbl.issues if i.check == "M1")
+def test_m1_effect_is_the_engine_shortfall(labels):
+    cf, issue = _find(labels, "m1_no_provision")
     box = Toolbox(cf, "M1", "PROVISION")
     _, finding = box.call("record_finding", {
         "verdict": "misstated", "confidence": 0.9, "rationale": "Own EAC exceeds TP.", "evidence": [],
@@ -63,8 +62,8 @@ def test_m1_effect_is_the_engine_shortfall(portfolio):
     assert finding.profit_effect_low == pytest.approx(issue.true_profit_effect)
 
 
-def test_bad_override_returns_a_recoverable_error(portfolio):
-    cf, _ = _find(portfolio, "clean")
+def test_bad_override_returns_a_recoverable_error():
+    cf = load_contract(HARD / "contracts" / "C001")
     msg, finding = Toolbox(cf, "E2", "ETC").call("run_scenario", {"overrides": {"price": 1}})
     assert finding is None and msg.startswith("Error")
 
@@ -85,15 +84,14 @@ def tool_use(i, name, args):
     return SimpleNamespace(type="tool_use", id=f"t{i}", name=name, input=args)
 
 
-def test_investigate_loop_reads_then_records(portfolio):
-    cf, lbl = _find(portfolio, "t1_no_evidence")
-    issue = next(i for i in lbl.issues if i.expected_verdict == "insufficient_evidence")
+def test_investigate_loop_reads_then_records(labels):
+    cf, issue = _find(labels, "t1_no_response")
     client = FakeClient([
         [tool_use(1, "search_documents", {"query": issue.ref})],
         [tool_use(2, "record_finding", {
             "verdict": "insufficient_evidence", "confidence": 0.7,
-            "rationale": "Register says approved but there is no customer agreement on file.",
-            "document_request": f"Customer written agreement to {issue.ref}",
+            "rationale": "Quotation still under review; no acceptance on file.",
+            "document_request": f"The ER's written acceptance for {issue.ref}",
             "evidence": [{"doc_id": "cost_report.yaml", "quote": issue.ref}],
         })],
     ])
@@ -102,8 +100,8 @@ def test_investigate_loop_reads_then_records(portfolio):
     assert finding.document_request
 
 
-def test_investigate_budget_exhaustion_never_guesses(portfolio):
-    cf, _ = _find(portfolio, "clean")
+def test_investigate_budget_exhaustion_never_guesses():
+    cf = load_contract(HARD / "contracts" / "C001")
     client = FakeClient([[tool_use(i, "list_documents", {})] for i in range(3)])
     finding = investigate(cf, Candidate(cf.contract_id, "E2", "ETC", "test"), client=client,
                           max_turns=3)

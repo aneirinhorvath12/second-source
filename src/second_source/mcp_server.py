@@ -5,7 +5,7 @@ Lets a controller question a contract from Claude ("why is C011 flagged?",
 the pipeline.
 
     uv sync --extra mcp
-    SECOND_SOURCE_PORTFOLIO=portfolios/dev uv run python -m second_source.mcp_server
+    SECOND_SOURCE_PORTFOLIO=portfolios/hard uv run python -m second_source.mcp_server
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ server = FastMCP("second-source")
 
 @lru_cache(maxsize=1)
 def _portfolio() -> dict[str, ContractFile]:
-    root = Path(os.environ.get("SECOND_SOURCE_PORTFOLIO", "portfolios/dev"))
+    root = Path(os.environ.get("SECOND_SOURCE_PORTFOLIO", "portfolios/hard"))
     return {cf.contract_id: cf for cf in load_portfolio(root)}
 
 

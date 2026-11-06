@@ -4,7 +4,7 @@
 
 For each contract it answers one question before the close: *is the reported margin supported by the evidence, and if not, by how much and what should we ask?* Every judgement gets one of four verdicts, every number comes from a deterministic engine, and every finding cites the document it rests on.
 
-> **Status:** scaffold. The engine, simulator, triggers, rule baseline, eval harness, agent loop and MCP server run today. The headline result (agent vs one-prompt baseline) is next.
+> **Status:** working prototype. The engine, triggers, rule baseline, eval harness, agent loop and MCP server run today on a 20-contract portfolio. The headline result (agent vs one-prompt baseline) is next.
 
 ## Why
 
@@ -51,33 +51,22 @@ flowchart LR
 | judgement_call | Evidence supports a range | Range and a question for a named role |
 | insufficient_evidence | Can't tell from the file | The document that would settle it |
 
-## Ground truth: portfolios you can read and edit
+## Ground truth: a portfolio you can read and edit
 
-Real contract files are confidential, so the evals run on synthetic ones, committed as plain files. Each contract has terms, a cost report and variation register, a cost-loaded P6 schedule, a ledger and its documents. Each has an answer key, kept where no system can read it, giving the verdict and corrected inputs for every judgement. The engine computes the profit effects, so editing a contract never leaves a stale answer. See [`portfolios/README.md`](portfolios/README.md) for how to edit them.
+Real contract files are confidential, so the evals run on synthetic ones, committed as plain files in [`portfolios/hard/`](portfolios/hard/INDEX.md): 20 fixed-price contracts of about 130k tokens each. Each has terms, a cost report with its variation register and ETC build-up, a cost-loaded P6 programme of a few hundred activities, a ledger, and 60–80 documents: the contract, daily site diaries, monthly progress minutes, internal cost reviews, correspondence and RFI registers, and dozens of letters and emails. Each contract has an answer key, kept where no system can read it, giving the verdict and corrected inputs for every judgement. The engine computes the profit effects, so editing a contract never leaves a stale answer. See [`portfolios/README.md`](portfolios/README.md) for how to edit them.
 
-- [`portfolios/hard/`](portfolios/hard/INDEX.md) is the real test: 20 contracts of about 130k tokens each (60–80 documents: daily site diaries, monthly minutes, internal cost reviews, a few-hundred-activity P6 programme, correspondence and RFI registers, and dozens of routine letters). Each has several issues hidden by indirection (customer references, oblique rejections, a time bar that needs a clause and two dates), traps that look wrong but aren't, and items that need escalation. 108 judgements, 48 of them real problems.
-- [`portfolios/dev/`](portfolios/dev/INDEX.md) is the smoke test: 30 short contracts with one plainly stated issue each, used as a CI regression set.
+There are 108 judgements, 48 of them real problems:
 
-The dev portfolio was bootstrapped by a simple simulator (seed 0): management's view is the truth plus at most one seeded issue.
+- **Indirection:** the customer never uses the contractor's VO numbers, rejections are oblique ("forms part of the Contractor's obligations under clause 2.3"), and a time bar needs a clause plus two dates.
+- **Traps:** a grudging letter that rejects an extension of time but accepts the price, an acceptance stated including VAT, a rejection of "VO-003" about a different project, poor CPI from materials bought early, a claim the ETC already provides for.
+- **Escalations:** a covering email whose attached letter is missing, a quotation still "under review", an oral instruction with no agreed price.
+- **Cross-source numbers:** preliminaries in the ETC that stop before the P6 forecast finish, an unbooked subcontractor claim, an ETC held at the Q3 figure, a provision left at Q3.
 
-| Scenario | Expected verdict | What makes it hard |
-|---|---|---|
-| `t1_unaccepted` | misstated | Register says approved; the customer letter rejects or disowns it |
-| `t1_in_principle` | judgement_call | Scope agreed, value disputed |
-| `t1_no_evidence` | insufficient_evidence | Register says approved; no customer letter in the file |
-| `e2_etc_understated` | misstated | Remaining work forecast at budget despite CPI well below 1 |
-| `e2_recovery_plan` | judgement_call | ETC relies on savings a subcontractor hasn't agreed |
-| `e2_one_off_overrun` | supported | EVM says optimistic, but the overrun was a documented one-off |
-| `e2_hard_negative` | supported | Poor CPI, already reflected in ETC |
-| `m1_no_provision` | misstated | Management's own EAC exceeds TP, no provision booked |
+The files were bootstrapped once by a generator and are now maintained by hand. The generator is in the git history (`hard-portfolio` branch) if it's ever needed again.
 
-Plus approved, correctly booked variations on most contracts as natural false-positive traps, and customer letters that don't always use the contractor's reference format.
+## Results so far (partial runs)
 
-## Results so far
-
-### `portfolios/hard` (partial runs)
-
-`null` trusts management; `rules` is triggers plus deterministic verdicts; B0 is Claude Sonnet 5.5 given the whole file in one prompt. B0 finished 14 of the 20 contracts before the API credit ran out, so these are those 14.
+`null` trusts management; `rules` is triggers plus deterministic verdicts; B0 is a model given the whole file in one prompt. These runs used Claude Sonnet 5.5 (the defaults are now Claude Haiku 5.5). B0 finished 14 of the 20 contracts before the API credit ran out, so these are those 14.
 
 | Metric | null | rules | B0 |
 |---|---|---|---|
@@ -87,32 +76,18 @@ Plus approved, correctly booked variations on most contracts as natural false-po
 | Concluded when it should ask | 100% | 75% | 12% |
 | Verdict accuracy | 61% | 51% | 88% |
 
-A frontier model reading 130k tokens in one go is strong at reading: it caught every partial acceptance, withdrawn instruction, post-period rejection and missing attachment, and fell for none of the VAT, misfiled-letter or grudging-acceptance traps. What it misses is cross-checking numbers between sources: both ETCs whose preliminaries stop months before the P6 forecast finish, a subcontractor claim with no allowance in the ETC build-up, and a loss provision left at its Q3 figure. On the 4 contracts where the agent also ran, B0 and the agent tied at 95% verdict accuracy, and the agent never investigated the preliminaries case because its E2 trigger only fires on poor earned value.
-
-### `portfolios/dev` (30 contracts)
-
-Offline systems only.
-
-| Metric | null | rules |
-|---|---|---|
-| Issues flagged (catch rate) | 0% | 64% |
-| Share of misstated £ flagged | 0% | 86% |
-| False alarms on clean items | 0% | 2% |
-| Concluded when it should ask | 100% | 67% |
-| Verdict accuracy | 79% | 87% |
-
-The rules miss every variation problem the register hides (they trust it), conclude on every recovery plan, and raise false alarms on documented one-off overruns. Those are exactly the gaps the investigator agent has to close, and the one-prompt baseline (B0) is the bar it has to beat.
+A frontier model reading 130k tokens in one go is strong at reading: it caught every partial acceptance, withdrawn instruction, post-period rejection and missing attachment, and fell for none of the VAT, misfiled-letter or grudging-acceptance traps. What it misses is cross-checking numbers between sources: both ETCs whose preliminaries stop months before the P6 forecast finish, a subcontractor claim with no allowance in the ETC build-up, and a loss provision left at its Q3 figure. The agent, on 5 contracts, got 25 of 27 judgements right; it never investigated the preliminaries case because its E2 trigger only fires on poor earned value.
 
 ## Quickstart
 
 ```bash
-uv sync                        # core: engine, simulator, rules, evals
+uv sync                        # core: engine, rules, evals
 uv run pytest
-uv run second-source demo      # run null + rules over portfolios/dev, print the scorecard
-uv run second-source show C005 # one contract's numbers, triggers and answers
+uv run second-source demo      # run null + rules over the portfolio, print the scorecard
+uv run second-source show C009 # one contract's numbers, triggers and answers
 uv run second-source check     # validate the portfolio after editing it
 
-# model-based systems
+# model-based systems (need an API key; these cost money)
 uv sync --extra agent
 export ANTHROPIC_API_KEY=...
 uv run second-source run --system agent --limit 5
@@ -124,12 +99,12 @@ uv sync --extra mcp
 uv run python -m second_source.mcp_server
 ```
 
-Every command uses `portfolios/dev` unless you pass `--portfolio`. Set `SECOND_SOURCE_MODEL` and `SECOND_SOURCE_B0_MODEL` to choose models.
+Every command uses `portfolios/hard` unless you pass `--portfolio`. Models default to Claude Haiku 5.5; set `SECOND_SOURCE_MODEL` (agent) and `SECOND_SOURCE_B0_MODEL` (one-prompt) to change them.
 
 ## Layout
 
 ```
-portfolios/dev/      the dataset: contracts and answer keys as editable files
+portfolios/hard/     the dataset: contracts and answer keys as editable files
 src/second_source/
   engine.py          deterministic accounting: POC, onerous test, EVM, LDs, scenarios
   xer.py             minimal P6 XER reader/writer and schedule metrics
@@ -137,14 +112,12 @@ src/second_source/
   store.py           loads a contract file (what a system may see)
   answers.py         answer keys: verdicts and corrections, compiled into labels by the engine
   portfolio.py       check, index and show for hand-edited portfolios
-  formats.py         writes tidy, commented YAML
   triggers.py        candidate issues per check
   systems.py         null and rules systems, system registry
   agent/             investigator agent, tools, guidance notes, one-prompt baseline, usage
-  simulator/         bootstraps new portfolios with seeded issues
   evals/score.py     verdict, catch, escalation and quantification metrics
   mcp_server.py      MCP tools over a portfolio
-  cli.py             check | show | index | run | eval | demo | simulate
+  cli.py             check | show | index | run | eval | demo
 ```
 
 ## Ground rules

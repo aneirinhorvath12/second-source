@@ -15,7 +15,7 @@ from .guidance import CHECKS, VERDICTS
 from .investigator import _client
 from .usage import USAGE
 
-DEFAULT_MODEL = os.environ.get("SECOND_SOURCE_B0_MODEL", "claude-sonnet-5-5")
+DEFAULT_MODEL = os.environ.get("SECOND_SOURCE_B0_MODEL", "claude-haiku-5-5")
 
 SUBMIT = {
     "name": "submit_findings",

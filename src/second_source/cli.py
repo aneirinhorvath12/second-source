@@ -1,12 +1,11 @@
 """Command line. Every command works on the committed portfolio unless you pass --portfolio.
 
     second-source check                       validate the portfolio after editing it
-    second-source show C005                   numbers, triggers and answers for one contract
+    second-source show C009                   numbers, triggers and answers for one contract
     second-source index                       rewrite the portfolio's INDEX.md
     second-source run --system rules          run a system; findings go to runs/rules.jsonl
     second-source eval runs/null.jsonl runs/rules.jsonl
     second-source demo                        run null and rules, then score them (offline)
-    second-source simulate --out portfolios/new --n 30 --seed 1   bootstrap a new portfolio
 """
 
 from __future__ import annotations
@@ -23,7 +22,7 @@ from .portfolio import check_portfolio, index_markdown, show_contract
 from .store import load_labels, load_portfolio
 from .systems import get_system
 
-DEFAULT_PORTFOLIO = "portfolios/dev"
+DEFAULT_PORTFOLIO = "portfolios/hard"
 
 
 def cmd_check(args: argparse.Namespace) -> None:
@@ -45,29 +44,6 @@ def cmd_index(args: argparse.Namespace) -> None:
 
 def cmd_show(args: argparse.Namespace) -> None:
     print(show_contract(Path(args.portfolio), args.contract))
-
-
-def cmd_simulate(args: argparse.Namespace) -> None:
-    from .simulator import write_portfolio
-
-    out = Path(args.out)
-    if (out / "contracts").exists():
-        raise SystemExit(f"{out} already has contracts; choose a new folder so your edits are safe")
-    contracts = write_portfolio(out, n=args.n, seed=args.seed)
-    (out / "INDEX.md").write_text(index_markdown(out))
-    print(f"Wrote {len(contracts)} contracts to {out}")
-
-
-def cmd_simulate_hard(args: argparse.Namespace) -> None:
-    from .simulator.hard.build import write_portfolio as write_hard
-    from .simulator.hard.writer import USAGE
-
-    out = Path(args.out)
-    if (out / "contracts").exists() and any((out / "contracts").iterdir()):
-        raise SystemExit(f"{out} already has contracts; choose a new --out so hand edits aren't overwritten")
-    plans = write_hard(out, n=args.n, seed=args.seed, workers=args.workers)
-    (out / "INDEX.md").write_text(index_markdown(out))
-    print(f"wrote {len(plans)} contracts to {out}; writer tokens {USAGE}")
 
 
 def cmd_run(args: argparse.Namespace) -> Path:
@@ -163,19 +139,6 @@ def main(argv: list[str] | None = None) -> None:
 
     d = add("demo", "run the offline systems over a portfolio and score them", cmd_demo)
     d.add_argument("--runs", default="runs/demo")
-
-    s = sub.add_parser("simulate", help="bootstrap a new portfolio from the simulator")
-    s.add_argument("--out", required=True)
-    s.add_argument("--n", type=int, default=30)
-    s.add_argument("--seed", type=int, default=0)
-    s.set_defaults(func=cmd_simulate)
-
-    h = sub.add_parser("simulate-hard", help="bootstrap a hard portfolio (needs ANTHROPIC_API_KEY)")
-    h.add_argument("--out", required=True)
-    h.add_argument("--n", type=int, default=20)
-    h.add_argument("--seed", type=int, default=0)
-    h.add_argument("--workers", type=int, default=8)
-    h.set_defaults(func=cmd_simulate_hard)
 
     args = p.parse_args(argv)
     args.func(args)

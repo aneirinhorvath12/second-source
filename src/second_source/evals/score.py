@@ -1,4 +1,4 @@
-"""Scores a system's findings against simulator ground truth.
+"""Scores a system's findings against the answer keys.
 
 Every labelled judgement is an item. A system that says nothing about an item
 is taken to have called it `supported`. Findings on items that don't exist are

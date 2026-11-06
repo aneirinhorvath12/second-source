@@ -1,4 +1,4 @@
-"""Data shapes shared by the simulator, the systems under test and the evals."""
+"""Data shapes shared by the portfolio files, the systems under test and the evals."""
 
 from __future__ import annotations
 
@@ -108,7 +108,7 @@ class Finding(BaseModel):
 
 
 class LabelIssue(BaseModel):
-    """Ground truth for one judgement, set by the simulator in code."""
+    """Ground truth for one judgement, compiled from an answer key (see answers.py)."""
 
     contract_id: str
     check: Check
