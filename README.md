@@ -10,7 +10,7 @@ For each contract it answers one question before the close: *is the reported mar
 
 Long-term contract accounting fails in its inputs, not its arithmetic. Revenue is a share of the transaction price (TP), measured by cost progress, so nearly every misstatement either inflates TP (unagreed variations, optimistic claims) or deflates the estimated cost to complete (ETC). Those judgements are usually tested against management's own story. The evidence that contradicts them lives in other systems, chiefly the P6 schedule and customer correspondence.
 
-The public record shows what that costs: in March 2026 the FCA fined John Wood Group £12,993,700 after contract accounting judgements were bent to hold reported results ([FCA final notice](https://www.fca.org.uk/publication/final-notices/john-wood-group-plc-2026.pdf)).
+When those judgements go wrong, the result is restatements, regulatory fines and, in the worst cases, corporate collapse.
 
 ## How it works
 
