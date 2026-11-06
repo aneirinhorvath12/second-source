@@ -117,9 +117,8 @@ class LabelIssue(BaseModel):
 
 
 class ContractLabel(BaseModel):
+    """All labels for one contract, compiled from its answer key (see answers.py)."""
+
     contract_id: str
     scenario: str
-    true_etc: float
-    true_cpi: float
-    true_spi: float
     issues: list[LabelIssue]

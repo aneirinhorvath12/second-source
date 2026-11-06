@@ -5,7 +5,7 @@ Lets a controller question a contract from Claude ("why is C011 flagged?",
 the pipeline.
 
     uv sync --extra mcp
-    SECOND_SOURCE_PORTFOLIO=data/dev uv run python -m second_source.mcp_server
+    SECOND_SOURCE_PORTFOLIO=portfolios/dev uv run python -m second_source.mcp_server
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ server = FastMCP("second-source")
 
 @lru_cache(maxsize=1)
 def _portfolio() -> dict[str, ContractFile]:
-    root = Path(os.environ.get("SECOND_SOURCE_PORTFOLIO", "data/dev"))
+    root = Path(os.environ.get("SECOND_SOURCE_PORTFOLIO", "portfolios/dev"))
     return {cf.contract_id: cf for cf in load_portfolio(root)}
 
 
@@ -78,11 +78,11 @@ def run_scenario(contract_id: str, overrides: dict[str, float]) -> str:
 
 @server.tool()
 def read_document(contract_id: str, name: str) -> str:
-    """Read one document from a contract's file."""
-    cf = _get(contract_id)
-    if name not in cf.docs:
-        raise ValueError(f"No document '{name}'; available: {sorted(cf.docs)}")
-    return cf.docs[name]
+    """Read one file from a contract: a document, terms.yaml, cost_report.yaml or schedule.xer."""
+    sources = _get(contract_id).sources()
+    if name not in sources:
+        raise ValueError(f"No file '{name}'; available: {sorted(sources)}")
+    return sources[name]
 
 
 if __name__ == "__main__":

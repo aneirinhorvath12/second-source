@@ -94,7 +94,7 @@ def test_investigate_loop_reads_then_records(portfolio):
             "verdict": "insufficient_evidence", "confidence": 0.7,
             "rationale": "Register says approved but there is no customer agreement on file.",
             "document_request": f"Customer written agreement to {issue.ref}",
-            "evidence": [{"doc_id": "variation_register.md", "quote": issue.ref}],
+            "evidence": [{"doc_id": "cost_report.yaml", "quote": issue.ref}],
         })],
     ])
     finding = investigate(cf, Candidate(cf.contract_id, "T1", issue.ref, "test"), client=client)

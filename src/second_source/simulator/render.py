@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from datetime import date
 
-from ..models import CostReport, Terms, Variation
+from ..models import Terms, Variation
 
 
 def gbp(x: float) -> str:
@@ -39,21 +39,6 @@ of {gbp(t.ld_rate_per_day)} per day, up to a maximum of {gbp(t.ld_cap)}.
 writing by the Employer's Representative.
 14.3 The value of a Variation shall be agreed between the parties or, failing agreement,
 determined under clause 20 (Disputes).
-"""
-
-
-def register_doc(cid: str, variations: list[Variation], period_end: date) -> str:
-    rows = "\n".join(
-        f"| {v.id} | {v.description} | {gbp(v.amount)} | {v.reported_status} | "
-        f"{'Yes' if v.included_in_tp else 'No'} |"
-        for v in variations
-    ) or "| - | No variations raised | - | - | - |"
-    return f"""# Variation register: {cid}
-Prepared by the commercial team, as at {period_end:%d %B %Y}.
-
-| Ref | Description | Value | Status | Included in forecast revenue |
-|---|---|---|---|---|
-{rows}
 """
 
 
@@ -108,36 +93,6 @@ def letter_doc(
 
 Yours faithfully,
 Employer's Representative
-"""
-
-
-def cost_report_doc(r: CostReport) -> str:
-    inputs = r.inputs()
-    tp = inputs.contract_price + inputs.variations_in_tp + inputs.claims_in_tp - inputs.ld_deduction
-    eac = r.cost_to_date + r.etc
-    var_lines = "\n".join(
-        f"| {v.id} | {gbp(v.amount)} |" for v in r.variations if v.included_in_tp
-    ) or "| none | - |"
-    return f"""# Monthly cost report: {r.contract_id}, period ending {r.period_end:%d %B %Y}
-
-| Line | Value |
-|---|---|
-| Contract price | {gbp(r.contract_price)} |
-| Variations in forecast revenue | {gbp(inputs.variations_in_tp)} |
-| Forecast revenue (TP) | {gbp(tp)} |
-| Cost to date | {gbp(r.cost_to_date)} |
-| Estimate to complete | {gbp(r.etc)} |
-| Estimate at completion | {gbp(eac)} |
-| Forecast margin | {gbp(tp - eac)} |
-| Onerous provision booked | {gbp(r.provision_booked)} |
-
-**Variations included in forecast revenue**
-
-| Ref | Value |
-|---|---|
-{var_lines}
-
-**Commentary:** {r.commentary}
 """
 
 

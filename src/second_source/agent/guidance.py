@@ -21,9 +21,9 @@ A contract modification exists when the parties approve a change that creates or
 enforceable rights (IFRS 15.18). Approval can be written, oral or implied by customary practice,
 but the contractor's own commercial view is not approval. If scope is agreed but price is not,
 the change can be included at an estimate, subject to the constraint on variable consideration
-(IFRS 15.19, 15.56-58), which is a judgement. The variation register is management's own record;
-look for the customer's position in correspondence. Customers do not always use the contractor's
-reference format.""",
+(IFRS 15.19, 15.56-58), which is a judgement. The variation register (in cost_report.yaml) is
+management's own record; look for the customer's position in correspondence. Customers do not
+always use the contractor's reference format.""",
     "E2": """Check E2: is management's estimate to complete (ETC) credible?
 Compare management's EAC with the earned-value EAC from the P6 schedule
 (EAC_EVM = AC + (BAC - EV) / CPI) and cost progress with physical progress (EV / BAC).
