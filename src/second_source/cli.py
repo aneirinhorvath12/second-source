@@ -58,6 +58,18 @@ def cmd_simulate(args: argparse.Namespace) -> None:
     print(f"Wrote {len(contracts)} contracts to {out}")
 
 
+def cmd_simulate_hard(args: argparse.Namespace) -> None:
+    from .simulator.hard.build import write_portfolio as write_hard
+    from .simulator.hard.writer import USAGE
+
+    out = Path(args.out)
+    if (out / "contracts").exists() and any((out / "contracts").iterdir()):
+        raise SystemExit(f"{out} already has contracts; choose a new --out so hand edits aren't overwritten")
+    plans = write_hard(out, n=args.n, seed=args.seed, workers=args.workers)
+    (out / "INDEX.md").write_text(index_markdown(out))
+    print(f"wrote {len(plans)} contracts to {out}; writer tokens {USAGE}")
+
+
 def cmd_run(args: argparse.Namespace) -> Path:
     system = get_system(args.system)
     contracts = load_portfolio(Path(args.portfolio))
@@ -157,6 +169,13 @@ def main(argv: list[str] | None = None) -> None:
     s.add_argument("--n", type=int, default=30)
     s.add_argument("--seed", type=int, default=0)
     s.set_defaults(func=cmd_simulate)
+
+    h = sub.add_parser("simulate-hard", help="bootstrap a hard portfolio (needs ANTHROPIC_API_KEY)")
+    h.add_argument("--out", required=True)
+    h.add_argument("--n", type=int, default=20)
+    h.add_argument("--seed", type=int, default=0)
+    h.add_argument("--workers", type=int, default=8)
+    h.set_defaults(func=cmd_simulate_hard)
 
     args = p.parse_args(argv)
     args.func(args)

@@ -51,11 +51,14 @@ flowchart LR
 | judgement_call | Evidence supports a range | Range and a question for a named role |
 | insufficient_evidence | Can't tell from the file | The document that would settle it |
 
-## Ground truth: a portfolio you can read and edit
+## Ground truth: portfolios you can read and edit
 
-Real contract files are confidential, so the evals run on synthetic ones, committed as plain files in [`portfolios/dev/`](portfolios/dev/INDEX.md): 30 fixed-price contracts, each with terms, a cost report and variation register, a cost-loaded P6 schedule, a ledger, the contract, variation submissions, customer letters and review minutes. Each has an answer key, kept where no system can read it, giving the verdict and corrected inputs for every judgement. The engine computes the profit effects, so editing a contract never leaves a stale answer. See [`portfolios/README.md`](portfolios/README.md) for how to edit them.
+Real contract files are confidential, so the evals run on synthetic ones, committed as plain files. Each contract has terms, a cost report and variation register, a cost-loaded P6 schedule, a ledger and its documents. Each has an answer key, kept where no system can read it, giving the verdict and corrected inputs for every judgement. The engine computes the profit effects, so editing a contract never leaves a stale answer. See [`portfolios/README.md`](portfolios/README.md) for how to edit them.
 
-The portfolio was bootstrapped by a simulator (seed 0): management's view is the truth plus at most one seeded issue.
+- [`portfolios/hard/`](portfolios/hard/INDEX.md) is the real test: 20 contracts of about 130k tokens each (60–80 documents: daily site diaries, monthly minutes, internal cost reviews, a few-hundred-activity P6 programme, correspondence and RFI registers, and dozens of routine letters). Each has several issues hidden by indirection (customer references, oblique rejections, a time bar that needs a clause and two dates), traps that look wrong but aren't, and items that need escalation. 108 judgements, 48 of them real problems.
+- [`portfolios/dev/`](portfolios/dev/INDEX.md) is the smoke test: 30 short contracts with one plainly stated issue each, used as a CI regression set.
+
+The dev portfolio was bootstrapped by a simple simulator (seed 0): management's view is the truth plus at most one seeded issue.
 
 | Scenario | Expected verdict | What makes it hard |
 |---|---|---|
@@ -70,9 +73,25 @@ The portfolio was bootstrapped by a simulator (seed 0): management's view is the
 
 Plus approved, correctly booked variations on most contracts as natural false-positive traps, and customer letters that don't always use the contractor's reference format.
 
-## Results so far (`portfolios/dev`, 30 contracts)
+## Results so far
 
-Offline systems only. `null` trusts management; `rules` is triggers plus deterministic verdicts, roughly what analytics without judgement can do.
+### `portfolios/hard` (partial runs)
+
+`null` trusts management; `rules` is triggers plus deterministic verdicts; B0 is Claude Sonnet 5.5 given the whole file in one prompt. B0 finished 14 of the 20 contracts before the API credit ran out, so these are those 14.
+
+| Metric | null | rules | B0 |
+|---|---|---|---|
+| Issues flagged (catch rate) | 0% | 52% | 79% |
+| Misstatements caught (recall) | 0% | 14% | 67% |
+| False alarms on clean items | 0% | 28% | 2% |
+| Concluded when it should ask | 100% | 75% | 12% |
+| Verdict accuracy | 61% | 51% | 88% |
+
+A frontier model reading 130k tokens in one go is strong at reading: it caught every partial acceptance, withdrawn instruction, post-period rejection and missing attachment, and fell for none of the VAT, misfiled-letter or grudging-acceptance traps. What it misses is cross-checking numbers between sources: both ETCs whose preliminaries stop months before the P6 forecast finish, a subcontractor claim with no allowance in the ETC build-up, and a loss provision left at its Q3 figure. On the 4 contracts where the agent also ran, B0 and the agent tied at 95% verdict accuracy, and the agent never investigated the preliminaries case because its E2 trigger only fires on poor earned value.
+
+### `portfolios/dev` (30 contracts)
+
+Offline systems only.
 
 | Metric | null | rules |
 |---|---|---|
