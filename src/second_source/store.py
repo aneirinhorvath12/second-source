@@ -2,15 +2,15 @@
 
 A portfolio is a folder you can read and edit by hand:
 
-    portfolios/dev/
+    portfolios/hard/
       portfolio.yaml            name, period end, where it came from
-      contracts/C005/
+      contracts/C009/
         terms.yaml              contract summary
         cost_report.yaml        management's numbers and variation register
         schedule.xer            P6 export
         ledger.csv              actual cost by month and cost code
         docs/*.md               contract, submissions, letters, minutes
-      answers/C005.yaml         answer key: never shown to a system
+      answers/C009.yaml         answer key: never shown to a system
 
 Systems get a `ContractFile` and nothing else. YAML comments are stripped
 before a system sees a file, so notes you write there can't leak answers.

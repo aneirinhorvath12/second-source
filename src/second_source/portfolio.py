@@ -2,7 +2,7 @@
 
     second-source check            catch broken edits before they reach an eval
     second-source index            rewrite INDEX.md, the one-page overview
-    second-source show C005        numbers, triggers and answers for one contract
+    second-source show C009        numbers, triggers and answers for one contract
 """
 
 from __future__ import annotations

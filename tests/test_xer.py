@@ -1,24 +1,26 @@
 from datetime import date
+from pathlib import Path
 
 import pytest
 
 from second_source import xer
-from second_source.simulator import generate
+
+SCHEDULE = Path(__file__).resolve().parents[1] / "portfolios" / "hard" / "contracts" / "C001" / "schedule.xer"
 
 
 def test_roundtrip_preserves_tables_and_metrics(tmp_path):
-    c = generate(1, seed=0)[0]
+    tables = xer.read(SCHEDULE)
     path = tmp_path / "schedule.xer"
-    xer.write(path, c.xer_tables, date(2026, 12, 31))
+    xer.write(path, tables, date(2026, 12, 31))
     text = path.read_text()
     assert text.startswith("ERMHDR")
     assert text.rstrip().endswith("%E")
 
     back = xer.read(path)
     assert set(back) == {"PROJECT", "TASK", "TASKRSRC"}
-    assert len(back["TASK"]) == len(c.xer_tables["TASK"])
+    assert len(back["TASK"]) == len(tables["TASK"])
 
-    a, b = xer.metrics(c.xer_tables), xer.metrics(back)
+    a, b = xer.metrics(tables), xer.metrics(back)
     assert b.bac == pytest.approx(a.bac)
     assert b.ev == pytest.approx(a.ev)
     assert b.pv == pytest.approx(a.pv)

@@ -1,13 +1,10 @@
 # Portfolios
 
-These folders are the dataset. Every contract, document and answer is a plain file you can read and edit, and the evals score systems against exactly what's here.
+This folder is the dataset. Every contract, document and answer is a plain file you can read and edit, and the evals score systems against exactly what's here.
 
-| Portfolio | Contracts | Size per contract | What it tests |
-|---|---|---|---|
-| [`dev/`](dev/INDEX.md) | 30 | ~2k tokens, 6–8 documents | Smoke test: one planted issue, stated plainly. CI regression set. |
-| [`hard/`](hard/INDEX.md) | 20 | ~100k tokens, 60–80 documents | The real test: several issues per contract, buried in a full project file, with traps. |
+[`hard/`](hard/INDEX.md) holds 20 fixed-price contracts of about 130k tokens each, with 60–80 documents per contract: several issues per contract, buried in a full project file, with traps.
 
-### What makes `hard/` hard
+### What makes it hard
 
 **Volume.** Each file has what a real project produces: a long contract, a site diary for every working day, monthly progress minutes, internal cost reviews, a correspondence register, an RFI log, a P6 programme of a few hundred activities, and dozens of routine letters and emails about safety, access, drawings and the like. The evidence for an issue is a few sentences somewhere in all of that.
 
@@ -19,21 +16,21 @@ These folders are the dataset. Every contract, document and answer is a plain fi
 
 **Several issues per contract**, so a system can't stop at the first one, and some clean contracts full of red herrings.
 
-The scenario catalogue (`src/second_source/simulator/hard/stories.py`) defines each story: what management's records say, what the evidence says, and the answer. Key letters and emails are drafted by a model from fact sheets and checked (every required fact present, nothing banned, no invented sums of money); everything else is generated from code or a committed pool of routine documents. Bootstrap another with `second-source simulate-hard --out portfolios/hard-test --seed 1` (needs an API key; about 210 short drafts).
+The files were bootstrapped once by a generator: a scenario catalogue of stories, code for the bulk paperwork, and key letters drafted by a model from fact sheets and checked. The generator has since been removed (it's in the git history), and the files are now maintained by hand.
 
 ## Layout
 
 ```
-dev/
+hard/
   portfolio.yaml           name, period end, where it came from
   INDEX.md                 overview of every contract and its answers (generated)
-  contracts/C005/          everything a system may see
+  contracts/C009/          everything a system may see
     terms.yaml             contract summary: price, dates, LD rate and cap
-    cost_report.yaml       management's numbers and the variation register
+    cost_report.yaml       management's numbers, ETC build-up and the variation register
     schedule.xer           Primavera P6 export
     ledger.csv             actual cost by month and cost code
-    docs/                  contract, variation submissions, customer letters, review minutes
-  answers/C005.yaml        the answer key, which no system ever sees
+    docs/                  contract, letters, emails, memos, minutes, site diaries, registers
+  answers/C009.yaml        the answer key, which no system ever sees
 ```
 
 ## Editing
@@ -42,7 +39,7 @@ Edit any file, then run:
 
 ```bash
 uv run second-source check        # catches broken edits; CI runs it too
-uv run second-source show C005    # the contract's numbers, what the triggers raise, and its answers
+uv run second-source show C009    # the contract's numbers, what the triggers raise, and its answers
 uv run second-source index        # refresh INDEX.md
 ```
 
@@ -72,10 +69,10 @@ Every variation in TP needs one T1 judgement, and every contract needs an E2 `ET
 
 **Keep answers out of contract files.** Systems read everything under `contracts/`. Comments in `terms.yaml` and `cost_report.yaml` are stripped before a system sees them, but documents are read as written, so never put hints in `docs/`.
 
-**Adding a contract.** Copy a contract folder and its answer key, rename both (say to `C031`), update the `contract_id` in all three YAML files, edit, then run `check`.
+**Adding a contract.** Copy a contract folder and its answer key, rename both (say to `C021`), update the `contract_id` in all three YAML files, edit, then run `check`.
 
 **Editing the schedule.** `schedule.xer` is tab-separated text. The fields that matter are in the `TASK` table (`phys_complete_pct`, `target_start_date`, `target_end_date`, `early_end_date` for the forecast finish) and the `TASKRSRC` table (`target_cost`, each activity's budget). Use `show` to see the earned value your edit produces.
 
 ## Changing the dataset changes the results
 
-Scores are only comparable on the same version of a portfolio. When you edit it, commit the edit on its own and re-run the systems you're comparing. When you want a held-out test set, bootstrap it once (`second-source simulate --out portfolios/test --seed 1`), edit it as you like, then stop looking at it until the final runs.
+Scores are only comparable on the same version of a portfolio. When you edit it, commit the edit on its own and re-run the systems you're comparing. When you want a held-out test set, set some contracts aside in their own folder (say `portfolios/test/`) and stop looking at them until the final runs.

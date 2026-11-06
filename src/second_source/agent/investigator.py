@@ -18,7 +18,7 @@ from .guidance import CHECKS, SYSTEM_PROMPT
 from .tools import DEFINITIONS, Toolbox
 from .usage import USAGE
 
-DEFAULT_MODEL = os.environ.get("SECOND_SOURCE_MODEL", "claude-sonnet-5-5")
+DEFAULT_MODEL = os.environ.get("SECOND_SOURCE_MODEL", "claude-haiku-5-5")
 MAX_TURNS = int(os.environ.get("SECOND_SOURCE_MAX_TURNS", "12"))
 
 
