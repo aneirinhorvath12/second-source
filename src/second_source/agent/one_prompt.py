@@ -74,14 +74,21 @@ def render_file(cf: ContractFile) -> str:
 
 def one_prompt_system(cf: ContractFile, client: Any = None, model: str = DEFAULT_MODEL) -> list[Finding]:
     client = client or _client()
-    resp = client.messages.create(
-        model=model, max_tokens=4096,
-        system=[{"type": "text", "text": INSTRUCTIONS, "cache_control": {"type": "ephemeral"}}],
-        tools=[SUBMIT], tool_choice={"type": "tool", "name": "submit_findings"},
-        messages=[{"role": "user", "content": render_file(cf)}],
-    )
-    USAGE.add(model, resp.usage)
-    block = next(b for b in resp.content if b.type == "tool_use")
+    system = [{"type": "text", "text": INSTRUCTIONS, "cache_control": {"type": "ephemeral"}}]
+    messages: list[dict[str, Any]] = [{"role": "user", "content": render_file(cf)}]
+    # Newer models reject a forced tool_choice, so ask for the tool and nudge if it answers in prose.
+    block = None
+    for _ in range(3):
+        resp = client.messages.create(model=model, max_tokens=16_000, system=system,
+                                      tools=[SUBMIT], messages=messages)
+        USAGE.add(model, resp.usage)
+        block = next((b for b in resp.content if b.type == "tool_use"), None)
+        if block is not None:
+            break
+        messages += [{"role": "assistant", "content": resp.content},
+                     {"role": "user", "content": "Submit your findings with submit_findings."}]
+    if block is None:
+        return []
     out = []
     for f in block.input.get("findings", []):
         out.append(Finding(contract_id=cf.contract_id, **{k: v for k, v in f.items() if v is not None}))
