@@ -1,0 +1,27 @@
+# Management's cost report and variation register for C018 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C018
+period_end: 2026-12-31
+contract_price: 39_650_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 14_751_000
+etc: 21_387_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "Project performing in line with forecast."
+variations:  # the variation register
+  - id: VO-001
+    description: "Additional pipe supports required by revised stress analysis"
+    amount: 1_279_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Acceleration of mechanical completion at the employer's request"
+    amount: 1_709_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-003
+    description: "Extra civil works for unforeseen ground conditions at the north pad"
+    amount: 1_616_000
+    included_in_tp: true
+    reported_status: "Approved (commercial view)"

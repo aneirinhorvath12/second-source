@@ -1,8 +1,7 @@
-import json
-
 from second_source import engine, xer
 from second_source.simulator import generate, write_portfolio
 from second_source.simulator.generate import SCENARIO_WEIGHTS
+from second_source.store import load_labels
 
 
 def test_generation_is_deterministic():
@@ -54,16 +53,23 @@ def test_understated_etc_is_visible_in_earned_value():
         assert engine.eac_divergence(evm.eac_evm, mgmt_eac) > 0.02
 
 
-def test_portfolio_keeps_labels_out_of_contract_folders(tmp_path):
+def test_portfolio_keeps_answers_out_of_contract_folders(tmp_path):
     write_portfolio(tmp_path, n=6, seed=0)
-    manifest = json.loads((tmp_path / "manifest.json").read_text())
-    assert len(manifest["contracts"]) == 6
-    for cid in manifest["contracts"]:
+    cids = sorted(p.name for p in (tmp_path / "contracts").iterdir())
+    assert len(cids) == 6
+    for cid in cids:
         cdir = tmp_path / "contracts" / cid
         assert (cdir / "schedule.xer").exists()
         assert (cdir / "docs" / "contract.md").exists()
-        assert not any("label" in p.name for p in cdir.rglob("*"))
-        assert (tmp_path / "labels" / f"{cid}.json").exists()
+        assert not any("answer" in p.name for p in cdir.rglob("*"))
+        assert (tmp_path / "answers" / f"{cid}.yaml").exists()
+
+
+def test_written_answer_keys_reproduce_the_in_memory_labels(tmp_path):
+    contracts = write_portfolio(tmp_path, n=30, seed=0)
+    loaded = {lbl.contract_id: lbl for lbl in load_labels(tmp_path)}
+    for c in contracts:
+        assert loaded[c.terms.contract_id].model_dump() == c.label.model_dump()
 
 
 def test_withheld_documents_are_really_withheld(tmp_path):

@@ -1,0 +1,17 @@
+# Management's cost report and variation register for C017 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C017
+period_end: 2026-12-31
+contract_price: 86_267_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 36_085_000
+etc: 51_974_000  # estimate to complete
+provision_booked: 359_000  # onerous contract provision
+commentary: "ETC assumes recovery plan savings (resequencing and subcontract renegotiation)."
+variations:  # the variation register
+  - id: VO-001
+    description: "Temporary power supply extended beyond the agreed period"
+    amount: 1_183_000
+    included_in_tp: true
+    reported_status: "Approved"

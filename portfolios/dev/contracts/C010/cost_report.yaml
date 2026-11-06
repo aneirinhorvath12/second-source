@@ -1,0 +1,27 @@
+# Management's cost report and variation register for C010 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C010
+period_end: 2026-12-31
+contract_price: 25_214_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 8_575_000
+etc: 13_790_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "Project performing in line with forecast."
+variations:  # the variation register
+  - id: VO-001
+    description: "Extra civil works for unforeseen ground conditions at the north pad"
+    amount: 346_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Additional pipe supports required by revised stress analysis"
+    amount: 710_000
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-003
+    description: "Additional instrumentation loops added in design freeze 2"
+    amount: 1_253_000
+    included_in_tp: true
+    reported_status: "Approved"

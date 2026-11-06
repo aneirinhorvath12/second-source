@@ -17,7 +17,7 @@ VERDICTS = ["supported", "misstated", "judgement_call", "insufficient_evidence"]
 FLAGGED = {"misstated", "judgement_call", "insufficient_evidence"}
 ESCALATE = {"judgement_call", "insufficient_evidence"}
 CONCLUDE = {"supported", "misstated"}
-ROUTINE = {"e2_ok", "m1_ok", "t1_approved"}  # unremarkable supported items, left out of the scenario table
+ROUTINE = {"routine"}  # unremarkable supported items, left out of the scenario table
 
 
 def _rate(num: int, den: int) -> float | None:

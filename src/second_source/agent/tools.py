@@ -37,7 +37,8 @@ DEFINITIONS: list[dict[str, Any]] = [
     },
     {
         "name": "read_document",
-        "description": "Read one document in full. Also accepts 'cost_report.json' and 'schedule.xer'.",
+        "description": "Read one file in full: a document, 'terms.yaml', 'cost_report.yaml' (the cost "
+                       "report and variation register) or 'schedule.xer'.",
         "input_schema": {
             "type": "object",
             "properties": {"name": {"type": "string"}},
@@ -120,9 +121,7 @@ class Toolbox:
         self.cf, self.check, self.ref = cf, check, ref
         self.citation_failures = 0
         self.max_citation_retries = max_citation_retries
-        self.sources = dict(cf.docs)
-        self.sources["cost_report.json"] = cf.report.model_dump_json(indent=2)
-        self.sources["schedule.xer"] = cf.schedule_text
+        self.sources = cf.sources()
 
     # -- dispatch -------------------------------------------------------------
     def call(self, name: str, args: dict[str, Any]) -> tuple[str, Finding | None]:
@@ -149,7 +148,8 @@ class Toolbox:
 
     def _search_documents(self, query: str) -> str:
         q = query.lower()
-        hits = [f"{doc}: {line.strip()}" for doc, text in self.cf.docs.items()
+        hits = [f"{doc}: {line.strip()}" for doc, text in self.sources.items()
+                if doc != "schedule.xer"
                 for line in text.splitlines() if q in line.lower()]
         if not hits:
             return (f"No lines match '{query}'. Try a shorter term or another spelling "

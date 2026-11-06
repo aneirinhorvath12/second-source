@@ -1,0 +1,10 @@
+# Contract terms for C023: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C023
+name: "Calder Moss Battery Storage"
+customer: "Caledon Power Networks"
+contract_price: 162_789_000
+start_date: 2025-07-31
+completion_date: 2028-07-31
+ld_rate_per_day: 80_000
+ld_cap: 16_279_000

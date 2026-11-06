@@ -1,0 +1,10 @@
+# Contract terms for C030: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C030
+name: "Fennick Hydrogen Pilot"
+customer: "Eastmarch Utilities"
+contract_price: 149_292_000
+start_date: 2025-07-07
+completion_date: 2027-07-08
+ld_rate_per_day: 48_000
+ld_cap: 14_929_000

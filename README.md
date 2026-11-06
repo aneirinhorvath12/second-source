@@ -51,9 +51,11 @@ flowchart LR
 | judgement_call | Evidence supports a range | Range and a question for a named role |
 | insufficient_evidence | Can't tell from the file | The document that would settle it |
 
-## Ground truth: the simulator
+## Ground truth: a portfolio you can read and edit
 
-Real contract files are confidential, so the evals run on a simulator that generates fixed-price contracts with known truth: cost-loaded P6 schedules, a ledger, a cost report, the contract, variation submissions, customer letters and review minutes. Management's view is the truth plus at most one seeded issue. Labels are set in code, never by a model.
+Real contract files are confidential, so the evals run on synthetic ones, committed as plain files in [`portfolios/dev/`](portfolios/dev/INDEX.md): 30 fixed-price contracts, each with terms, a cost report and variation register, a cost-loaded P6 schedule, a ledger, the contract, variation submissions, customer letters and review minutes. Each has an answer key, kept where no system can read it, giving the verdict and corrected inputs for every judgement. The engine computes the profit effects, so editing a contract never leaves a stale answer. See [`portfolios/README.md`](portfolios/README.md) for how to edit them.
+
+The portfolio was bootstrapped by a simulator (seed 0): management's view is the truth plus at most one seeded issue.
 
 | Scenario | Expected verdict | What makes it hard |
 |---|---|---|
@@ -68,7 +70,7 @@ Real contract files are confidential, so the evals run on a simulator that gener
 
 Plus approved, correctly booked variations on most contracts as natural false-positive traps, and customer letters that don't always use the contractor's reference format.
 
-## Results so far (30 contracts, seed 0)
+## Results so far (`portfolios/dev`, 30 contracts)
 
 Offline systems only. `null` trusts management; `rules` is triggers plus deterministic verdicts, roughly what analytics without judgement can do.
 
@@ -87,38 +89,43 @@ The rules miss every variation problem the register hides (they trust it), concl
 ```bash
 uv sync                        # core: engine, simulator, rules, evals
 uv run pytest
-uv run second-source demo      # simulate 30 contracts, run null + rules, print the scorecard
+uv run second-source demo      # run null + rules over portfolios/dev, print the scorecard
+uv run second-source show C005 # one contract's numbers, triggers and answers
+uv run second-source check     # validate the portfolio after editing it
 
 # model-based systems
 uv sync --extra agent
 export ANTHROPIC_API_KEY=...
-uv run second-source simulate --out data/dev
-uv run second-source run --system agent --portfolio data/dev --limit 5
-uv run second-source run --system one_prompt --portfolio data/dev --limit 5
-uv run second-source eval --portfolio data/dev runs/agent.jsonl runs/one_prompt.jsonl
+uv run second-source run --system agent --limit 5
+uv run second-source run --system one_prompt --limit 5
+uv run second-source eval runs/agent.jsonl runs/one_prompt.jsonl
 
 # MCP server
 uv sync --extra mcp
-SECOND_SOURCE_PORTFOLIO=data/dev uv run python -m second_source.mcp_server
+uv run python -m second_source.mcp_server
 ```
 
-Set `SECOND_SOURCE_MODEL` and `SECOND_SOURCE_B0_MODEL` to choose models.
+Every command uses `portfolios/dev` unless you pass `--portfolio`. Set `SECOND_SOURCE_MODEL` and `SECOND_SOURCE_B0_MODEL` to choose models.
 
 ## Layout
 
 ```
+portfolios/dev/      the dataset: contracts and answer keys as editable files
 src/second_source/
   engine.py          deterministic accounting: POC, onerous test, EVM, LDs, scenarios
   xer.py             minimal P6 XER reader/writer and schedule metrics
   models.py          shared data shapes: terms, cost report, findings, labels
   store.py           loads a contract file (what a system may see)
+  answers.py         answer keys: verdicts and corrections, compiled into labels by the engine
+  portfolio.py       check, index and show for hand-edited portfolios
+  formats.py         writes tidy, commented YAML
   triggers.py        candidate issues per check
   systems.py         null and rules systems, system registry
   agent/             investigator agent, tools, guidance notes, one-prompt baseline, usage
-  simulator/         portfolio generator with ground truth, document templates
+  simulator/         bootstraps new portfolios with seeded issues
   evals/score.py     verdict, catch, escalation and quantification metrics
   mcp_server.py      MCP tools over a portfolio
-  cli.py             simulate | run | eval | demo
+  cli.py             check | show | index | run | eval | demo | simulate
 ```
 
 ## Ground rules

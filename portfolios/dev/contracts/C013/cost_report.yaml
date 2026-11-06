@@ -1,0 +1,17 @@
+# Management's cost report and variation register for C013 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C013
+period_end: 2026-12-31
+contract_price: 66_521_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 36_199_000
+etc: 27_079_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "Overrun to date reflects one-off pipe rack rework after a supplier defect, now complete. Remaining work forecast at current productivity, which is back to plan."
+variations:  # the variation register
+  - id: VO-001
+    description: "Relocation of the control room following employer's layout change"
+    amount: 2_378_000
+    included_in_tp: true
+    reported_status: "Approved"

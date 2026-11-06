@@ -1,32 +1,27 @@
-"""Generates contract portfolios with ground truth set in code.
+"""Generates starter contract portfolios with ground truth set in code.
 
-Each contract has a true execution (costs, physical progress, slip) and a
-management view that equals the truth plus at most one seeded issue. Labels
-record, for every judgement a system could raise, the verdict a careful
-reviewer should reach and the true effect on cumulative profit to date.
+The committed portfolios in `portfolios/` are the dataset; this generator only
+bootstraps new ones. Each contract has a true execution (costs, physical
+progress, slip) and a management view that equals the truth plus at most one
+seeded issue. The answer key records, for every judgement a system could
+raise, the verdict a careful reviewer should reach and the corrected inputs.
 
-Layout written by `write_portfolio`:
-
-    <out>/manifest.json
-    <out>/contracts/<id>/terms.json         structured contract terms
-    <out>/contracts/<id>/cost_report.json   management's reported position
-    <out>/contracts/<id>/schedule.xer       P6 export at the period end
-    <out>/contracts/<id>/ledger.csv         actual cost by month and cost code
-    <out>/contracts/<id>/docs/*.md          contract, register, submissions, letters, minutes
-    <out>/labels/<id>.json                  ground truth (never shown to a system)
+`write_portfolio` writes the hand-editable layout described in `store.py`.
+Once written, edit the files directly; don't regenerate over your edits.
 """
 
 from __future__ import annotations
 
 import csv
-import json
 import random
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass
 from datetime import date, timedelta
 from pathlib import Path
 
 from .. import engine, xer
-from ..models import ContractLabel, CostReport, LabelIssue, Terms, Variation
+from ..answers import AnswerKey, Correction, EffectRange, Judgement, compile_key
+from ..formats import answers_yaml, cost_report_yaml, terms_yaml
+from ..models import ContractLabel, CostReport, Terms, Variation
 from . import render
 
 GENERATOR_VERSION = "0.1.0"
@@ -47,6 +42,18 @@ SCENARIO_WEIGHTS: dict[str, int] = {
 }
 
 POOR_PERFORMERS = {"e2_etc_understated", "e2_hard_negative", "e2_one_off_overrun", "e2_recovery_plan"}
+
+SCENARIO_NOTES: dict[str, str] = {
+    "clean": "Nothing seeded: every judgement is supported.",
+    "t1_unaccepted": "A variation the customer rejected or disowned is booked in TP.",
+    "t1_in_principle": "Customer accepts the scope of a variation but disputes its value.",
+    "t1_no_evidence": "Register says a variation is approved, but no customer letter exists.",
+    "e2_etc_understated": "CPI well below 1, yet remaining work is forecast at budget.",
+    "e2_hard_negative": "Poor CPI, honestly reflected in a bottom-up reforecast.",
+    "e2_one_off_overrun": "Poor CPI to date from a documented one-off; remaining work back to plan.",
+    "e2_recovery_plan": "ETC relies on recovery savings a subcontractor has not agreed.",
+    "m1_no_provision": "Management's own EAC exceeds TP, but no onerous provision is booked.",
+}
 
 PROJECTS = [
     "Halden Ridge Gas Compression", "Northmoor Water Treatment Upgrade", "Kessock Substation",
@@ -80,8 +87,8 @@ class SimContract:
     xer_tables: xer.Tables
     ledger: list[dict[str, str]]
     docs: dict[str, str]
+    answers: AnswerKey
     label: ContractLabel
-    true_inputs: engine.Inputs = field(repr=False, default=None)  # type: ignore[assignment]
 
 
 def scenario_sequence(n: int, rng: random.Random) -> list[str]:
@@ -273,68 +280,62 @@ def build_contract(idx: int, scenario: str, seed: int, period_end: date = PERIOD
         minutes.append("Finance to consider whether a loss provision is required. Deferred to next review.")
     report = make_report(mgmt_etc, variations, provision, commentary)
 
-    # --- ground truth -----------------------------------------------------------------
-    rep_in = report.inputs()
-    issues: list[LabelIssue] = []
-
+    # --- ground truth: an answer key, compiled by the same code that reads hand-edited keys ---
+    judgements: list[Judgement] = []
     for v in [v for v in variations if v.included_in_tp]:
         kind = letters.get(v.id, ("none", None))[0]
-        corrected = replace(rep_in, variations_in_tp=rep_in.variations_in_tp - v.amount)
-        full = engine.profit_effect(rep_in, corrected)
+        remove = Correction(variations={v.id: 0.0})
         if kind == "approved":
-            issues.append(LabelIssue(contract_id=cid, check="T1", ref=v.id, expected_verdict="supported",
-                                     scenario="t1_approved", note="Customer accepted in writing."))
+            judgements.append(Judgement(check="T1", ref=v.id, verdict="supported",
+                                        why=f"Customer accepted in writing (letter_{v.id}.md)."))
         elif kind in ("rejected", "pending"):
-            issues.append(LabelIssue(contract_id=cid, check="T1", ref=v.id, expected_verdict="misstated",
-                                     true_profit_effect=full, scenario=f"t1_{kind}",
-                                     note=f"Customer letter: {kind}. Not a valid modification."))
+            judgements.append(Judgement(
+                check="T1", ref=v.id, verdict="misstated", correction=remove, tag=f"t1_{kind}",
+                why=f"Customer letter ({kind}) shows no agreement, so it is not a valid modification."))
         elif kind == "in_principle":
             counter = letters[v.id][1] or 0.0
-            at_counter = replace(rep_in, variations_in_tp=rep_in.variations_in_tp - v.amount + counter)
-            low = engine.profit_effect(rep_in, at_counter)
-            issues.append(LabelIssue(contract_id=cid, check="T1", ref=v.id, expected_verdict="judgement_call",
-                                     true_profit_effect=low / 2, effect_range=(low, 0.0),
-                                     scenario="t1_in_principle",
-                                     note="Scope agreed in principle, value disputed: estimate "
-                                          "subject to the constraint."))
+            judgements.append(Judgement(
+                check="T1", ref=v.id, verdict="judgement_call", tag="t1_in_principle",
+                range=EffectRange(low=Correction(variations={v.id: counter})),
+                why="Scope agreed in principle, value disputed: an estimate subject to the constraint, "
+                    "between the customer's counter-offer and our valuation."))
         else:  # no customer correspondence in the file
-            issues.append(LabelIssue(contract_id=cid, check="T1", ref=v.id,
-                                     expected_verdict="insufficient_evidence", true_profit_effect=full,
-                                     effect_range=(full, 0.0), scenario="t1_no_evidence",
-                                     withheld_document=f"Customer written agreement to {v.id}",
-                                     note="Register says approved; no customer agreement in the file."))
+            judgements.append(Judgement(
+                check="T1", ref=v.id, verdict="insufficient_evidence", correction=remove,
+                range=EffectRange(low=remove), tag="t1_no_evidence",
+                request=f"Customer written agreement to {v.id}",
+                why="Register says approved, but there is no customer agreement in the file."))
 
-    true_etc_inputs = replace(rep_in, etc=true_etc)
-    etc_effect = engine.profit_effect(rep_in, true_etc_inputs)
+    true_etc_fix = Correction(etc=true_etc)
     if scenario == "e2_etc_understated":
-        issues.append(LabelIssue(contract_id=cid, check="E2", ref="ETC", expected_verdict="misstated",
-                                 true_profit_effect=etc_effect, scenario=scenario,
-                                 note="Remaining work forecast at budget despite CPI well below 1."))
+        judgements.append(Judgement(
+            check="E2", ref="ETC", verdict="misstated", correction=true_etc_fix, tag=scenario,
+            why="Remaining work forecast at budget despite CPI well below 1."))
     elif scenario == "e2_recovery_plan":
-        issues.append(LabelIssue(contract_id=cid, check="E2", ref="ETC", expected_verdict="judgement_call",
-                                 true_profit_effect=etc_effect, effect_range=(etc_effect, 0.0),
-                                 scenario=scenario,
-                                 note="ETC relies on recovery savings not yet agreed with "
-                                      "the subcontractor."))
+        judgements.append(Judgement(
+            check="E2", ref="ETC", verdict="judgement_call", correction=true_etc_fix,
+            range=EffectRange(low=true_etc_fix), tag=scenario,
+            why="ETC relies on recovery savings the subcontractor has not agreed."))
+    elif scenario in POOR_PERFORMERS:
+        judgements.append(Judgement(
+            check="E2", ref="ETC", verdict="supported", tag=scenario,
+            why="Earned value looks poor, but the minutes and ETC explain it."))
     else:
-        e2_scenario = scenario if scenario in POOR_PERFORMERS else "e2_ok"
-        issues.append(LabelIssue(contract_id=cid, check="E2", ref="ETC", expected_verdict="supported",
-                                 scenario=e2_scenario))
+        judgements.append(Judgement(check="E2", ref="ETC", verdict="supported"))
 
-    shortfall = engine.position(rep_in).provision_shortfall
     if scenario == "m1_no_provision":
-        issues.append(LabelIssue(contract_id=cid, check="M1", ref="PROVISION", expected_verdict="misstated",
-                                 true_profit_effect=-shortfall, scenario=scenario,
-                                 note="Management's own EAC exceeds TP; no onerous provision booked."))
+        judgements.append(Judgement(
+            check="M1", ref="PROVISION", verdict="misstated", tag=scenario,
+            why="Management's own EAC exceeds TP and no onerous provision is booked."))
     else:
-        issues.append(LabelIssue(contract_id=cid, check="M1", ref="PROVISION", expected_verdict="supported",
-                                 scenario="m1_ok"))
+        judgements.append(Judgement(check="M1", ref="PROVISION", verdict="supported"))
+
+    answers = AnswerKey(contract_id=cid, scenario=scenario, notes=SCENARIO_NOTES[scenario],
+                        judgements=judgements)
 
     # --- documents ------------------------------------------------------------------
     docs: dict[str, str] = {
         "contract.md": render.contract_doc(terms, CONTRACTOR),
-        "variation_register.md": render.register_doc(cid, variations, period_end),
-        f"cost_report_{period_end:%Y-%m}.md": render.cost_report_doc(report),
         f"minutes_{period_end:%Y-%m}.md": render.minutes_doc(cid, period_end, minutes),
     }
     for v in variations:
@@ -364,9 +365,7 @@ def build_contract(idx: int, scenario: str, seed: int, period_end: date = PERIOD
             ledger.append({"period_end": month_end.isoformat(), "cost_code": code,
                            "amount": f"{month_total * share:.2f}"})
 
-    label = ContractLabel(contract_id=cid, scenario=scenario, true_etc=true_etc, true_cpi=cpi,
-                          true_spi=spi, issues=issues)
-    return SimContract(terms, report, xer_tables, ledger, docs, label, true_etc_inputs)
+    return SimContract(terms, report, xer_tables, ledger, docs, answers, compile_key(answers, report))
 
 
 def generate(n: int = 30, seed: int = 0, period_end: date = PERIOD_END) -> list[SimContract]:
@@ -375,28 +374,26 @@ def generate(n: int = 30, seed: int = 0, period_end: date = PERIOD_END) -> list[
             for i, s in enumerate(scenario_sequence(n, rng))]
 
 
-def write_portfolio(out: Path, n: int = 30, seed: int = 0) -> list[SimContract]:
+def write_portfolio(out: Path, n: int = 30, seed: int = 0, name: str | None = None) -> list[SimContract]:
+    """Write a fresh portfolio in the hand-editable layout described in store.py."""
     contracts = generate(n, seed)
-    (out / "labels").mkdir(parents=True, exist_ok=True)
+    (out / "answers").mkdir(parents=True, exist_ok=True)
     for c in contracts:
         cdir = out / "contracts" / c.terms.contract_id
         (cdir / "docs").mkdir(parents=True, exist_ok=True)
-        (cdir / "terms.json").write_text(c.terms.model_dump_json(indent=2))
-        (cdir / "cost_report.json").write_text(c.report.model_dump_json(indent=2))
+        (cdir / "terms.yaml").write_text(terms_yaml(c.terms))
+        (cdir / "cost_report.yaml").write_text(cost_report_yaml(c.report))
         xer.write(cdir / "schedule.xer", c.xer_tables, PERIOD_END)
         with (cdir / "ledger.csv").open("w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=["period_end", "cost_code", "amount"])
             w.writeheader()
             w.writerows(c.ledger)
-        for name, text in c.docs.items():
-            (cdir / "docs" / name).write_text(text)
-        (out / "labels" / f"{c.terms.contract_id}.json").write_text(c.label.model_dump_json(indent=2))
-    manifest = {
-        "generator_version": GENERATOR_VERSION,
-        "seed": seed,
-        "period_end": PERIOD_END.isoformat(),
-        "contracts": [c.terms.contract_id for c in contracts],
-        "scenario_mix": SCENARIO_WEIGHTS,
-    }
-    (out / "manifest.json").write_text(json.dumps(manifest, indent=2))
+        for doc_name, text in c.docs.items():
+            (cdir / "docs" / doc_name).write_text(text)
+        (out / "answers" / f"{c.terms.contract_id}.yaml").write_text(answers_yaml(c.answers))
+    (out / "portfolio.yaml").write_text(
+        f"name: {name or out.name}\n"
+        f"period_end: {PERIOD_END.isoformat()}\n"
+        f"origin: generated by second-source simulator v{GENERATOR_VERSION}, seed {seed}\n"
+    )
     return contracts

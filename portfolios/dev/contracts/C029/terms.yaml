@@ -1,0 +1,10 @@
+# Contract terms for C029: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C029
+name: "Tarrow Estuary Jetty"
+customer: "Eastmarch Utilities"
+contract_price: 32_179_000
+start_date: 2026-02-18
+completion_date: 2028-05-20
+ld_rate_per_day: 25_000
+ld_cap: 3_218_000

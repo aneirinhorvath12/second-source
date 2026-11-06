@@ -1,0 +1,12 @@
+# Answer key for C006. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C006
+scenario: clean
+notes: "Nothing seeded: every judgement is supported."
+judgements:
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

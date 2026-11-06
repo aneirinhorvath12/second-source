@@ -1,0 +1,23 @@
+# Answer key for C025. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C025
+scenario: t1_unaccepted
+notes: "A variation the customer rejected or disowned is booked in TP."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Customer accepted in writing (letter_VO-001.md)."
+  - check: T1
+    ref: VO-002
+    verdict: misstated
+    tag: t1_pending
+    correction:
+      variations: {VO-002: 0}
+    why: "Customer letter (pending) shows no agreement, so it is not a valid modification."
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

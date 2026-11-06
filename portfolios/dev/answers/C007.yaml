@@ -1,0 +1,19 @@
+# Answer key for C007. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C007
+scenario: t1_unaccepted
+notes: "A variation the customer rejected or disowned is booked in TP."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_pending
+    correction:
+      variations: {VO-001: 0}
+    why: "Customer letter (pending) shows no agreement, so it is not a valid modification."
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

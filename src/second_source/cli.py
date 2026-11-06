@@ -1,9 +1,12 @@
-"""Command line: simulate a portfolio, run a system over it, score the results.
+"""Command line. Every command works on the committed portfolio unless you pass --portfolio.
 
-    second-source simulate --out data/dev --n 30 --seed 0
-    second-source run --system rules --portfolio data/dev --out runs/rules.jsonl
-    second-source eval --portfolio data/dev runs/null.jsonl runs/rules.jsonl
-    second-source demo                      # all of the above, offline
+    second-source check                       validate the portfolio after editing it
+    second-source show C005                   numbers, triggers and answers for one contract
+    second-source index                       rewrite the portfolio's INDEX.md
+    second-source run --system rules          run a system; findings go to runs/rules.jsonl
+    second-source eval runs/null.jsonl runs/rules.jsonl
+    second-source demo                        run null and rules, then score them (offline)
+    second-source simulate --out portfolios/new --n 30 --seed 1   bootstrap a new portfolio
 """
 
 from __future__ import annotations
@@ -16,14 +19,43 @@ from pathlib import Path
 
 from .evals import markdown, score
 from .models import Finding
-from .simulator import write_portfolio
+from .portfolio import check_portfolio, index_markdown, show_contract
 from .store import load_labels, load_portfolio
 from .systems import get_system
 
+DEFAULT_PORTFOLIO = "portfolios/dev"
+
+
+def cmd_check(args: argparse.Namespace) -> None:
+    problems = check_portfolio(Path(args.portfolio))
+    for p in problems:
+        print(p)
+    errors = sum(p.level == "error" for p in problems)
+    warnings = len(problems) - errors
+    print(f"\n{args.portfolio}: {errors} errors, {warnings} warnings")
+    if errors:
+        raise SystemExit(1)
+
+
+def cmd_index(args: argparse.Namespace) -> None:
+    root = Path(args.portfolio)
+    (root / "INDEX.md").write_text(index_markdown(root))
+    print(f"Wrote {root / 'INDEX.md'}")
+
+
+def cmd_show(args: argparse.Namespace) -> None:
+    print(show_contract(Path(args.portfolio), args.contract))
+
 
 def cmd_simulate(args: argparse.Namespace) -> None:
-    contracts = write_portfolio(Path(args.out), n=args.n, seed=args.seed)
-    print(f"Wrote {len(contracts)} contracts to {args.out}")
+    from .simulator import write_portfolio
+
+    out = Path(args.out)
+    if (out / "contracts").exists():
+        raise SystemExit(f"{out} already has contracts; choose a new folder so your edits are safe")
+    contracts = write_portfolio(out, n=args.n, seed=args.seed)
+    (out / "INDEX.md").write_text(index_markdown(out))
+    print(f"Wrote {len(contracts)} contracts to {out}")
 
 
 def cmd_run(args: argparse.Namespace) -> Path:
@@ -45,7 +77,7 @@ def cmd_run(args: argparse.Namespace) -> Path:
                 f.write(finding.model_dump_json() + "\n")
                 n += 1
             print(f"  {cf.contract_id} done", file=sys.stderr)
-    meta = {"system": args.system, "contracts": len(contracts),
+    meta = {"system": args.system, "portfolio": args.portfolio, "contracts": len(contracts),
             "contract_ids": [c.contract_id for c in contracts], "findings": n,
             "seconds": round(time.time() - started, 1)}
     if args.system in {"agent", "one_prompt"}:
@@ -83,14 +115,12 @@ def cmd_eval(args: argparse.Namespace) -> None:
 
 
 def cmd_demo(args: argparse.Namespace) -> None:
-    root = Path(args.out)
-    write_portfolio(root, n=args.n, seed=args.seed)
     runs = []
     for name in ("null", "rules"):
-        ns = argparse.Namespace(system=name, portfolio=str(root), out=f"{args.runs}/{name}.jsonl",
+        ns = argparse.Namespace(system=name, portfolio=args.portfolio, out=f"{args.runs}/{name}.jsonl",
                                 contracts=None, limit=None)
         runs.append(str(cmd_run(ns)))
-    cmd_eval(argparse.Namespace(portfolio=str(root), runs=runs, report=f"{args.runs}/report.md",
+    cmd_eval(argparse.Namespace(portfolio=args.portfolio, runs=runs, report=f"{args.runs}/report.md",
                                 json=f"{args.runs}/report.json"))
 
 
@@ -98,33 +128,35 @@ def main(argv: list[str] | None = None) -> None:
     p = argparse.ArgumentParser(prog="second-source")
     sub = p.add_subparsers(dest="cmd", required=True)
 
-    s = sub.add_parser("simulate", help="generate a synthetic portfolio with ground truth")
-    s.add_argument("--out", default="data/dev")
-    s.add_argument("--n", type=int, default=30)
-    s.add_argument("--seed", type=int, default=0)
-    s.set_defaults(func=cmd_simulate)
+    def add(name: str, help_text: str, func) -> argparse.ArgumentParser:
+        sp = sub.add_parser(name, help=help_text)
+        sp.add_argument("--portfolio", default=DEFAULT_PORTFOLIO)
+        sp.set_defaults(func=func)
+        return sp
 
-    r = sub.add_parser("run", help="run a system over a portfolio")
+    add("check", "validate a portfolio after editing it", cmd_check)
+    add("index", "rewrite a portfolio's INDEX.md", cmd_index)
+    add("show", "numbers, triggers and answers for one contract", cmd_show).add_argument("contract")
+
+    r = add("run", "run a system over a portfolio", cmd_run)
     r.add_argument("--system", required=True, help="null | rules | agent | one_prompt")
-    r.add_argument("--portfolio", default="data/dev")
     r.add_argument("--out")
     r.add_argument("--contracts", help="comma-separated contract ids")
     r.add_argument("--limit", type=int)
-    r.set_defaults(func=cmd_run)
 
-    e = sub.add_parser("eval", help="score one or more runs against ground truth")
+    e = add("eval", "score one or more runs against the answer keys", cmd_eval)
     e.add_argument("runs", nargs="+")
-    e.add_argument("--portfolio", default="data/dev")
     e.add_argument("--report")
     e.add_argument("--json")
-    e.set_defaults(func=cmd_eval)
 
-    d = sub.add_parser("demo", help="simulate, run the offline systems and score them")
-    d.add_argument("--out", default="data/demo")
+    d = add("demo", "run the offline systems over a portfolio and score them", cmd_demo)
     d.add_argument("--runs", default="runs/demo")
-    d.add_argument("--n", type=int, default=30)
-    d.add_argument("--seed", type=int, default=0)
-    d.set_defaults(func=cmd_demo)
+
+    s = sub.add_parser("simulate", help="bootstrap a new portfolio from the simulator")
+    s.add_argument("--out", required=True)
+    s.add_argument("--n", type=int, default=30)
+    s.add_argument("--seed", type=int, default=0)
+    s.set_defaults(func=cmd_simulate)
 
     args = p.parse_args(argv)
     args.func(args)

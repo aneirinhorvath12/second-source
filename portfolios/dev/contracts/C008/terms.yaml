@@ -1,0 +1,10 @@
+# Contract terms for C008: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C008
+name: "Ashby Fell Pumping Station"
+customer: "Ardent Water Ltd"
+contract_price: 79_266_000
+start_date: 2025-09-25
+completion_date: 2027-09-26
+ld_rate_per_day: 27_000
+ld_cap: 3_963_000

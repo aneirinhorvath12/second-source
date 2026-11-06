@@ -1,0 +1,10 @@
+# Contract terms for C015: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C015
+name: "Dunmere Tank Farm"
+customer: "Ardent Water Ltd"
+contract_price: 21_865_000
+start_date: 2025-08-17
+completion_date: 2027-07-18
+ld_rate_per_day: 9_000
+ld_cap: 1_093_000
