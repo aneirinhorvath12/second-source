@@ -1,0 +1,10 @@
+# Contract terms for C004: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C004
+name: "Arden Valley Biomass Plant"
+customer: "Ardent Water Ltd"
+contract_price: 68_528_000
+start_date: 2025-11-12
+completion_date: 2028-08-13
+ld_rate_per_day: 23_000
+ld_cap: 6_853_000

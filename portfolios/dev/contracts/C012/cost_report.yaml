@@ -1,0 +1,22 @@
+# Management's cost report and variation register for C012 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C012
+period_end: 2026-12-31
+contract_price: 63_039_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 22_951_000
+etc: 40_168_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "ETC assumes recovery plan savings (resequencing and subcontract renegotiation)."
+variations:  # the variation register
+  - id: VO-001
+    description: "Upgraded fire and gas detection to the employer's revised standard"
+    amount: 923_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Temporary power supply extended beyond the agreed period"
+    amount: 1_541_000
+    included_in_tp: true
+    reported_status: "Approved"

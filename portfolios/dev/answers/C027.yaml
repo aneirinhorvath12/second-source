@@ -1,0 +1,24 @@
+# Answer key for C027. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C027
+scenario: t1_no_evidence
+notes: "Register says a variation is approved, but no customer letter exists."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: insufficient_evidence
+    tag: t1_no_evidence
+    correction:
+      variations: {VO-001: 0}
+    range:
+      low:
+        variations: {VO-001: 0}
+      high: {}  # as reported
+    request: "Customer written agreement to VO-001"
+    why: "Register says approved, but there is no customer agreement in the file."
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

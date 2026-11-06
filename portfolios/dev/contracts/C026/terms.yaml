@@ -1,0 +1,10 @@
+# Contract terms for C026: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C026
+name: "Northmoor Water Treatment Upgrade"
+customer: "Blythe Industrial Holdings"
+contract_price: 165_077_000
+start_date: 2025-06-22
+completion_date: 2028-01-22
+ld_rate_per_day: 54_000
+ld_cap: 16_508_000

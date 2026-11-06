@@ -1,0 +1,27 @@
+# Management's cost report and variation register for C028 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C028
+period_end: 2026-12-31
+contract_price: 138_777_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 50_718_000
+etc: 90_878_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "ETC assumes recovery plan savings (resequencing and subcontract renegotiation)."
+variations:  # the variation register
+  - id: VO-001
+    description: "Additional instrumentation loops added in design freeze 2"
+    amount: 2_117_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Upgraded fire and gas detection to the employer's revised standard"
+    amount: 5_121_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-003
+    description: "Additional pipe supports required by revised stress analysis"
+    amount: 4_224_000
+    included_in_tp: false
+    reported_status: "Submitted"

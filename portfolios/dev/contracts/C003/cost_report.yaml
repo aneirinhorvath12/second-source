@@ -1,0 +1,22 @@
+# Management's cost report and variation register for C003 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C003
+period_end: 2026-12-31
+contract_price: 114_823_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 61_274_000
+etc: 52_148_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "ETC reflects remaining budget. Team confident of recovering productivity."
+variations:  # the variation register
+  - id: VO-001
+    description: "Relocation of the control room following employer's layout change"
+    amount: 2_803_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Extra civil works for unforeseen ground conditions at the north pad"
+    amount: 5_106_000
+    included_in_tp: false
+    reported_status: "Submitted"

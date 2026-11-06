@@ -1,0 +1,10 @@
+# Contract terms for C028: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C028
+name: "Arden Valley Biomass Plant"
+customer: "Norvale Energy plc"
+contract_price: 138_777_000
+start_date: 2026-02-26
+completion_date: 2028-01-27
+ld_rate_per_day: 86_000
+ld_cap: 13_878_000

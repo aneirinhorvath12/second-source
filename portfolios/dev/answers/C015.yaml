@@ -1,0 +1,18 @@
+# Answer key for C015. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C015
+scenario: e2_hard_negative
+notes: "Poor CPI, honestly reflected in a bottom-up reforecast."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Customer accepted in writing (letter_VO-001.md)."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_hard_negative
+    why: "Earned value looks poor, but the minutes and ETC explain it."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

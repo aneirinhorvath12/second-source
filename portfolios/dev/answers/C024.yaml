@@ -1,0 +1,24 @@
+# Answer key for C024. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C024
+scenario: e2_etc_understated
+notes: "CPI well below 1, yet remaining work is forecast at budget."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Customer accepted in writing (letter_VO-001.md)."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    why: "Customer accepted in writing (letter_VO-002.md)."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_etc_understated
+    correction:
+      etc: 25_468_000
+    why: "Remaining work forecast at budget despite CPI well below 1."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

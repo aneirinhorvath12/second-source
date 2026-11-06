@@ -15,6 +15,8 @@ jobs:
       - run: uv sync --extra agent
       - run: uv run ruff check src tests
       - run: uv run pytest
+      - name: Portfolio check (catches broken hand edits)
+        run: uv run second-source check
       - name: Offline eval (regression check on the rule baseline)
         run: uv run second-source demo
       - uses: actions/upload-artifact@v4

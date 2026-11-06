@@ -1,0 +1,17 @@
+# Management's cost report and variation register for C007 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C007
+period_end: 2026-12-31
+contract_price: 171_658_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 50_582_000
+etc: 104_873_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "Project performing in line with forecast."
+variations:  # the variation register
+  - id: VO-001
+    description: "Upgraded fire and gas detection to the employer's revised standard"
+    amount: 2_121_000
+    included_in_tp: true
+    reported_status: "Approved (commercial view)"

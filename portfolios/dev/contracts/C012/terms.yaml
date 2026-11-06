@@ -1,0 +1,10 @@
+# Contract terms for C012: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C012
+name: "Rothwell Grid Reinforcement"
+customer: "Tamsin Petrochemicals"
+contract_price: 63_039_000
+start_date: 2026-01-06
+completion_date: 2028-06-07
+ld_rate_per_day: 19_000
+ld_cap: 6_304_000

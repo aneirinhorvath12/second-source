@@ -1,0 +1,10 @@
+# Contract terms for C018: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C018
+name: "Ovington LNG Loading Arm"
+customer: "Ardent Water Ltd"
+contract_price: 39_650_000
+start_date: 2026-02-07
+completion_date: 2028-03-09
+ld_rate_per_day: 22_000
+ld_cap: 3_965_000

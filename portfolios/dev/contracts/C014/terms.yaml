@@ -1,0 +1,10 @@
+# Contract terms for C014: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C014
+name: "Hartfield Process Control Retrofit"
+customer: "Norvale Energy plc"
+contract_price: 118_541_000
+start_date: 2024-12-09
+completion_date: 2027-10-10
+ld_rate_per_day: 52_000
+ld_cap: 11_854_000

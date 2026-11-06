@@ -1,0 +1,22 @@
+# Management's cost report and variation register for C014 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C014
+period_end: 2026-12-31
+contract_price: 118_541_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 77_508_000
+etc: 27_829_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "Project performing in line with forecast."
+variations:  # the variation register
+  - id: VO-001
+    description: "Temporary power supply extended beyond the agreed period"
+    amount: 3_811_000
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Relocation of the control room following employer's layout change"
+    amount: 5_500_000
+    included_in_tp: true
+    reported_status: "Approved"

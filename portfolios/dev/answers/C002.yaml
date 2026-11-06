@@ -1,0 +1,29 @@
+# Answer key for C002. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C002
+scenario: t1_in_principle
+notes: "Customer accepts the scope of a variation but disputes its value."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Customer accepted in writing (letter_VO-001.md)."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    why: "Customer accepted in writing (letter_VO-002.md)."
+  - check: T1
+    ref: VO-003
+    verdict: judgement_call
+    tag: t1_in_principle
+    range:
+      low:
+        variations: {VO-003: 692_000}
+      high: {}  # as reported
+    why: "Scope agreed in principle, value disputed: an estimate subject to the constraint, between the customer's counter-offer and our valuation."
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

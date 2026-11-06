@@ -1,0 +1,17 @@
+# Management's cost report and variation register for C008 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C008
+period_end: 2026-12-31
+contract_price: 79_266_000
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 50_909_000
+etc: 38_286_000  # estimate to complete
+provision_booked: 0  # onerous contract provision
+commentary: "Productivity below plan; ETC reforecast to reflect current performance."
+variations:  # the variation register
+  - id: VO-001
+    description: "Additional instrumentation loops added in design freeze 2"
+    amount: 2_750_000
+    included_in_tp: false
+    reported_status: "Submitted"

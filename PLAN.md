@@ -13,13 +13,14 @@ The aim of the weekend: one honest, specific result. *"A frontier model with the
 - [x] One-prompt baseline (B0)
 - [x] Eval harness: catch rate, false alarms, under/over-escalation, £ caught, quantification error, range coverage
 - [x] MCP server, CI
+- [x] Portfolio committed as editable files, with answer keys in domain terms and a `check` command
 
 ## Saturday
 
 - [ ] Run `agent` and `one_prompt` on 5 contracts; read every transcript
 - [ ] Fix the biggest failure bucket (missed evidence, misapplied standard, concluded too early, bad citation)
-- [ ] Model-rendered documents: rewrite each template from the same fact sheet so facts are buried in longer, messier text; check every fact survives
-- [ ] Freeze a held-out portfolio (`--seed 1`) and don't look at it until Sunday
+- [ ] Edit the portfolio: disagree with the answer keys where you'd rule differently, and rewrite letters and minutes so the key facts are buried in realistic, messier text (re-run `check` after each edit)
+- [ ] Bootstrap a held-out portfolio (`simulate --out portfolios/test --seed 1`) and don't look at it until Sunday
 
 ## Sunday
 

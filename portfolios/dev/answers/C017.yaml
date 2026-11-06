@@ -1,0 +1,24 @@
+# Answer key for C017. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C017
+scenario: e2_recovery_plan
+notes: "ETC relies on recovery savings a subcontractor has not agreed."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Customer accepted in writing (letter_VO-001.md)."
+  - check: E2
+    ref: ETC
+    verdict: judgement_call
+    tag: e2_recovery_plan
+    correction:
+      etc: 54_654_000
+    range:
+      low:
+        etc: 54_654_000
+      high: {}  # as reported
+    why: "ETC relies on recovery savings the subcontractor has not agreed."
+  - check: M1
+    ref: PROVISION
+    verdict: supported
