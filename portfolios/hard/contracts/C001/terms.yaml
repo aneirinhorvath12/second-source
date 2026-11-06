@@ -1,0 +1,10 @@
+# Contract terms for C001: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C001
+name: "Halden Ridge Gas Compression"
+customer: "Norvale Energy plc"
+contract_price: 43_139_170
+start_date: 2025-02-21
+completion_date: 2028-05-06
+ld_rate_per_day: 23_900
+ld_cap: 2_157_000

@@ -1,0 +1,55 @@
+# Management's cost report and variation register for C013 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C013
+period_end: 2026-12-31
+contract_price: 59_966_150
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 38_654_995
+etc: 16_827_412  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 8_522_701
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 6_171_611
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 1_706_100
+    basis: "11 months to 16 November 2027 at £155,100 per month"
+  - item: "Risk and contingency"
+    amount: 427_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: "Programme under pressure from steelwork resequencing; ETC reviewed."
+variations:  # the variation register
+  - id: VO-001
+    description: "Upgrade of the HVAC in the control building to N+1"
+    amount: 1_125_030
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Change of paint system to the Employer's revised specification"
+    amount: 485_525
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-003
+    description: "Removal of asbestos-containing lagging found in the existing pipe rack"
+    amount: 1_198_063
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-004
+    description: "Additional sampling points and analyser house"
+    amount: 557_194
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-005
+    description: "Additional earthing and lightning protection to the new standard"
+    amount: 709_461
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-006
+    description: "Relocation of the control room following the Employer's layout change"
+    amount: 777_895
+    included_in_tp: true
+    reported_status: "Approved"

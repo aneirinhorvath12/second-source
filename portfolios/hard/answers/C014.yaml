@@ -1,0 +1,35 @@
+# Answer key for C014. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C014
+scenario: t1_ok_grudging+t1_missing_attachment+e2_claim_provided
+notes: "3 variations in TP; E2 e2_claim_provided; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Accepted at £918,238 in 2026-07-20_letter_SRL-DTF-070.md."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    tag: t1_ok_grudging
+    why: "2026-08-05_letter_SRL-DTF-066.md rejects the extension of time but accepts the price £793,930."
+  - check: T1
+    ref: VO-003
+    verdict: insufficient_evidence
+    tag: t1_missing_attachment
+    correction:
+      variations: {VO-003: 0}
+    range:
+      low:
+        variations: {VO-003: 0}
+      high: {}  # as reported
+    request: "Letter SRL/DTF/074 (the ER's response to BRK/DTF/Q/033)"
+    why: "The ER's response exists (2026-10-10_email_2931.md covers letter SRL/DTF/074) but the letter itself is not in the file."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_claim_provided
+    why: "The Tregarth Groundworks claim is provided for at £467,000 in the ETC build-up."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

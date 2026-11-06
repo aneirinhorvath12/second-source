@@ -1,0 +1,31 @@
+# Blythe Industrial Holdings
+
+**To:** Simon Davies, Project Manager, Brackmoor Engineering Ltd
+**Date:** 19 September 2026
+**Our ref:** BIH/GPS/179
+**Project:** Glenwick Pipeline Spur
+**Subject:** Approval of paint samples for Area 500 Export external pipework
+
+Dear Simon,
+
+Further to the sample panels delivered to the site office on Tuesday, I have reviewed the three proposed topcoat systems for the external pipework in Area 500 Export.
+
+System B, the epoxy mid-coat with polyurethane finish in RAL 7032, meets the colour and gloss targets set out in the painting specification. I am content for this system to be taken forward for the remaining pipe spools.
+
+Systems A and C are not accepted. The gloss level on A falls outside the specified tolerance at the 60 degree reading, and the colour on C drifts noticeably under daylight compared with the reference chip. Please do not use either system on any further works.
+
+Before application begins, I would ask for the following:
+
+- Written confirmation of the batch numbers for System B, matching the samples retained on site.
+- Dry film thickness readings from the trial area, taken at the three locations marked on the drawing.
+- Confirmation that surface preparation to St 2 standard is recorded for each spool before coating.
+
+Rhys Hartley will witness the first two spool coats and sign the inspection record accordingly. Please give Rhys Hartley at least one working day's notice before coating starts so that the hold point can be scheduled.
+
+I would be grateful for a short reply confirming receipt and the programme for the first application.
+
+Yours sincerely,
+
+Tom Whitlock
+Employer's Representative
+Blythe Industrial Holdings

@@ -1,0 +1,415 @@
+ERMHDR	20.12	2026-12-31	Project	admin	second-source	dbxDatabaseNoName	Project Management	GBP
+%T	PROJECT
+%F	proj_id	proj_short_name	last_recalc_date	plan_start_date	plan_end_date	scd_end_date
+%R	C010	GPS-EPC	2026-12-31 17:00	2025-10-02 17:00	2028-02-01 17:00	2028-02-01 17:00
+%T	TASK
+%F	task_id	proj_id	wbs_id	task_code	task_name	task_type	status_code	phys_complete_pct	target_start_date	target_end_date	act_start_date	act_end_date	early_end_date	total_float_hr_cnt
+%R	10000	C010	GPS.PRE	A1000	Site establishment, preliminaries and supervision	TT_LOE	TK_Active	53.4	2025-10-02 17:00	2028-02-01 17:00	2025-10-02 17:00		2028-02-01 17:00	240
+%R	10001	C010	GPS.ENG	A1010	Detailed design and engineering	TT_Task	TK_Complete	100.0	2025-10-02 17:00	2026-10-20 17:00	2025-10-02 17:00	2026-10-20 17:00		0
+%R	10002	C010	GPS.100.CIV	A1020	Area 100 Inlet - Civils - Excavate and blind	TT_Task	TK_Active	99.4	2025-10-02 17:00	2026-01-17 17:00	2025-10-02 17:00		2027-01-01 17:00	80
+%R	10003	C010	GPS.100.CIV	A1030	Area 100 Inlet - Civils - Pour foundations	TT_Task	TK_Complete	100.0	2025-11-23 17:00	2026-01-07 17:00	2025-11-23 17:00	2026-01-07 17:00		0
+%R	10004	C010	GPS.100.CIV	A1040	Area 100 Inlet - Civils - Backfill and compact (part 1 of 3)	TT_Task	TK_Active	97.1	2026-01-14 17:00	2026-04-17 17:00	2026-01-14 17:00		2027-01-01 17:00	0
+%R	10005	C010	GPS.100.CIV	A1050	Area 100 Inlet - Civils - Backfill and compact (part 2 of 3)	TT_Task	TK_Active	97.4	2026-01-31 17:00	2026-05-19 17:00	2026-01-31 17:00		2027-01-01 17:00	400
+%R	10006	C010	GPS.100.CIV	A1060	Area 100 Inlet - Civils - Backfill and compact (part 3 of 3)	TT_Task	TK_Complete	100.0	2026-02-17 17:00	2026-05-14 17:00	2026-02-17 17:00	2026-05-14 17:00		160
+%R	10007	C010	GPS.100.CIV	A1070	Area 100 Inlet - Civils - Install underground drainage (part 1 of 3)	TT_Task	TK_Complete	100.0	2026-03-06 17:00	2026-04-29 17:00	2026-03-06 17:00	2026-04-29 17:00		160
+%R	10008	C010	GPS.100.CIV	A1080	Area 100 Inlet - Civils - Install underground drainage (part 2 of 3)	TT_Task	TK_Active	98.2	2026-03-24 17:00	2026-07-04 17:00	2026-03-24 17:00		2027-01-01 17:00	400
+%R	10009	C010	GPS.100.CIV	A1090	Area 100 Inlet - Civils - Install underground drainage (part 3 of 3)	TT_Task	TK_Active	97.1	2026-04-10 17:00	2026-08-06 17:00	2026-04-10 17:00		2027-01-01 17:00	0
+%R	10010	C010	GPS.200.CIV	A1100	Area 200 Process - Civils - Excavate and blind (part 1 of 2)	TT_Task	TK_Complete	100.0	2025-11-14 17:00	2026-01-29 17:00	2025-11-14 17:00	2026-01-29 17:00		400
+%R	10011	C010	GPS.200.CIV	A1110	Area 200 Process - Civils - Excavate and blind (part 2 of 2)	TT_Task	TK_Active	96.9	2025-12-10 17:00	2026-02-09 17:00	2025-12-10 17:00		2027-01-01 17:00	0
+%R	10012	C010	GPS.200.CIV	A1120	Area 200 Process - Civils - Pour foundations (part 1 of 3)	TT_Task	TK_Complete	100.0	2026-01-04 17:00	2026-03-28 17:00	2026-01-04 17:00	2026-03-28 17:00		240
+%R	10013	C010	GPS.200.CIV	A1130	Area 200 Process - Civils - Pour foundations (part 2 of 3)	TT_Task	TK_Active	99.2	2026-01-22 17:00	2026-03-26 17:00	2026-01-22 17:00		2027-01-01 17:00	40
+%R	10014	C010	GPS.200.CIV	A1140	Area 200 Process - Civils - Pour foundations (part 3 of 3)	TT_Task	TK_Active	97.3	2026-02-08 17:00	2026-05-12 17:00	2026-02-08 17:00		2027-01-01 17:00	0
+%R	10015	C010	GPS.200.CIV	A1150	Area 200 Process - Civils - Backfill and compact	TT_Task	TK_Active	97.7	2026-02-25 17:00	2026-06-07 17:00	2026-02-25 17:00		2027-01-01 17:00	80
+%R	10016	C010	GPS.200.CIV	A1160	Area 200 Process - Civils - Install underground drainage (part 1 of 2)	TT_Task	TK_Active	96.1	2026-04-18 17:00	2026-06-25 17:00	2026-04-18 17:00		2027-01-01 17:00	240
+%R	10017	C010	GPS.200.CIV	A1170	Area 200 Process - Civils - Install underground drainage (part 2 of 2)	TT_Task	TK_Active	98.5	2026-05-14 17:00	2026-08-06 17:00	2026-05-14 17:00		2027-01-01 17:00	0
+%R	10018	C010	GPS.300.CIV	A1180	Area 300 Utilities - Civils - Excavate and blind (part 1 of 2)	TT_Task	TK_Active	98.7	2025-12-26 17:00	2026-02-25 17:00	2025-12-26 17:00		2027-01-01 17:00	400
+%R	10019	C010	GPS.300.CIV	A1190	Area 300 Utilities - Civils - Excavate and blind (part 2 of 2)	TT_Task	TK_Active	96.1	2026-01-21 17:00	2026-04-05 17:00	2026-01-21 17:00		2027-01-01 17:00	0
+%R	10020	C010	GPS.300.CIV	A1200	Area 300 Utilities - Civils - Pour foundations (part 1 of 2)	TT_Task	TK_Active	96.7	2026-02-16 17:00	2026-05-21 17:00	2026-02-16 17:00		2027-01-01 17:00	0
+%R	10021	C010	GPS.300.CIV	A1210	Area 300 Utilities - Civils - Pour foundations (part 2 of 2)	TT_Task	TK_Active	98.0	2026-03-14 17:00	2026-06-05 17:00	2026-03-14 17:00		2027-01-01 17:00	400
+%R	10022	C010	GPS.300.CIV	A1220	Area 300 Utilities - Civils - Backfill and compact (part 1 of 3)	TT_Task	TK_Active	94.2	2026-04-09 17:00	2026-06-28 17:00	2026-04-09 17:00		2027-01-01 17:00	80
+%R	10023	C010	GPS.300.CIV	A1230	Area 300 Utilities - Civils - Backfill and compact (part 2 of 3)	TT_Task	TK_Active	95.1	2026-04-26 17:00	2026-06-20 17:00	2026-04-26 17:00		2027-01-01 17:00	0
+%R	10024	C010	GPS.300.CIV	A1240	Area 300 Utilities - Civils - Backfill and compact (part 3 of 3)	TT_Task	TK_Active	95.1	2026-05-13 17:00	2026-09-01 17:00	2026-05-13 17:00		2027-01-01 17:00	40
+%R	10025	C010	GPS.300.CIV	A1250	Area 300 Utilities - Civils - Install underground drainage (part 1 of 3)	TT_Task	TK_Active	97.7	2026-05-31 17:00	2026-08-26 17:00	2026-05-31 17:00		2027-01-01 17:00	0
+%R	10026	C010	GPS.300.CIV	A1260	Area 300 Utilities - Civils - Install underground drainage (part 2 of 3)	TT_Task	TK_Active	94.9	2026-06-17 17:00	2026-09-05 17:00	2026-06-17 17:00		2027-01-01 17:00	80
+%R	10027	C010	GPS.300.CIV	A1270	Area 300 Utilities - Civils - Install underground drainage (part 3 of 3)	TT_Task	TK_Active	99.8	2026-07-04 17:00	2026-09-18 17:00	2026-07-04 17:00		2027-01-01 17:00	0
+%R	10028	C010	GPS.400.CIV	A1280	Area 400 Storage - Civils - Excavate and blind (part 1 of 2)	TT_Task	TK_Active	98.7	2026-02-07 17:00	2026-05-24 17:00	2026-02-07 17:00		2027-01-01 17:00	40
+%R	10029	C010	GPS.400.CIV	A1290	Area 400 Storage - Civils - Excavate and blind (part 2 of 2)	TT_Task	TK_Active	93.9	2026-03-05 17:00	2026-05-20 17:00	2026-03-05 17:00		2027-01-01 17:00	40
+%R	10030	C010	GPS.400.CIV	A1300	Area 400 Storage - Civils - Pour foundations (part 1 of 2)	TT_Task	TK_Active	94.9	2026-03-31 17:00	2026-05-20 17:00	2026-03-31 17:00		2027-01-01 17:00	240
+%R	10031	C010	GPS.400.CIV	A1310	Area 400 Storage - Civils - Pour foundations (part 2 of 2)	TT_Task	TK_Active	94.7	2026-04-26 17:00	2026-07-12 17:00	2026-04-26 17:00		2027-01-01 17:00	240
+%R	10032	C010	GPS.400.CIV	A1320	Area 400 Storage - Civils - Backfill and compact (part 1 of 2)	TT_Task	TK_Active	99.9	2026-05-21 17:00	2026-07-13 17:00	2026-05-21 17:00		2027-01-01 17:00	40
+%R	10033	C010	GPS.400.CIV	A1330	Area 400 Storage - Civils - Backfill and compact (part 2 of 2)	TT_Task	TK_Active	96.3	2026-06-16 17:00	2026-09-26 17:00	2026-06-16 17:00		2027-01-01 17:00	80
+%R	10034	C010	GPS.400.CIV	A1340	Area 400 Storage - Civils - Install underground drainage (part 1 of 2)	TT_Task	TK_Active	98.4	2026-07-10 17:00	2026-10-16 17:00	2026-07-10 17:00		2027-01-01 17:00	40
+%R	10035	C010	GPS.400.CIV	A1350	Area 400 Storage - Civils - Install underground drainage (part 2 of 2)	TT_Task	TK_Active	94.2	2026-07-10 17:00	2026-10-14 17:00	2026-07-10 17:00		2027-01-01 17:00	80
+%R	10036	C010	GPS.500.CIV	A1360	Area 500 Export - Civils - Excavate and blind (part 1 of 3)	TT_Task	TK_Active	97.6	2026-03-21 17:00	2026-06-11 17:00	2026-03-21 17:00		2027-01-01 17:00	80
+%R	10037	C010	GPS.500.CIV	A1370	Area 500 Export - Civils - Excavate and blind (part 2 of 3)	TT_Task	TK_Active	96.6	2026-04-08 17:00	2026-07-16 17:00	2026-04-08 17:00		2027-01-01 17:00	0
+%R	10038	C010	GPS.500.CIV	A1380	Area 500 Export - Civils - Excavate and blind (part 3 of 3)	TT_Task	TK_Active	98.1	2026-04-25 17:00	2026-06-09 17:00	2026-04-25 17:00		2027-01-01 17:00	40
+%R	10039	C010	GPS.500.CIV	A1390	Area 500 Export - Civils - Pour foundations (part 1 of 3)	TT_Task	TK_Active	95.3	2026-05-12 17:00	2026-08-07 17:00	2026-05-12 17:00		2027-01-01 17:00	240
+%R	10040	C010	GPS.500.CIV	A1400	Area 500 Export - Civils - Pour foundations (part 2 of 3)	TT_Task	TK_Active	99.4	2026-05-29 17:00	2026-07-13 17:00	2026-05-29 17:00		2027-01-01 17:00	0
+%R	10041	C010	GPS.500.CIV	A1410	Area 500 Export - Civils - Pour foundations (part 3 of 3)	TT_Task	TK_Active	95.0	2026-06-16 17:00	2026-08-20 17:00	2026-06-16 17:00		2027-01-01 17:00	80
+%R	10042	C010	GPS.500.CIV	A1420	Area 500 Export - Civils - Backfill and compact	TT_Task	TK_Active	96.9	2026-07-03 17:00	2026-10-09 17:00	2026-07-03 17:00		2027-01-01 17:00	80
+%R	10043	C010	GPS.500.CIV	A1430	Area 500 Export - Civils - Install underground drainage	TT_Task	TK_Complete	100.0	2026-07-10 17:00	2026-10-06 17:00	2026-07-10 17:00	2026-10-06 17:00		0
+%R	10044	C010	GPS.600.CIV	A1440	Area 600 Control Building - Civils - Excavate and blind	TT_Task	TK_Active	97.6	2026-05-03 17:00	2026-08-29 17:00	2026-05-03 17:00		2027-01-01 17:00	0
+%R	10045	C010	GPS.600.CIV	A1450	Area 600 Control Building - Civils - Pour foundations (part 1 of 3)	TT_Task	TK_Active	97.6	2026-06-24 17:00	2026-09-11 17:00	2026-06-24 17:00		2027-01-01 17:00	400
+%R	10046	C010	GPS.600.CIV	A1460	Area 600 Control Building - Civils - Pour foundations (part 2 of 3)	TT_Task	TK_Active	95.7	2026-07-10 17:00	2026-09-21 17:00	2026-07-10 17:00		2027-01-01 17:00	240
+%R	10047	C010	GPS.600.CIV	A1470	Area 600 Control Building - Civils - Pour foundations (part 3 of 3)	TT_Task	TK_Active	95.1	2026-07-10 17:00	2026-11-05 17:00	2026-07-10 17:00		2027-01-01 17:00	80
+%R	10048	C010	GPS.600.CIV	A1480	Area 600 Control Building - Civils - Backfill and compact (part 1 of 3)	TT_Task	TK_Active	99.1	2026-07-10 17:00	2026-09-06 17:00	2026-07-10 17:00		2027-01-01 17:00	240
+%R	10049	C010	GPS.600.CIV	A1490	Area 600 Control Building - Civils - Backfill and compact (part 2 of 3)	TT_Task	TK_Active	97.2	2026-07-10 17:00	2026-08-29 17:00	2026-07-10 17:00		2027-01-01 17:00	0
+%R	10050	C010	GPS.600.CIV	A1500	Area 600 Control Building - Civils - Backfill and compact (part 3 of 3)	TT_Task	TK_Active	99.4	2026-07-10 17:00	2026-10-29 17:00	2026-07-10 17:00		2027-01-01 17:00	400
+%R	10051	C010	GPS.600.CIV	A1510	Area 600 Control Building - Civils - Install underground drainage (part 1 of 3)	TT_Task	TK_Active	97.5	2026-07-10 17:00	2026-10-18 17:00	2026-07-10 17:00		2027-01-01 17:00	240
+%R	10052	C010	GPS.600.CIV	A1520	Area 600 Control Building - Civils - Install underground drainage (part 2 of 3)	TT_Task	TK_Active	99.7	2026-07-10 17:00	2026-10-16 17:00	2026-07-10 17:00		2027-01-01 17:00	400
+%R	10053	C010	GPS.600.CIV	A1530	Area 600 Control Building - Civils - Install underground drainage (part 3 of 3)	TT_Task	TK_Complete	100.0	2026-07-10 17:00	2026-10-18 17:00	2026-07-10 17:00	2026-10-18 17:00		240
+%R	10054	C010	GPS.100.STR	A1540	Area 100 Inlet - Structural - Erect primary steel	TT_Task	TK_Active	99.5	2026-02-07 17:00	2026-05-06 17:00	2026-02-07 17:00		2027-01-01 17:00	160
+%R	10055	C010	GPS.100.STR	A1550	Area 100 Inlet - Structural - Erect secondary steel	TT_Task	TK_Active	95.3	2026-04-16 17:00	2026-07-28 17:00	2026-04-16 17:00		2027-01-01 17:00	240
+%R	10056	C010	GPS.100.STR	A1560	Area 100 Inlet - Structural - Install grating and handrail	TT_Task	TK_Active	98.8	2026-06-23 17:00	2026-09-06 17:00	2026-06-23 17:00		2027-01-01 17:00	160
+%R	10057	C010	GPS.200.STR	A1570	Area 200 Process - Structural - Erect primary steel	TT_Task	TK_Active	98.5	2026-03-21 17:00	2026-06-01 17:00	2026-03-21 17:00		2027-01-01 17:00	0
+%R	10058	C010	GPS.200.STR	A1580	Area 200 Process - Structural - Erect secondary steel	TT_Task	TK_Active	96.2	2026-05-29 17:00	2026-07-26 17:00	2026-05-29 17:00		2027-01-01 17:00	80
+%R	10059	C010	GPS.200.STR	A1590	Area 200 Process - Structural - Install grating and handrail	TT_Task	TK_Complete	100.0	2026-08-05 17:00	2026-11-17 17:00	2026-08-05 17:00	2026-11-17 17:00		80
+%R	10060	C010	GPS.300.STR	A1600	Area 300 Utilities - Structural - Erect primary steel	TT_Task	TK_Active	96.7	2026-05-03 17:00	2026-07-11 17:00	2026-05-03 17:00		2027-01-01 17:00	80
+%R	10061	C010	GPS.300.STR	A1610	Area 300 Utilities - Structural - Erect secondary steel	TT_Task	TK_Active	97.1	2026-07-10 17:00	2026-09-23 17:00	2026-07-10 17:00		2027-01-01 17:00	160
+%R	10062	C010	GPS.300.STR	A1620	Area 300 Utilities - Structural - Install grating and handrail	TT_Task	TK_Active	95.7	2026-09-16 17:00	2026-12-25 17:00	2026-09-16 17:00		2027-01-01 17:00	0
+%R	10063	C010	GPS.400.STR	A1630	Area 400 Storage - Structural - Erect primary steel	TT_Task	TK_Active	95.9	2026-06-15 17:00	2026-08-19 17:00	2026-06-15 17:00		2027-01-01 17:00	40
+%R	10064	C010	GPS.400.STR	A1640	Area 400 Storage - Structural - Erect secondary steel	TT_Task	TK_Active	99.7	2026-08-22 17:00	2026-12-12 17:00	2026-08-22 17:00		2027-01-01 17:00	160
+%R	10065	C010	GPS.400.STR	A1650	Area 400 Storage - Structural - Install grating and handrail	TT_Task	TK_Active	68.6	2026-10-29 17:00	2027-01-29 17:00	2026-10-29 17:00		2027-01-29 17:00	40
+%R	10066	C010	GPS.500.STR	A1660	Area 500 Export - Structural - Erect primary steel	TT_Task	TK_Active	99.3	2026-07-27 17:00	2026-09-29 17:00	2026-07-27 17:00		2027-01-01 17:00	0
+%R	10067	C010	GPS.500.STR	A1670	Area 500 Export - Structural - Erect secondary steel	TT_Task	TK_Active	81.4	2026-10-03 17:00	2027-01-19 17:00	2026-10-03 17:00		2027-01-19 17:00	80
+%R	10068	C010	GPS.500.STR	A1680	Area 500 Export - Structural - Install grating and handrail	TT_Task	TK_Active	56.3	2026-12-02 17:00	2027-01-20 17:00	2026-12-02 17:00		2027-01-20 17:00	0
+%R	10069	C010	GPS.600.STR	A1690	Area 600 Control Building - Structural - Erect primary steel	TT_Task	TK_Active	95.7	2026-09-08 17:00	2026-11-18 17:00	2026-09-08 17:00		2027-01-01 17:00	80
+%R	10070	C010	GPS.600.STR	A1700	Area 600 Control Building - Structural - Erect secondary steel	TT_Task	TK_Active	39.1	2026-11-15 17:00	2027-03-07 17:00	2026-11-15 17:00		2027-03-07 17:00	40
+%R	10071	C010	GPS.600.STR	A1710	Area 600 Control Building - Structural - Install grating and handrail	TT_Task	TK_Active	32.5	2026-12-02 17:00	2027-03-01 17:00	2026-12-02 17:00		2027-03-01 17:00	240
+%R	10072	C010	GPS.100.MEC	A1720	Area 100 Inlet - Mechanical - Set equipment	TT_Task	TK_Active	97.2	2026-06-15 17:00	2026-09-09 17:00	2026-06-15 17:00		2027-01-01 17:00	240
+%R	10073	C010	GPS.100.MEC	A1730	Area 100 Inlet - Mechanical - Align rotating equipment	TT_Task	TK_Active	98.9	2026-08-22 17:00	2026-11-29 17:00	2026-08-22 17:00		2027-01-01 17:00	0
+%R	10074	C010	GPS.100.MEC	A1740	Area 100 Inlet - Mechanical - Install package skids	TT_Task	TK_Active	69.6	2026-10-29 17:00	2027-01-25 17:00	2026-10-29 17:00		2027-01-25 17:00	400
+%R	10075	C010	GPS.200.MEC	A1750	Area 200 Process - Mechanical - Set equipment	TT_Task	TK_Active	98.1	2026-07-27 17:00	2026-09-13 17:00	2026-07-27 17:00		2027-01-01 17:00	40
+%R	10076	C010	GPS.200.MEC	A1760	Area 200 Process - Mechanical - Align rotating equipment	TT_Task	TK_Active	96.1	2026-10-03 17:00	2026-12-13 17:00	2026-10-03 17:00		2027-01-01 17:00	0
+%R	10077	C010	GPS.200.MEC	A1770	Area 200 Process - Mechanical - Install package skids	TT_Task	TK_Active	32.6	2026-12-11 17:00	2027-02-10 17:00	2026-12-11 17:00		2027-02-10 17:00	40
+%R	10078	C010	GPS.300.MEC	A1780	Area 300 Utilities - Mechanical - Set equipment	TT_Task	TK_Complete	100.0	2026-09-08 17:00	2026-12-02 17:00	2026-09-08 17:00	2026-12-02 17:00		240
+%R	10079	C010	GPS.300.MEC	A1790	Area 300 Utilities - Mechanical - Align rotating equipment	TT_Task	TK_Active	96.8	2026-11-15 17:00	2027-01-01 17:00	2026-11-15 17:00		2027-01-01 17:00	240
+%R	10080	C010	GPS.300.MEC	A1800	Area 300 Utilities - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-01-22 17:00	2027-03-11 17:00			2027-03-11 17:00	40
+%R	10081	C010	GPS.400.MEC	A1810	Area 400 Storage - Mechanical - Set equipment	TT_Task	TK_Active	80.6	2026-10-20 17:00	2027-01-14 17:00	2026-10-20 17:00		2027-01-14 17:00	80
+%R	10082	C010	GPS.400.MEC	A1820	Area 400 Storage - Mechanical - Align rotating equipment	TT_Task	TK_Active	2.5	2026-12-28 17:00	2027-04-20 17:00	2026-12-28 17:00		2027-04-20 17:00	0
+%R	10083	C010	GPS.400.MEC	A1830	Area 400 Storage - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-03-06 17:00	2027-06-02 17:00			2027-06-02 17:00	160
+%R	10084	C010	GPS.500.MEC	A1840	Area 500 Export - Mechanical - Set equipment	TT_Task	TK_Active	42.2	2026-12-02 17:00	2027-02-09 17:00	2026-12-02 17:00		2027-02-09 17:00	80
+%R	10085	C010	GPS.500.MEC	A1850	Area 500 Export - Mechanical - Align rotating equipment	TT_Task	TK_NotStart	0.0	2027-02-08 17:00	2027-04-06 17:00			2027-04-06 17:00	80
+%R	10086	C010	GPS.500.MEC	A1860	Area 500 Export - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-04-09 17:00	2027-07-04 17:00			2027-07-04 17:00	0
+%R	10087	C010	GPS.600.MEC	A1870	Area 600 Control Building - Mechanical - Set equipment	TT_Task	TK_NotStart	0.0	2027-01-14 17:00	2027-05-01 17:00			2027-05-01 17:00	0
+%R	10088	C010	GPS.600.MEC	A1880	Area 600 Control Building - Mechanical - Align rotating equipment	TT_Task	TK_NotStart	0.0	2027-03-23 17:00	2027-06-24 17:00			2027-06-24 17:00	0
+%R	10089	C010	GPS.600.MEC	A1890	Area 600 Control Building - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-04-09 17:00	2027-05-24 17:00			2027-05-24 17:00	400
+%R	10090	C010	GPS.100.PIP	A1900	Area 100 Inlet - Piping - Fabricate spools (part 1 of 2)	TT_Task	TK_Active	98.2	2026-06-15 17:00	2026-08-21 17:00	2026-06-15 17:00		2027-01-01 17:00	160
+%R	10091	C010	GPS.100.PIP	A1910	Area 100 Inlet - Piping - Fabricate spools (part 2 of 2)	TT_Task	TK_Active	94.3	2026-07-22 17:00	2026-11-01 17:00	2026-07-22 17:00		2027-01-01 17:00	40
+%R	10092	C010	GPS.100.PIP	A1920	Area 100 Inlet - Piping - Install spools (part 1 of 2)	TT_Task	TK_Complete	100.0	2026-08-29 17:00	2026-12-26 17:00	2026-08-29 17:00	2026-12-26 17:00		400
+%R	10093	C010	GPS.100.PIP	A1930	Area 100 Inlet - Piping - Install spools (part 2 of 2)	TT_Task	TK_Active	74.1	2026-10-05 17:00	2027-01-26 17:00	2026-10-05 17:00		2027-01-26 17:00	40
+%R	10094	C010	GPS.100.PIP	A1940	Area 100 Inlet - Piping - Hydrotest (part 1 of 2)	TT_Task	TK_Active	95.3	2026-11-12 17:00	2026-12-31 17:00	2026-11-12 17:00		2027-01-01 17:00	400
+%R	10095	C010	GPS.100.PIP	A1950	Area 100 Inlet - Piping - Hydrotest (part 2 of 2)	TT_Task	TK_Active	11.0	2026-12-19 17:00	2027-04-08 17:00	2026-12-19 17:00		2027-04-08 17:00	240
+%R	10096	C010	GPS.100.PIP	A1960	Area 100 Inlet - Piping - Reinstate and box up (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-01-26 17:00	2027-05-03 17:00			2027-05-03 17:00	240
+%R	10097	C010	GPS.100.PIP	A1970	Area 100 Inlet - Piping - Reinstate and box up (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-03-04 17:00	2027-06-10 17:00			2027-06-10 17:00	80
+%R	10098	C010	GPS.200.PIP	A1980	Area 200 Process - Piping - Fabricate spools	TT_Task	TK_Active	98.3	2026-07-27 17:00	2026-10-05 17:00	2026-07-27 17:00		2027-01-01 17:00	40
+%R	10099	C010	GPS.200.PIP	A1990	Area 200 Process - Piping - Install spools (part 1 of 2)	TT_Task	TK_Active	66.6	2026-10-10 17:00	2027-02-03 17:00	2026-10-10 17:00		2027-02-03 17:00	160
+%R	10100	C010	GPS.200.PIP	A2000	Area 200 Process - Piping - Install spools (part 2 of 2)	TT_Task	TK_Active	60.4	2026-11-17 17:00	2027-01-28 17:00	2026-11-17 17:00		2027-01-28 17:00	40
+%R	10101	C010	GPS.200.PIP	A2010	Area 200 Process - Piping - Hydrotest (part 1 of 3)	TT_Task	TK_Active	12.8	2026-12-24 17:00	2027-02-16 17:00	2026-12-24 17:00		2027-02-16 17:00	0
+%R	10102	C010	GPS.200.PIP	A2020	Area 200 Process - Piping - Hydrotest (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-01-18 17:00	2027-03-16 17:00			2027-03-16 17:00	40
+%R	10103	C010	GPS.200.PIP	A2030	Area 200 Process - Piping - Hydrotest (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-02-12 17:00	2027-05-09 17:00			2027-05-09 17:00	80
+%R	10104	C010	GPS.200.PIP	A2040	Area 200 Process - Piping - Reinstate and box up (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-03-09 17:00	2027-06-02 17:00			2027-06-02 17:00	400
+%R	10105	C010	GPS.200.PIP	A2050	Area 200 Process - Piping - Reinstate and box up (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-04-16 17:00	2027-07-14 17:00			2027-07-14 17:00	0
+%R	10106	C010	GPS.300.PIP	A2060	Area 300 Utilities - Piping - Fabricate spools	TT_Task	TK_Active	95.7	2026-09-08 17:00	2026-10-24 17:00	2026-09-08 17:00		2027-01-01 17:00	160
+%R	10107	C010	GPS.300.PIP	A2070	Area 300 Utilities - Piping - Install spools (part 1 of 3)	TT_Task	TK_Active	45.8	2026-11-22 17:00	2027-02-16 17:00	2026-11-22 17:00		2027-02-16 17:00	400
+%R	10108	C010	GPS.300.PIP	A2080	Area 300 Utilities - Piping - Install spools (part 2 of 3)	TT_Task	TK_Active	20.5	2026-12-17 17:00	2027-02-21 17:00	2026-12-17 17:00		2027-02-21 17:00	40
+%R	10109	C010	GPS.300.PIP	A2090	Area 300 Utilities - Piping - Install spools (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-01-11 17:00	2027-03-25 17:00			2027-03-25 17:00	0
+%R	10110	C010	GPS.300.PIP	A2100	Area 300 Utilities - Piping - Hydrotest	TT_Task	TK_NotStart	0.0	2027-02-05 17:00	2027-04-15 17:00			2027-04-15 17:00	0
+%R	10111	C010	GPS.300.PIP	A2110	Area 300 Utilities - Piping - Reinstate and box up	TT_Task	TK_NotStart	0.0	2027-04-21 17:00	2027-06-16 17:00			2027-06-16 17:00	0
+%R	10112	C010	GPS.400.PIP	A2120	Area 400 Storage - Piping - Fabricate spools (part 1 of 2)	TT_Task	TK_Active	60.8	2026-10-20 17:00	2027-02-12 17:00	2026-10-20 17:00		2027-02-12 17:00	0
+%R	10113	C010	GPS.400.PIP	A2130	Area 400 Storage - Piping - Fabricate spools (part 2 of 2)	TT_Task	TK_Active	75.4	2026-11-27 17:00	2027-01-11 17:00	2026-11-27 17:00		2027-01-11 17:00	400
+%R	10114	C010	GPS.400.PIP	A2140	Area 400 Storage - Piping - Install spools	TT_Task	TK_NotStart	0.0	2027-01-03 17:00	2027-03-31 17:00			2027-03-31 17:00	160
+%R	10115	C010	GPS.400.PIP	A2150	Area 400 Storage - Piping - Hydrotest (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-03-19 17:00	2027-06-19 17:00			2027-06-19 17:00	240
+%R	10116	C010	GPS.400.PIP	A2160	Area 400 Storage - Piping - Hydrotest (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-04-13 17:00	2027-08-08 17:00			2027-08-08 17:00	40
+%R	10117	C010	GPS.400.PIP	A2170	Area 400 Storage - Piping - Hydrotest (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-05-08 17:00	2027-08-21 17:00			2027-08-21 17:00	160
+%R	10118	C010	GPS.400.PIP	A2180	Area 400 Storage - Piping - Reinstate and box up (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-06-02 17:00	2027-09-08 17:00			2027-09-08 17:00	0
+%R	10119	C010	GPS.400.PIP	A2190	Area 400 Storage - Piping - Reinstate and box up (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-07-10 17:00	2027-09-13 17:00			2027-09-13 17:00	0
+%R	10120	C010	GPS.500.PIP	A2200	Area 500 Export - Piping - Fabricate spools	TT_Task	TK_Active	42.4	2026-12-02 17:00	2027-02-09 17:00	2026-12-02 17:00		2027-02-09 17:00	0
+%R	10121	C010	GPS.500.PIP	A2210	Area 500 Export - Piping - Install spools (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-02-15 17:00	2027-05-05 17:00			2027-05-05 17:00	0
+%R	10122	C010	GPS.500.PIP	A2220	Area 500 Export - Piping - Install spools (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-03-12 17:00	2027-05-16 17:00			2027-05-16 17:00	160
+%R	10123	C010	GPS.500.PIP	A2230	Area 500 Export - Piping - Install spools (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-04-06 17:00	2027-08-01 17:00			2027-08-01 17:00	0
+%R	10124	C010	GPS.500.PIP	A2240	Area 500 Export - Piping - Hydrotest	TT_Task	TK_NotStart	0.0	2027-05-01 17:00	2027-06-20 17:00			2027-06-20 17:00	160
+%R	10125	C010	GPS.500.PIP	A2250	Area 500 Export - Piping - Reinstate and box up (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-07-15 17:00	2027-09-03 17:00			2027-09-03 17:00	160
+%R	10126	C010	GPS.500.PIP	A2260	Area 500 Export - Piping - Reinstate and box up (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-08-15 17:00	2027-11-10 17:00			2027-11-10 17:00	0
+%R	10127	C010	GPS.600.PIP	A2270	Area 600 Control Building - Piping - Fabricate spools	TT_Task	TK_NotStart	0.0	2027-01-14 17:00	2027-05-11 17:00			2027-05-11 17:00	240
+%R	10128	C010	GPS.600.PIP	A2280	Area 600 Control Building - Piping - Install spools (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-03-30 17:00	2027-06-21 17:00			2027-06-21 17:00	160
+%R	10129	C010	GPS.600.PIP	A2290	Area 600 Control Building - Piping - Install spools (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-04-24 17:00	2027-08-07 17:00			2027-08-07 17:00	0
+%R	10130	C010	GPS.600.PIP	A2300	Area 600 Control Building - Piping - Install spools (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-05-19 17:00	2027-09-03 17:00			2027-09-03 17:00	0
+%R	10131	C010	GPS.600.PIP	A2310	Area 600 Control Building - Piping - Hydrotest	TT_Task	TK_NotStart	0.0	2027-06-13 17:00	2027-09-19 17:00			2027-09-19 17:00	80
+%R	10132	C010	GPS.600.PIP	A2320	Area 600 Control Building - Piping - Reinstate and box up (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-08-15 17:00	2027-11-02 17:00			2027-11-02 17:00	80
+%R	10133	C010	GPS.600.PIP	A2330	Area 600 Control Building - Piping - Reinstate and box up (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-08-15 17:00	2027-09-28 17:00			2027-09-28 17:00	80
+%R	10134	C010	GPS.600.PIP	A2340	Area 600 Control Building - Piping - Reinstate and box up (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-08-15 17:00	2027-12-09 17:00			2027-12-09 17:00	0
+%R	10135	C010	GPS.100.ELE	A2350	Area 100 Inlet - Electrical - Install cable tray	TT_Task	TK_Complete	100.0	2026-09-08 17:00	2026-11-19 17:00	2026-09-08 17:00	2026-11-19 17:00		400
+%R	10136	C010	GPS.100.ELE	A2360	Area 100 Inlet - Electrical - Pull cables (part 1 of 3)	TT_Task	TK_Active	41.4	2026-11-29 17:00	2027-02-12 17:00	2026-11-29 17:00		2027-02-12 17:00	160
+%R	10137	C010	GPS.100.ELE	A2370	Area 100 Inlet - Electrical - Pull cables (part 2 of 3)	TT_Task	TK_Active	10.8	2026-12-26 17:00	2027-02-09 17:00	2026-12-26 17:00		2027-02-09 17:00	40
+%R	10138	C010	GPS.100.ELE	A2380	Area 100 Inlet - Electrical - Pull cables (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-01-22 17:00	2027-03-08 17:00			2027-03-08 17:00	40
+%R	10139	C010	GPS.100.ELE	A2390	Area 100 Inlet - Electrical - Terminate and test	TT_Task	TK_NotStart	0.0	2027-02-18 17:00	2027-04-11 17:00			2027-04-11 17:00	400
+%R	10140	C010	GPS.200.ELE	A2400	Area 200 Process - Electrical - Install cable tray	TT_Task	TK_Active	77.4	2026-10-20 17:00	2027-01-21 17:00	2026-10-20 17:00		2027-01-21 17:00	0
+%R	10141	C010	GPS.200.ELE	A2410	Area 200 Process - Electrical - Pull cables	TT_Task	TK_NotStart	0.0	2027-01-10 17:00	2027-04-10 17:00			2027-04-10 17:00	0
+%R	10142	C010	GPS.200.ELE	A2420	Area 200 Process - Electrical - Terminate and test (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-04-02 17:00	2027-05-28 17:00			2027-05-28 17:00	0
+%R	10143	C010	GPS.200.ELE	A2430	Area 200 Process - Electrical - Terminate and test (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-04-29 17:00	2027-07-25 17:00			2027-07-25 17:00	80
+%R	10144	C010	GPS.200.ELE	A2440	Area 200 Process - Electrical - Terminate and test (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-05-27 17:00	2027-07-23 17:00			2027-07-23 17:00	240
+%R	10145	C010	GPS.300.ELE	A2450	Area 300 Utilities - Electrical - Install cable tray (part 1 of 2)	TT_Task	TK_Active	36.4	2026-12-02 17:00	2027-02-20 17:00	2026-12-02 17:00		2027-02-20 17:00	40
+%R	10146	C010	GPS.300.ELE	A2460	Area 300 Utilities - Electrical - Install cable tray (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-01-12 17:00	2027-03-24 17:00			2027-03-24 17:00	240
+%R	10147	C010	GPS.300.ELE	A2470	Area 300 Utilities - Electrical - Pull cables (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-02-22 17:00	2027-04-25 17:00			2027-04-25 17:00	0
+%R	10148	C010	GPS.300.ELE	A2480	Area 300 Utilities - Electrical - Pull cables (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-04-04 17:00	2027-05-18 17:00			2027-05-18 17:00	240
+%R	10149	C010	GPS.300.ELE	A2490	Area 300 Utilities - Electrical - Terminate and test (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-05-15 17:00	2027-07-20 17:00			2027-07-20 17:00	0
+%R	10150	C010	GPS.300.ELE	A2500	Area 300 Utilities - Electrical - Terminate and test (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-06-11 17:00	2027-09-03 17:00			2027-09-03 17:00	0
+%R	10151	C010	GPS.300.ELE	A2510	Area 300 Utilities - Electrical - Terminate and test (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-07-08 17:00	2027-10-06 17:00			2027-10-06 17:00	80
+%R	10152	C010	GPS.400.ELE	A2520	Area 400 Storage - Electrical - Install cable tray	TT_Task	TK_NotStart	0.0	2027-01-14 17:00	2027-04-11 17:00			2027-04-11 17:00	400
+%R	10153	C010	GPS.400.ELE	A2530	Area 400 Storage - Electrical - Pull cables (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-04-05 17:00	2027-06-19 17:00			2027-06-19 17:00	80
+%R	10154	C010	GPS.400.ELE	A2540	Area 400 Storage - Electrical - Pull cables (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-05-03 17:00	2027-08-08 17:00			2027-08-08 17:00	40
+%R	10155	C010	GPS.400.ELE	A2550	Area 400 Storage - Electrical - Pull cables (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-05-30 17:00	2027-08-27 17:00			2027-08-27 17:00	80
+%R	10156	C010	GPS.400.ELE	A2560	Area 400 Storage - Electrical - Terminate and test (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-06-26 17:00	2027-08-09 17:00			2027-08-09 17:00	40
+%R	10157	C010	GPS.400.ELE	A2570	Area 400 Storage - Electrical - Terminate and test (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-07-23 17:00	2027-11-09 17:00			2027-11-09 17:00	80
+%R	10158	C010	GPS.400.ELE	A2580	Area 400 Storage - Electrical - Terminate and test (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-08-20 17:00	2027-10-13 17:00			2027-10-13 17:00	0
+%R	10159	C010	GPS.500.ELE	A2590	Area 500 Export - Electrical - Install cable tray (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-02-25 17:00	2027-05-30 17:00			2027-05-30 17:00	0
+%R	10160	C010	GPS.500.ELE	A2600	Area 500 Export - Electrical - Install cable tray (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-03-24 17:00	2027-05-29 17:00			2027-05-29 17:00	40
+%R	10161	C010	GPS.500.ELE	A2610	Area 500 Export - Electrical - Install cable tray (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-04-21 17:00	2027-06-16 17:00			2027-06-16 17:00	0
+%R	10162	C010	GPS.500.ELE	A2620	Area 500 Export - Electrical - Pull cables	TT_Task	TK_NotStart	0.0	2027-05-18 17:00	2027-07-30 17:00			2027-07-30 17:00	400
+%R	10163	C010	GPS.500.ELE	A2630	Area 500 Export - Electrical - Terminate and test (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-08-08 17:00	2027-11-28 17:00			2027-11-28 17:00	0
+%R	10164	C010	GPS.500.ELE	A2640	Area 500 Export - Electrical - Terminate and test (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-09-04 17:00	2027-12-15 17:00			2027-12-15 17:00	400
+%R	10165	C010	GPS.500.ELE	A2650	Area 500 Export - Electrical - Terminate and test (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-09-09 17:00	2027-12-12 17:00			2027-12-12 17:00	240
+%R	10166	C010	GPS.600.ELE	A2660	Area 600 Control Building - Electrical - Install cable tray (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-04-09 17:00	2027-07-06 17:00			2027-07-06 17:00	0
+%R	10167	C010	GPS.600.ELE	A2670	Area 600 Control Building - Electrical - Install cable tray (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-05-20 17:00	2027-08-24 17:00			2027-08-24 17:00	40
+%R	10168	C010	GPS.600.ELE	A2680	Area 600 Control Building - Electrical - Pull cables (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-06-30 17:00	2027-09-20 17:00			2027-09-20 17:00	80
+%R	10169	C010	GPS.600.ELE	A2690	Area 600 Control Building - Electrical - Pull cables (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-08-09 17:00	2027-11-03 17:00			2027-11-03 17:00	40
+%R	10170	C010	GPS.600.ELE	A2700	Area 600 Control Building - Electrical - Terminate and test (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-09-09 17:00	2027-11-20 17:00			2027-11-20 17:00	80
+%R	10171	C010	GPS.600.ELE	A2710	Area 600 Control Building - Electrical - Terminate and test (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-09-09 17:00	2028-01-03 17:00			2028-01-03 17:00	80
+%R	10172	C010	GPS.600.ELE	A2720	Area 600 Control Building - Electrical - Terminate and test (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-09-09 17:00	2027-11-15 17:00			2027-11-15 17:00	160
+%R	10173	C010	GPS.100.INS	A2730	Area 100 Inlet - Instrumentation - Install instruments	TT_Task	TK_Active	60.1	2026-12-02 17:00	2027-01-18 17:00	2026-12-02 17:00		2027-01-18 17:00	160
+%R	10174	C010	GPS.100.INS	A2740	Area 100 Inlet - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-02-12 17:00	2027-05-06 17:00			2027-05-06 17:00	80
+%R	10175	C010	GPS.100.INS	A2750	Area 100 Inlet - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-04-24 17:00	2027-07-22 17:00			2027-07-22 17:00	400
+%R	10176	C010	GPS.200.INS	A2760	Area 200 Process - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-01-14 17:00	2027-03-04 17:00			2027-03-04 17:00	240
+%R	10177	C010	GPS.200.INS	A2770	Area 200 Process - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-03-26 17:00	2027-05-10 17:00			2027-05-10 17:00	0
+%R	10178	C010	GPS.200.INS	A2780	Area 200 Process - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-06-06 17:00	2027-07-19 17:00			2027-07-19 17:00	160
+%R	10179	C010	GPS.300.INS	A2790	Area 300 Utilities - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-02-25 17:00	2027-04-26 17:00			2027-04-26 17:00	40
+%R	10180	C010	GPS.300.INS	A2800	Area 300 Utilities - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-05-08 17:00	2027-08-02 17:00			2027-08-02 17:00	0
+%R	10181	C010	GPS.300.INS	A2810	Area 300 Utilities - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-07-18 17:00	2027-11-09 17:00			2027-11-09 17:00	40
+%R	10182	C010	GPS.400.INS	A2820	Area 400 Storage - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-04-09 17:00	2027-08-03 17:00			2027-08-03 17:00	0
+%R	10183	C010	GPS.400.INS	A2830	Area 400 Storage - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-06-19 17:00	2027-09-02 17:00			2027-09-02 17:00	0
+%R	10184	C010	GPS.400.INS	A2840	Area 400 Storage - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-08-30 17:00	2027-10-21 17:00			2027-10-21 17:00	0
+%R	10185	C010	GPS.500.INS	A2850	Area 500 Export - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-05-21 17:00	2027-08-13 17:00			2027-08-13 17:00	240
+%R	10186	C010	GPS.500.INS	A2860	Area 500 Export - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-08-01 17:00	2027-11-04 17:00			2027-11-04 17:00	160
+%R	10187	C010	GPS.500.INS	A2870	Area 500 Export - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-10-12 17:00	2028-01-18 17:00			2028-01-18 17:00	0
+%R	10188	C010	GPS.600.INS	A2880	Area 600 Control Building - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-07-03 17:00	2027-08-31 17:00			2027-08-31 17:00	0
+%R	10189	C010	GPS.600.INS	A2890	Area 600 Control Building - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-09-13 17:00	2027-12-02 17:00			2027-12-02 17:00	160
+%R	10190	C010	GPS.600.INS	A2900	Area 600 Control Building - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-10-13 17:00	2028-01-14 17:00			2028-01-14 17:00	40
+%R	10191	C010	GPS.100.COM	A2910	Area 100 Inlet - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2027-09-01 17:00	2027-10-28 17:00			2027-10-28 17:00	40
+%R	10192	C010	GPS.100.COM	A2920	Area 100 Inlet - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2027-10-12 17:00	2028-01-19 17:00			2028-01-19 17:00	160
+%R	10193	C010	GPS.200.COM	A2930	Area 200 Process - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2027-10-13 17:00	2028-01-10 17:00			2028-01-10 17:00	160
+%R	10194	C010	GPS.200.COM	A2940	Area 200 Process - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2027-11-23 17:00	2028-01-10 17:00			2028-01-10 17:00	240
+%R	10195	C010	GPS.300.COM	A2950	Area 300 Utilities - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2027-11-25 17:00	2028-01-13 17:00			2028-01-13 17:00	160
+%R	10196	C010	GPS.300.COM	A2960	Area 300 Utilities - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2027-12-20 17:00	2028-02-01 17:00			2028-02-01 17:00	400
+%R	10197	C010	GPS.400.COM	A2970	Area 400 Storage - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2027-12-20 17:00	2028-02-01 17:00			2028-02-01 17:00	240
+%R	10198	C010	GPS.400.COM	A2980	Area 400 Storage - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2027-12-20 17:00	2028-02-01 17:00			2028-02-01 17:00	400
+%R	10199	C010	GPS.500.COM	A2990	Area 500 Export - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2027-12-20 17:00	2028-02-01 17:00			2028-02-01 17:00	40
+%R	10200	C010	GPS.500.COM	A3000	Area 500 Export - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2027-12-20 17:00	2028-02-01 17:00			2028-02-01 17:00	40
+%R	10201	C010	GPS.600.COM	A3010	Area 600 Control Building - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2027-12-20 17:00	2028-02-01 17:00			2028-02-01 17:00	240
+%R	10202	C010	GPS.600.COM	A3020	Area 600 Control Building - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2027-12-20 17:00	2028-02-01 17:00			2028-02-01 17:00	80
+%T	TASKRSRC
+%F	taskrsrc_id	task_id	proj_id	rsrc_id	target_cost	act_reg_cost
+%R	50000	10000	C010	PRELIMS	10187050.30	5440267.47
+%R	50001	10001	C010	PLANT	6313715.92	6313715.92
+%R	50002	10002	C010	SUBC	573128.21	569455.84
+%R	50003	10003	C010	PLANT	365017.28	365017.28
+%R	50004	10004	C010	LAB	381237.70	370318.65
+%R	50005	10005	C010	LAB	212439.28	206895.13
+%R	50006	10006	C010	LAB	311171.51	311171.51
+%R	50007	10007	C010	MATL	570495.01	570495.01
+%R	50008	10008	C010	LAB	340804.38	334800.96
+%R	50009	10009	C010	PLANT	230576.29	223826.20
+%R	50010	10010	C010	SUBC	328722.71	328722.71
+%R	50011	10011	C010	PLANT	267422.66	259015.15
+%R	50012	10012	C010	PLANT	526991.33	526991.33
+%R	50013	10013	C010	SUBC	279678.77	277483.07
+%R	50014	10014	C010	PLANT	561359.62	546209.78
+%R	50015	10015	C010	PLANT	357773.51	349481.77
+%R	50016	10016	C010	PLANT	244975.58	235514.97
+%R	50017	10017	C010	MATL	165812.39	163246.08
+%R	50018	10018	C010	PLANT	261733.18	258353.42
+%R	50019	10019	C010	SUBC	216197.00	207873.10
+%R	50020	10020	C010	LAB	252779.00	244435.69
+%R	50021	10021	C010	LAB	547069.35	536188.38
+%R	50022	10022	C010	MATL	366458.33	345331.52
+%R	50023	10023	C010	LAB	443168.14	421299.88
+%R	50024	10024	C010	LAB	206313.75	196187.62
+%R	50025	10025	C010	LAB	383517.39	374766.62
+%R	50026	10026	C010	PLANT	219523.93	208296.44
+%R	50027	10027	C010	PLANT	572642.02	571530.33
+%R	50028	10028	C010	MATL	530127.57	523297.10
+%R	50029	10029	C010	LAB	175166.23	164504.04
+%R	50030	10030	C010	SUBC	194436.96	184480.82
+%R	50031	10031	C010	PLANT	583201.88	552129.54
+%R	50032	10032	C010	MATL	525739.61	524959.93
+%R	50033	10033	C010	MATL	552395.39	531852.75
+%R	50034	10034	C010	PLANT	541531.10	533120.86
+%R	50035	10035	C010	MATL	332782.09	313546.51
+%R	50036	10036	C010	PLANT	376798.00	367665.18
+%R	50037	10037	C010	SUBC	288691.36	278786.35
+%R	50038	10038	C010	MATL	232622.39	228133.42
+%R	50039	10039	C010	PLANT	422996.01	403261.34
+%R	50040	10040	C010	SUBC	197788.11	196680.50
+%R	50041	10041	C010	MATL	520979.99	495142.90
+%R	50042	10042	C010	SUBC	537458.41	520557.59
+%R	50043	10043	C010	LAB	388774.87	388611.30
+%R	50044	10044	C010	MATL	272164.87	265684.39
+%R	50045	10045	C010	LAB	305370.22	298029.67
+%R	50046	10046	C010	SUBC	492671.49	471451.17
+%R	50047	10047	C010	SUBC	226889.79	215783.34
+%R	50048	10048	C010	SUBC	237954.84	235908.16
+%R	50049	10049	C010	SUBC	586284.96	569735.79
+%R	50050	10050	C010	MATL	350572.26	348585.37
+%R	50051	10051	C010	SUBC	510478.34	497917.24
+%R	50052	10052	C010	SUBC	343474.70	342367.07
+%R	50053	10053	C010	LAB	238308.45	238308.45
+%R	50054	10054	C010	SUBC	197590.89	196560.61
+%R	50055	10055	C010	PLANT	150011.92	142897.24
+%R	50056	10056	C010	LAB	326252.01	322230.03
+%R	50057	10057	C010	MATL	503783.22	496233.84
+%R	50058	10058	C010	SUBC	486261.69	467986.75
+%R	50059	10059	C010	SUBC	508960.84	508960.84
+%R	50060	10060	C010	LAB	305034.94	295008.02
+%R	50061	10061	C010	LAB	231761.13	224981.04
+%R	50062	10062	C010	LAB	351856.94	336748.04
+%R	50063	10063	C010	MATL	366243.33	351196.00
+%R	50064	10064	C010	MATL	324535.00	323534.26
+%R	50065	10065	C010	SUBC	300090.15	205844.02
+%R	50066	10066	C010	PLANT	545070.84	541017.92
+%R	50067	10067	C010	LAB	404857.41	329736.61
+%R	50068	10068	C010	PLANT	384018.80	216040.30
+%R	50069	10069	C010	LAB	464182.59	444088.28
+%R	50070	10070	C010	MATL	220717.12	86228.55
+%R	50071	10071	C010	LAB	329454.29	107112.44
+%R	50072	10072	C010	LAB	408528.28	397215.30
+%R	50073	10073	C010	LAB	281263.78	278256.01
+%R	50074	10074	C010	PLANT	433123.89	301389.82
+%R	50075	10075	C010	MATL	321006.09	314827.15
+%R	50076	10076	C010	PLANT	413017.30	396750.27
+%R	50077	10077	C010	LAB	281945.18	91921.12
+%R	50078	10078	C010	MATL	505989.92	505989.92
+%R	50079	10079	C010	LAB	397310.82	384495.72
+%R	50080	10080	C010	PLANT	332054.10	0.00
+%R	50081	10081	C010	PLANT	579327.99	466719.39
+%R	50082	10082	C010	SUBC	500457.66	12632.92
+%R	50083	10083	C010	SUBC	319221.96	0.00
+%R	50084	10084	C010	MATL	537174.48	226667.52
+%R	50085	10085	C010	MATL	556790.78	0.00
+%R	50086	10086	C010	MATL	485599.01	0.00
+%R	50087	10087	C010	SUBC	529349.65	0.00
+%R	50088	10088	C010	LAB	400929.76	0.00
+%R	50089	10089	C010	SUBC	307561.36	0.00
+%R	50090	10090	C010	SUBC	427362.79	419672.98
+%R	50091	10091	C010	MATL	198245.10	186848.47
+%R	50092	10092	C010	MATL	160299.67	160299.67
+%R	50093	10093	C010	LAB	371401.06	275035.58
+%R	50094	10094	C010	MATL	339789.41	323939.25
+%R	50095	10095	C010	LAB	172842.36	18931.45
+%R	50096	10096	C010	SUBC	414826.77	0.00
+%R	50097	10097	C010	SUBC	580271.78	0.00
+%R	50098	10098	C010	MATL	332900.35	327122.13
+%R	50099	10099	C010	PLANT	372147.47	247723.59
+%R	50100	10100	C010	PLANT	189280.54	114417.99
+%R	50101	10101	C010	MATL	556599.80	71045.64
+%R	50102	10102	C010	PLANT	425393.95	0.00
+%R	50103	10103	C010	MATL	575271.87	0.00
+%R	50104	10104	C010	PLANT	568937.91	0.00
+%R	50105	10105	C010	MATL	219390.49	0.00
+%R	50106	10106	C010	PLANT	224338.47	214796.12
+%R	50107	10107	C010	SUBC	514275.73	235734.53
+%R	50108	10108	C010	MATL	520582.41	106900.26
+%R	50109	10109	C010	MATL	482370.06	0.00
+%R	50110	10110	C010	LAB	232337.69	0.00
+%R	50111	10111	C010	MATL	502345.87	0.00
+%R	50112	10112	C010	SUBC	290973.70	177051.69
+%R	50113	10113	C010	LAB	513128.28	386878.86
+%R	50114	10114	C010	MATL	331606.52	0.00
+%R	50115	10115	C010	SUBC	453088.71	0.00
+%R	50116	10116	C010	SUBC	321036.76	0.00
+%R	50117	10117	C010	LAB	249981.36	0.00
+%R	50118	10118	C010	MATL	283315.26	0.00
+%R	50119	10119	C010	MATL	432282.23	0.00
+%R	50120	10120	C010	PLANT	545609.89	231302.66
+%R	50121	10121	C010	PLANT	254154.47	0.00
+%R	50122	10122	C010	SUBC	439140.99	0.00
+%R	50123	10123	C010	MATL	316554.11	0.00
+%R	50124	10124	C010	SUBC	426761.59	0.00
+%R	50125	10125	C010	LAB	545032.86	0.00
+%R	50126	10126	C010	PLANT	272971.05	0.00
+%R	50127	10127	C010	MATL	229509.97	0.00
+%R	50128	10128	C010	MATL	179531.67	0.00
+%R	50129	10129	C010	PLANT	154207.59	0.00
+%R	50130	10130	C010	SUBC	295480.24	0.00
+%R	50131	10131	C010	LAB	304244.69	0.00
+%R	50132	10132	C010	PLANT	492843.72	0.00
+%R	50133	10133	C010	LAB	202595.25	0.00
+%R	50134	10134	C010	SUBC	235246.19	0.00
+%R	50135	10135	C010	MATL	386316.95	386316.95
+%R	50136	10136	C010	PLANT	388991.97	160906.05
+%R	50137	10137	C010	SUBC	149006.59	16018.73
+%R	50138	10138	C010	LAB	170794.66	0.00
+%R	50139	10139	C010	LAB	316051.88	0.00
+%R	50140	10140	C010	SUBC	471313.33	365012.53
+%R	50141	10141	C010	MATL	543120.68	0.00
+%R	50142	10142	C010	LAB	455682.00	0.00
+%R	50143	10143	C010	PLANT	346838.74	0.00
+%R	50144	10144	C010	LAB	322017.71	0.00
+%R	50145	10145	C010	LAB	458582.22	166822.90
+%R	50146	10146	C010	SUBC	177636.02	0.00
+%R	50147	10147	C010	SUBC	186689.70	0.00
+%R	50148	10148	C010	MATL	268885.39	0.00
+%R	50149	10149	C010	MATL	483898.86	0.00
+%R	50150	10150	C010	PLANT	273166.80	0.00
+%R	50151	10151	C010	LAB	293782.77	0.00
+%R	50152	10152	C010	SUBC	425977.00	0.00
+%R	50153	10153	C010	LAB	370803.33	0.00
+%R	50154	10154	C010	SUBC	425396.03	0.00
+%R	50155	10155	C010	PLANT	430860.02	0.00
+%R	50156	10156	C010	LAB	211094.73	0.00
+%R	50157	10157	C010	MATL	516897.23	0.00
+%R	50158	10158	C010	MATL	158444.91	0.00
+%R	50159	10159	C010	LAB	197432.38	0.00
+%R	50160	10160	C010	PLANT	520924.31	0.00
+%R	50161	10161	C010	LAB	421889.46	0.00
+%R	50162	10162	C010	SUBC	214338.80	0.00
+%R	50163	10163	C010	LAB	509650.96	0.00
+%R	50164	10164	C010	SUBC	295566.20	0.00
+%R	50165	10165	C010	PLANT	214673.71	0.00
+%R	50166	10166	C010	LAB	219813.30	0.00
+%R	50167	10167	C010	LAB	578407.70	0.00
+%R	50168	10168	C010	MATL	434075.45	0.00
+%R	50169	10169	C010	MATL	565760.08	0.00
+%R	50170	10170	C010	MATL	538498.58	0.00
+%R	50171	10171	C010	LAB	471451.38	0.00
+%R	50172	10172	C010	LAB	170889.99	0.00
+%R	50173	10173	C010	LAB	293731.93	176560.08
+%R	50174	10174	C010	MATL	167897.31	0.00
+%R	50175	10175	C010	MATL	551124.33	0.00
+%R	50176	10176	C010	LAB	453539.93	0.00
+%R	50177	10177	C010	MATL	161212.40	0.00
+%R	50178	10178	C010	PLANT	307616.59	0.00
+%R	50179	10179	C010	MATL	356639.56	0.00
+%R	50180	10180	C010	SUBC	437744.84	0.00
+%R	50181	10181	C010	PLANT	191871.34	0.00
+%R	50182	10182	C010	MATL	502116.38	0.00
+%R	50183	10183	C010	MATL	224733.37	0.00
+%R	50184	10184	C010	MATL	423786.03	0.00
+%R	50185	10185	C010	LAB	384277.18	0.00
+%R	50186	10186	C010	MATL	474551.34	0.00
+%R	50187	10187	C010	MATL	515329.28	0.00
+%R	50188	10188	C010	SUBC	373378.96	0.00
+%R	50189	10189	C010	LAB	511520.27	0.00
+%R	50190	10190	C010	SUBC	493273.16	0.00
+%R	50191	10191	C010	LAB	176476.95	0.00
+%R	50192	10192	C010	MATL	214737.30	0.00
+%R	50193	10193	C010	PLANT	383282.18	0.00
+%R	50194	10194	C010	PLANT	320783.19	0.00
+%R	50195	10195	C010	PLANT	563858.27	0.00
+%R	50196	10196	C010	MATL	346350.84	0.00
+%R	50197	10197	C010	LAB	308004.91	0.00
+%R	50198	10198	C010	SUBC	255631.46	0.00
+%R	50199	10199	C010	SUBC	260542.77	0.00
+%R	50200	10200	C010	MATL	329884.94	0.00
+%R	50201	10201	C010	MATL	289795.33	0.00
+%R	50202	10202	C010	LAB	541349.38	0.00
+%E

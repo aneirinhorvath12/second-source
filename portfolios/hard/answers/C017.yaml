@@ -1,0 +1,26 @@
+# Answer key for C017. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C017
+scenario: t1_ok_after_query+t1_withdrawn+e2_front_loaded
+notes: "2 variations in TP; E2 e2_front_loaded; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    tag: t1_ok_after_query
+    why: "Initially queried (2026-08-01_letter_SRL-OLA-073.md) but accepted at £1,906,835 in 2026-09-10_letter_SRL-OLA-076.md, before the period end."
+  - check: T1
+    ref: VO-002
+    verdict: misstated
+    tag: t1_withdrawn
+    correction:
+      variations: {VO-002: 0}
+    why: "Accepted in 2026-08-11_letter_SRL-OLA-083.md, then ERI-023 withdrawn before work started (2026-09-13_letter_SRL-OLA-086.md); clause 14.5 means nothing is payable."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_front_loaded
+    why: "CPI looks poor because cost to date includes materials bought but not yet installed; the ETC already nets them off."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

@@ -1,0 +1,50 @@
+# Management's cost report and variation register for C011 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C011
+period_end: 2026-12-31
+contract_price: 83_225_580
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 36_267_394
+etc: 52_991_107  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 27_212_212
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 19_705_395
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 4_756_500
+    basis: "15 months to 14 April 2028 at £317,100 per month"
+  - item: "Risk and contingency"
+    amount: 1_317_000
+    basis: "Quantified risk register, P50"
+provision_booked: 347_000  # onerous contract provision
+commentary: "Cumulative CPI depressed by the closed-out pipe rack rework; remaining work at plan rates. Loss provision of £347,000 established at Q3 and reviewed at year end: considered adequate."
+variations:  # the variation register
+  - id: VO-001
+    description: "Enlarged foundations for the Employer's future compressor"
+    amount: 987_881
+    included_in_tp: true
+    reported_status: "Approved (commercial view)"
+  - id: VO-002
+    description: "Additional leak detection on the storage tanks"
+    amount: 595_226
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-003
+    description: "Upgrade of the HVAC in the control building to N+1"
+    amount: 647_754
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-004
+    description: "Temporary power supply extended beyond the agreed period"
+    amount: 1_289_630
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-005
+    description: "Upgraded fire and gas detection to the Employer's revised standard"
+    amount: 2_148_812
+    included_in_tp: true
+    reported_status: "Agreed"

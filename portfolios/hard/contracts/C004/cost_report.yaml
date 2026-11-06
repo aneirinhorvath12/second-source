@@ -1,0 +1,40 @@
+# Management's cost report and variation register for C004 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C004
+period_end: 2026-12-31
+contract_price: 56_866_490
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 31_435_481
+etc: 20_638_702  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 10_571_023
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 7_654_879
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 1_999_800
+    basis: "9 months to 29 September 2027 at £222,200 per month"
+  - item: "Risk and contingency"
+    amount: 413_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: ""
+variations:  # the variation register
+  - id: VO-001
+    description: "Extended scaffold hire for the Employer's inspection campaign"
+    amount: 869_407
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Relocation of the control room following the Employer's layout change"
+    amount: 1_696_356
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-003
+    description: "Extra drainage to the laydown area after the Employer's change of use"
+    amount: 234_427
+    included_in_tp: true
+    reported_status: "Approved"

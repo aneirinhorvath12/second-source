@@ -1,0 +1,10 @@
+# Contract terms for C005: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C005
+name: "Tarrow Estuary Jetty"
+customer: "Hexley Chemicals"
+contract_price: 109_091_730
+start_date: 2025-08-21
+completion_date: 2028-12-05
+ld_rate_per_day: 55_400
+ld_cap: 5_455_000

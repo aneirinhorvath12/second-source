@@ -1,0 +1,38 @@
+# Answer key for C010. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C010
+scenario: t1_withdrawn+t1_rejected_oblique+t1_no_response
+notes: "3 variations in TP; E2 e2_routine; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_rejected_oblique
+    correction:
+      variations: {VO-001: 0}
+    why: "2026-07-23_letter_BIH-GPS-168.md says the work is Contractor's design under clause 2.3 and no adjustment is due: a rejection, though it never says so."
+  - check: T1
+    ref: VO-002
+    verdict: misstated
+    tag: t1_withdrawn
+    correction:
+      variations: {VO-002: 0}
+    why: "Accepted in 2026-08-28_letter_BIH-GPS-163.md, then ERI-022 withdrawn before work started (2026-09-28_letter_BIH-GPS-166.md); clause 14.5 means nothing is payable."
+  - check: T1
+    ref: VO-003
+    verdict: insufficient_evidence
+    tag: t1_no_response
+    correction:
+      variations: {VO-003: 0}
+    range:
+      low:
+        variations: {VO-003: 0}
+      high: {}  # as reported
+    request: "The ER's written acceptance of quotation BRK/GPS/Q/040"
+    why: "Quotation submitted; minutes show it is still awaited; no acceptance anywhere."
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

@@ -1,0 +1,40 @@
+# Management's cost report and variation register for C012 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C012
+period_end: 2026-12-31
+contract_price: 89_067_040
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 45_446_702
+etc: 41_428_421  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 20_729_792
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 15_011_229
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 4_469_400
+    basis: "18 months to 14 July 2028 at £248,300 per month"
+  - item: "Risk and contingency"
+    amount: 1_218_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: "Programme under pressure from steelwork resequencing; ETC reviewed."
+variations:  # the variation register
+  - id: VO-001
+    description: "Extra drainage to the laydown area after the Employer's change of use"
+    amount: 2_300_124
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-002
+    description: "Additional sampling points and analyser house"
+    amount: 784_736
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-003
+    description: "Enlarged foundations for the Employer's future compressor"
+    amount: 1_808_284
+    included_in_tp: true
+    reported_status: "Approved (commercial view)"

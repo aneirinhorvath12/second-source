@@ -1,0 +1,46 @@
+# Answer key for C020. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C020
+scenario: t1_no_response+t1_ok_customer_ref+t1_oral_instruction+e2_reflected+m1_stale
+notes: "4 variations in TP; E2 e2_reflected; M1 m1_stale."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: judgement_call
+    tag: t1_oral_instruction
+    range:
+      low:
+        variations: {VO-001: 1_767_000}
+      high: {}  # as reported
+    why: "Oral instruction confirmed in 2026-07-31_letter_BRK-WEP-L-0201.md with no dissent, so effective under clause 3.3; price unagreed, Employer's QS indicates about £1,767,000."
+  - check: T1
+    ref: VO-002
+    verdict: insufficient_evidence
+    tag: t1_no_response
+    correction:
+      variations: {VO-002: 0}
+    range:
+      low:
+        variations: {VO-002: 0}
+      high: {}  # as reported
+    request: "The ER's written acceptance of quotation BRK/WEP/Q/026"
+    why: "Quotation submitted; minutes show it is still awaited; no acceptance anywhere."
+  - check: T1
+    ref: VO-003
+    verdict: supported
+    tag: t1_ok_customer_ref
+    why: "2026-09-30_letter_SRL-WEP-155.md accepts ERI-014 at £2,187,315; 2026-09-09_letter_BRK-WEP-L-0199.md links ERI-014 to VO-003."
+  - check: T1
+    ref: VO-004
+    verdict: supported
+    why: "Accepted at £1,601,465 in 2026-10-22_letter_SRL-WEP-149.md."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_reflected
+    why: "Poor CPI, already reflected in a bottom-up reforecast."
+  - check: M1
+    ref: PROVISION
+    verdict: misstated
+    tag: m1_stale
+    why: "Provision £1,175,000 is the Q3 figure; on year-end numbers £2,848,920 is required."

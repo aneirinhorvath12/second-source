@@ -1,0 +1,45 @@
+# Management's cost report and variation register for C019 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C019
+period_end: 2026-12-31
+contract_price: 116_411_990
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 76_323_491
+etc: 33_310_882  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 16_511_082
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 11_956_300
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 4_119_500
+    basis: "11 months to 11 December 2027 at £374,500 per month"
+  - item: "Risk and contingency"
+    amount: 724_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: "ETC unchanged from Q3; project broadly on budget."
+variations:  # the variation register
+  - id: VO-001
+    description: "Additional CCTV and access control at the perimeter"
+    amount: 3_353_999
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Extra civil works for ground conditions at the north pad"
+    amount: 2_446_970
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-003
+    description: "Extended scaffold hire for the Employer's inspection campaign"
+    amount: 1_771_436
+    included_in_tp: true
+    reported_status: "Approved (commercial view)"
+  - id: VO-004
+    description: "Additional pipe supports required by the Employer's revised stress analysis"
+    amount: 769_666
+    included_in_tp: false
+    reported_status: "Under review"

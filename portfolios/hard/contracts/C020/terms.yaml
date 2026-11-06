@@ -1,0 +1,10 @@
+# Contract terms for C020: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C020
+name: "Weybury Effluent Plant"
+customer: "Sorrel Renewables"
+contract_price: 147_261_360
+start_date: 2025-04-25
+completion_date: 2028-06-18
+ld_rate_per_day: 107_400
+ld_cap: 7_363_000

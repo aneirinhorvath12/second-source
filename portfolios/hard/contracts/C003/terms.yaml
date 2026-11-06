@@ -1,0 +1,10 @@
+# Contract terms for C003: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C003
+name: "Kessock Substation"
+customer: "Hexley Chemicals"
+contract_price: 57_125_220
+start_date: 2025-12-11
+completion_date: 2028-11-22
+ld_rate_per_day: 33_800
+ld_cap: 5_713_000

@@ -1,0 +1,44 @@
+# Answer key for C015. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C015
+scenario: t1_partial+t1_value_disputed+t1_no_response+e2_reflected+m1_no_provision
+notes: "3 variations in TP; E2 e2_reflected; M1 m1_no_provision."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_partial
+    correction:
+      variations: {VO-001: 987_600}
+    why: "2026-07-25_letter_TPC-LCS-108.md accepts £987,600 of £1,811,169; the register carries the full sum."
+  - check: T1
+    ref: VO-002
+    verdict: insufficient_evidence
+    tag: t1_no_response
+    correction:
+      variations: {VO-002: 0}
+    range:
+      low:
+        variations: {VO-002: 0}
+      high: {}  # as reported
+    request: "The ER's written acceptance of quotation BRK/LCS/Q/023"
+    why: "Quotation submitted; minutes show it is still awaited; no acceptance anywhere."
+  - check: T1
+    ref: VO-003
+    verdict: judgement_call
+    tag: t1_value_disputed
+    range:
+      low:
+        variations: {VO-003: 404_600}
+      high: {}  # as reported
+    why: "Scope agreed (2026-09-26_letter_TPC-LCS-112.md) but value disputed: £404,600 offered vs £730,641 claimed; an estimate subject to the constraint."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_reflected
+    why: "Poor CPI, already reflected in a bottom-up reforecast."
+  - check: M1
+    ref: PROVISION
+    verdict: misstated
+    tag: m1_no_provision
+    why: "Management's own EAC exceeds TP, no provision booked; an unsubmitted claim is not in TP and can't offset it."

@@ -1,0 +1,10 @@
+# Contract terms for C004: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C004
+name: "Arden Valley Biomass Plant"
+customer: "Tamsin Petrochemicals"
+contract_price: 56_866_490
+start_date: 2025-10-29
+completion_date: 2028-01-08
+ld_rate_per_day: 34_100
+ld_cap: 5_687_000

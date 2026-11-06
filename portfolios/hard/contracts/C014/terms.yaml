@@ -1,0 +1,10 @@
+# Contract terms for C014: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C014
+name: "Dunmere Tank Farm"
+customer: "Sorrel Renewables"
+contract_price: 39_421_850
+start_date: 2025-04-15
+completion_date: 2028-05-18
+ld_rate_per_day: 17_200
+ld_cap: 1_971_000

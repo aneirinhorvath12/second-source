@@ -1,0 +1,34 @@
+# Answer key for C016. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C016
+scenario: t1_wrong_authority+t1_post_period+e2_unbooked_claim
+notes: "3 variations in TP; E2 e2_unbooked_claim; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_wrong_authority
+    correction:
+      variations: {VO-001: 0}
+    why: "Only approval is from the Clerk of Works (2026-07-24_email_2906.md), who has no authority (clause 3.2); the ER disowned it at the progress meeting."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    why: "Accepted at £1,838,419 in 2026-10-19_letter_EMU-BFS-072.md."
+  - check: T1
+    ref: VO-003
+    verdict: misstated
+    tag: t1_post_period
+    correction:
+      variations: {VO-003: 0}
+    why: "2027-01-22_letter_EMU-BFS-076.md, after the period end, rejects it based on the 10 December 2026 inspection: evidence of conditions at the period end (an adjusting event)."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_unbooked_claim
+    correction:
+      etc: 44_831_613
+    why: "Ashlar Scaffolding claim of £2,748,000; commercial manager expects to settle at £2,201,000, but nothing is in the ETC build-up."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

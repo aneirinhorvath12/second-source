@@ -1,0 +1,41 @@
+# Answer key for C013. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C013
+scenario: t1_oral_instruction+t1_partial+t1_ok_vat+e2_prelims_slip
+notes: "4 variations in TP; E2 e2_prelims_slip; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Accepted at £1,125,030 in 2026-08-03_letter_TPC-HPC-117.md."
+  - check: T1
+    ref: VO-003
+    verdict: misstated
+    tag: t1_partial
+    correction:
+      variations: {VO-003: 612_200}
+    why: "2026-09-25_letter_TPC-HPC-110.md accepts £612,200 of £1,198,063; the register carries the full sum."
+  - check: T1
+    ref: VO-004
+    verdict: supported
+    tag: t1_ok_vat
+    why: "2026-09-30_letter_TPC-HPC-113.md accepts £668,633 including VAT, which is £557,194 net (clause 4.2: contract sums exclude VAT)."
+  - check: T1
+    ref: VO-006
+    verdict: judgement_call
+    tag: t1_oral_instruction
+    range:
+      low:
+        variations: {VO-006: 573_000}
+      high: {}  # as reported
+    why: "Oral instruction confirmed in 2026-09-08_letter_BRK-HPC-L-0358.md with no dissent, so effective under clause 3.3; price unagreed, Employer's QS indicates about £573,000."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_prelims_slip
+    correction:
+      etc: 17_292_712
+    why: "ETC preliminaries run to 16 November 2027, but P6 forecasts finish on 16 February 2028: £465,300 of site overheads missing."
+  - check: M1
+    ref: PROVISION
+    verdict: supported
