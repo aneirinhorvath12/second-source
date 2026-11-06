@@ -1,0 +1,43 @@
+# Answer key for C011. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C011
+scenario: t1_value_disputed+t1_time_barred+t1_rejected_oblique+e2_one_off+m1_stale
+notes: "4 variations in TP; E2 e2_one_off; M1 m1_stale."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_time_barred
+    correction:
+      variations: {VO-001: 0}
+    why: "2026-10-09_letter_BRK-SCC-L-0357.md says Brackmoor knew on 26 June 2026 but notified 15 weeks later; clause 15.2 bars any adjustment."
+  - check: T1
+    ref: VO-002
+    verdict: judgement_call
+    tag: t1_value_disputed
+    range:
+      low:
+        variations: {VO-002: 314_900}
+      high: {}  # as reported
+    why: "Scope agreed (2026-07-13_letter_NVE-SCC-098.md) but value disputed: £314,900 offered vs £595,226 claimed; an estimate subject to the constraint."
+  - check: T1
+    ref: VO-004
+    verdict: misstated
+    tag: t1_rejected_oblique
+    correction:
+      variations: {VO-004: 0}
+    why: "2026-09-19_letter_NVE-SCC-102.md says the work is Contractor's design under clause 2.3 and no adjustment is due: a rejection, though it never says so."
+  - check: T1
+    ref: VO-005
+    verdict: supported
+    why: "Accepted at £2,148,812 in 2026-09-18_letter_NVE-SCC-104.md."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_one_off
+    why: "EVM looks poor, but the overrun was a documented one-off; productivity is back to plan."
+  - check: M1
+    ref: PROVISION
+    verdict: misstated
+    tag: m1_stale
+    why: "Provision £347,000 is the Q3 figure; on year-end numbers £600,433 is required."

@@ -40,6 +40,25 @@ def brief(cf: ContractFile, cand: Candidate) -> str:
     )
 
 
+def _cache_tail(messages: list[dict[str, Any]]) -> None:
+    """Move the one rolling cache breakpoint to the end of the conversation.
+
+    Each turn re-sends everything before it, so caching the prefix makes long
+    investigations roughly ten times cheaper without changing what the model sees.
+    """
+    for m in messages:
+        if isinstance(m["content"], list):
+            for b in m["content"]:
+                if isinstance(b, dict):
+                    b.pop("cache_control", None)
+    last = messages[-1]
+    if isinstance(last["content"], str):
+        last["content"] = [{"type": "text", "text": last["content"]}]
+    block = last["content"][-1]
+    if isinstance(block, dict):
+        block["cache_control"] = {"type": "ephemeral"}
+
+
 def investigate(cf: ContractFile, cand: Candidate, client: Any = None,
                 model: str = DEFAULT_MODEL, max_turns: int = MAX_TURNS) -> Finding:
     client = client or _client()
@@ -51,6 +70,7 @@ def investigate(cf: ContractFile, cand: Candidate, client: Any = None,
     messages: list[dict[str, Any]] = [{"role": "user", "content": brief(cf, cand)}]
 
     for _ in range(max_turns):
+        _cache_tail(messages)
         resp = client.messages.create(model=model, max_tokens=2048, system=system,
                                       tools=DEFINITIONS, messages=messages)
         USAGE.add(model, resp.usage)

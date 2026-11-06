@@ -1,0 +1,32 @@
+# Answer key for C019. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C019
+scenario: t1_ok_customer_ref+t1_rejected_oblique+e2_smoothing
+notes: "3 variations in TP; E2 e2_smoothing; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    tag: t1_ok_customer_ref
+    why: "2026-09-05_letter_EMU-SCS-096.md accepts ERI-020 at £3,353,999; 2026-08-02_letter_BRK-SCS-L-0415.md links ERI-020 to VO-001."
+  - check: T1
+    ref: VO-002
+    verdict: misstated
+    tag: t1_rejected_oblique
+    correction:
+      variations: {VO-002: 0}
+    why: "2026-08-31_letter_EMU-SCS-098.md says the work is Contractor's design under clause 2.3 and no adjustment is due: a rejection, though it never says so."
+  - check: T1
+    ref: VO-003
+    verdict: supported
+    why: "Accepted at £1,771,436 in 2026-09-20_letter_EMU-SCS-097.md."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_smoothing
+    correction:
+      etc: 35_531_882
+    why: "The site's re-forecast is £2,221,000 higher, but the FD held the ETC at the Q3 figure."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

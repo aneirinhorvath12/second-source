@@ -1,0 +1,33 @@
+# Answer key for C007. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C007
+scenario: t1_post_period+t1_ok_customer_ref+t1_ok_after_query
+notes: "4 variations in TP; E2 e2_routine; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    tag: t1_ok_after_query
+    why: "Initially queried (2026-07-09_letter_SRL-CPD-082.md) but accepted at £1,982,043 in 2026-08-09_letter_SRL-CPD-083.md, before the period end."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    tag: t1_ok_customer_ref
+    why: "2026-08-06_letter_SRL-CPD-081.md accepts ERI-027 at £902,819; 2026-07-16_letter_BRK-CPD-L-0356.md links ERI-027 to VO-002."
+  - check: T1
+    ref: VO-004
+    verdict: supported
+    why: "Accepted at £774,787 in 2026-10-20_letter_SRL-CPD-076.md."
+  - check: T1
+    ref: VO-006
+    verdict: misstated
+    tag: t1_post_period
+    correction:
+      variations: {VO-006: 0}
+    why: "2027-01-18_letter_SRL-CPD-074.md, after the period end, rejects it based on the 08 December 2026 inspection: evidence of conditions at the period end (an adjusting event)."
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

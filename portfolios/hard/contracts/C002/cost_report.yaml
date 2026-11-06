@@ -1,0 +1,60 @@
+# Management's cost report and variation register for C002 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C002
+period_end: 2026-12-31
+contract_price: 154_064_630
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 50_591_814
+etc: 90_367_767  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 45_663_207
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 33_066_460
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 9_641_100
+    basis: "21 months to 02 October 2028 at £459,100 per month"
+  - item: "Risk and contingency"
+    amount: 1_997_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: "Programme under pressure from steelwork resequencing; ETC reviewed."
+variations:  # the variation register
+  - id: VO-001
+    description: "Removal of asbestos-containing lagging found in the existing pipe rack"
+    amount: 1_050_249
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Additional instrumentation loops added at design freeze 2"
+    amount: 1_400_910
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-003
+    description: "Additional leak detection on the storage tanks"
+    amount: 1_978_197
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-004
+    description: "Extra noise attenuation enclosures for the compressors"
+    amount: 2_122_478
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-005
+    description: "Extended scaffold hire for the Employer's inspection campaign"
+    amount: 769_153
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-006
+    description: "Extra piling at grid line C following the revised loading"
+    amount: 924_388
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-007
+    description: "Upgraded fire and gas detection to the Employer's revised standard"
+    amount: 3_163_224
+    included_in_tp: true
+    reported_status: "Agreed"

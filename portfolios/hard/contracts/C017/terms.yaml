@@ -1,0 +1,10 @@
+# Contract terms for C017: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C017
+name: "Ovington LNG Loading Arm"
+customer: "Sorrel Renewables"
+contract_price: 95_467_830
+start_date: 2025-08-24
+completion_date: 2028-10-14
+ld_rate_per_day: 40_000
+ld_cap: 4_773_000

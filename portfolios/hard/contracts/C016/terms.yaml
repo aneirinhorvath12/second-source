@@ -1,0 +1,10 @@
+# Contract terms for C016: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C016
+name: "Brenfield Flare System"
+customer: "Eastmarch Utilities"
+contract_price: 73_805_570
+start_date: 2025-11-10
+completion_date: 2028-07-10
+ld_rate_per_day: 24_600
+ld_cap: 7_381_000

@@ -14,6 +14,16 @@ The aim of the weekend: one honest, specific result. *"A frontier model with the
 - [x] Eval harness: catch rate, false alarms, under/over-escalation, £ caught, quantification error, range coverage
 - [x] MCP server, CI
 - [x] Portfolio committed as editable files, with answer keys in domain terms and a `check` command
+- [x] Hard portfolio: 20 contracts at ~130k tokens, 16 T1 stories, 11 E2, 4 M1; key documents drafted from validated fact sheets
+- [x] Pilot runs: B0 88% verdict accuracy on 14 hard contracts (95% on dev); rules collapse to 51%
+
+## Next
+
+- [ ] Finish the B0 run (6 contracts left) and run the agent on all 20 (roughly $0.25 per contract with caching, at third-party list prices)
+- [ ] Decide on the E2 trigger blind spot: ETC problems that don't show in earned value (prelims vs P6 finish, unbooked claims, smoothing) are never investigated. Always investigate E2, or add triggers for them?
+- [ ] Read B0's and the agent's transcripts on the cases they miss; are the misses model failures or unfair cases?
+- [ ] Review the hard answer keys as an auditor: do you agree with every verdict? (especially time bars, value disputes, oral instructions)
+- [ ] Harder still: a variant whose files exceed the context window (whole-project diaries and minutes, monthly P6 updates), where one-prompt can't read everything and retrieval matters
 
 ## Saturday
 

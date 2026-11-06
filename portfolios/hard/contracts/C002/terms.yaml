@@ -1,0 +1,10 @@
+# Contract terms for C002: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C002
+name: "Northmoor Water Treatment Upgrade"
+customer: "Norvale Energy plc"
+contract_price: 154_064_630
+start_date: 2025-11-02
+completion_date: 2029-04-16
+ld_rate_per_day: 121_800
+ld_cap: 15_406_000

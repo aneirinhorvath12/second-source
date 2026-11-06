@@ -1,0 +1,29 @@
+# Answer key for C008. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C008
+scenario: t1_ok_vat+t1_ok_vat+t1_ok_after_query+e2_front_loaded
+notes: "3 variations in TP; E2 e2_front_loaded; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    tag: t1_ok_vat
+    why: "2026-07-31_letter_HXC-AFP-092.md accepts £322,943 including VAT, which is £269,119 net (clause 4.2: contract sums exclude VAT)."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    tag: t1_ok_vat
+    why: "2026-08-28_letter_HXC-AFP-095.md accepts £600,694 including VAT, which is £500,578 net (clause 4.2: contract sums exclude VAT)."
+  - check: T1
+    ref: VO-003
+    verdict: supported
+    tag: t1_ok_after_query
+    why: "Initially queried (2026-08-29_letter_HXC-AFP-098.md) but accepted at £1,013,038 in 2026-10-03_letter_HXC-AFP-099.md, before the period end."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_front_loaded
+    why: "CPI looks poor because cost to date includes materials bought but not yet installed; the ETC already nets them off."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

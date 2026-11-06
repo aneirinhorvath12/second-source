@@ -1,0 +1,40 @@
+# Management's cost report and variation register for C017 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C017
+period_end: 2026-12-31
+contract_price: 95_467_830
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 45_087_402
+etc: 39_447_558  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 19_402_136
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 14_049_822
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 4_845_600
+    basis: "18 months to 24 June 2028 at £269,200 per month"
+  - item: "Risk and contingency"
+    amount: 1_150_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: "Cost to date includes early procurement of materials held on site."
+variations:  # the variation register
+  - id: VO-001
+    description: "Extra civil works for ground conditions at the north pad"
+    amount: 1_906_835
+    included_in_tp: true
+    reported_status: "Approved (commercial view)"
+  - id: VO-002
+    description: "Additional instrumentation loops added at design freeze 2"
+    amount: 2_515_991
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-003
+    description: "Upgraded fire and gas detection to the Employer's revised standard"
+    amount: 883_564
+    included_in_tp: false
+    reported_status: "Under review"

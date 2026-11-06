@@ -1,0 +1,55 @@
+# Management's cost report and variation register for C007 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C007
+period_end: 2026-12-31
+contract_price: 68_717_420
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 28_242_555
+etc: 35_060_375  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 18_295_738
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 13_248_637
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 2_934_000
+    basis: "12 months to 27 December 2027 at £244,500 per month"
+  - item: "Risk and contingency"
+    amount: 582_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: "Project performing broadly in line with budget; ETC re-forecast monthly."
+variations:  # the variation register
+  - id: VO-001
+    description: "Temporary power supply extended beyond the agreed period"
+    amount: 1_982_043
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Removal of asbestos-containing lagging found in the existing pipe rack"
+    amount: 902_819
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-003
+    description: "Additional CCTV and access control at the perimeter"
+    amount: 964_386
+    included_in_tp: false
+    reported_status: "Under review"
+  - id: VO-004
+    description: "Extended scaffold hire for the Employer's inspection campaign"
+    amount: 774_787
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-005
+    description: "Diversion of the existing foul drain under the tank bund"
+    amount: 596_575
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-006
+    description: "Extra civil works for ground conditions at the north pad"
+    amount: 279_999
+    included_in_tp: true
+    reported_status: "Agreed"

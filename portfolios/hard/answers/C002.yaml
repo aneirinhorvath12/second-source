@@ -1,0 +1,49 @@
+# Answer key for C002. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C002
+scenario: t1_missing_attachment+t1_partial+t1_wrong_authority+t1_partial+e2_prelims_slip
+notes: "4 variations in TP; E2 e2_prelims_slip; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_wrong_authority
+    correction:
+      variations: {VO-001: 0}
+    why: "Only approval is from the Clerk of Works (2026-07-25_email_3886.md), who has no authority (clause 3.2); the ER disowned it at the progress meeting."
+  - check: T1
+    ref: VO-002
+    verdict: misstated
+    tag: t1_partial
+    correction:
+      variations: {VO-002: 920_300}
+    why: "2026-09-04_letter_NVE-NWT-168.md accepts £920,300 of £1,400,910; the register carries the full sum."
+  - check: T1
+    ref: VO-005
+    verdict: insufficient_evidence
+    tag: t1_missing_attachment
+    correction:
+      variations: {VO-005: 0}
+    range:
+      low:
+        variations: {VO-005: 0}
+      high: {}  # as reported
+    request: "Letter NVE/NWT/163 (the ER's response to BRK/NWT/Q/052)"
+    why: "The ER's response exists (2026-10-07_email_3885.md covers letter NVE/NWT/163) but the letter itself is not in the file."
+  - check: T1
+    ref: VO-007
+    verdict: misstated
+    tag: t1_partial
+    correction:
+      variations: {VO-007: 1_999_100}
+    why: "2026-10-11_letter_NVE-NWT-171.md accepts £1,999,100 of £3,163,224; the register carries the full sum."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_prelims_slip
+    correction:
+      etc: 91_745_067
+    why: "ETC preliminaries run to 02 October 2028, but P6 forecasts finish on 02 January 2029: £1,377,300 of site overheads missing."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

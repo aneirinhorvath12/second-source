@@ -1,0 +1,32 @@
+# Answer key for C004. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C004
+scenario: t1_post_period+t1_ok_grudging+e2_unbooked_claim
+notes: "3 variations in TP; E2 e2_unbooked_claim; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Accepted at £869,407 in 2026-08-14_letter_TPC-AVB-117.md."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    tag: t1_ok_grudging
+    why: "2026-10-15_letter_TPC-AVB-115.md rejects the extension of time but accepts the price £1,696,356."
+  - check: T1
+    ref: VO-003
+    verdict: misstated
+    tag: t1_post_period
+    correction:
+      variations: {VO-003: 0}
+    why: "2027-01-18_letter_TPC-AVB-109.md, after the period end, rejects it based on the 10 December 2026 inspection: evidence of conditions at the period end (an adjusting event)."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_unbooked_claim
+    correction:
+      etc: 21_198_702
+    why: "Ridgeway Civils claim of £913,000; commercial manager expects to settle at £560,000, but nothing is in the ETC build-up."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

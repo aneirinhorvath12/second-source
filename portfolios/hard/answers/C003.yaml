@@ -1,0 +1,31 @@
+# Answer key for C003. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C003
+scenario: t1_missing_attachment+t1_partial
+notes: "2 variations in TP; E2 e2_routine; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_partial
+    correction:
+      variations: {VO-001: 175_300}
+    why: "2026-08-23_letter_HXC-KSS-115.md accepts £175,300 of £272,084; the register carries the full sum."
+  - check: T1
+    ref: VO-002
+    verdict: insufficient_evidence
+    tag: t1_missing_attachment
+    correction:
+      variations: {VO-002: 0}
+    range:
+      low:
+        variations: {VO-002: 0}
+      high: {}  # as reported
+    request: "Letter HXC/KSS/110 (the ER's response to BRK/KSS/Q/015)"
+    why: "The ER's response exists (2026-09-17_email_2304.md covers letter HXC/KSS/110) but the letter itself is not in the file."
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

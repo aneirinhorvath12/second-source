@@ -1,0 +1,36 @@
+# Answer key for C006. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C006
+scenario: t1_wrong_authority+t1_ok_grudging+e2_one_off+m1_ok_provided
+notes: "4 variations in TP; E2 e2_one_off; M1 m1_ok_provided."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Accepted at £805,934 in 2026-08-06_letter_EMU-FHP-110.md."
+  - check: T1
+    ref: VO-002
+    verdict: misstated
+    tag: t1_wrong_authority
+    correction:
+      variations: {VO-002: 0}
+    why: "Only approval is from the Clerk of Works (2026-08-12_email_1565.md), who has no authority (clause 3.2); the ER disowned it at the progress meeting."
+  - check: T1
+    ref: VO-003
+    verdict: supported
+    why: "Accepted at £552,465 in 2026-09-20_letter_EMU-FHP-111.md."
+  - check: T1
+    ref: VO-004
+    verdict: supported
+    tag: t1_ok_grudging
+    why: "2026-10-14_letter_EMU-FHP-109.md rejects the extension of time but accepts the price £478,427."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_one_off
+    why: "EVM looks poor, but the overrun was a documented one-off; productivity is back to plan."
+  - check: M1
+    ref: PROVISION
+    verdict: supported
+    tag: m1_ok_provided
+    why: "Loss-making on management's own numbers, and the provision for the remaining loss is booked in full."

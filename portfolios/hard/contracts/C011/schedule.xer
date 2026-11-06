@@ -1,0 +1,431 @@
+ERMHDR	20.12	2026-12-31	Project	admin	second-source	dbxDatabaseNoName	Project Management	GBP
+%T	PROJECT
+%F	proj_id	proj_short_name	last_recalc_date	plan_start_date	plan_end_date	scd_end_date
+%R	C011	SCC-EPC	2026-12-31 17:00	2025-11-13 17:00	2028-04-14 17:00	2028-04-19 17:00
+%T	TASK
+%F	task_id	proj_id	wbs_id	task_code	task_name	task_type	status_code	phys_complete_pct	target_start_date	target_end_date	act_start_date	act_end_date	early_end_date	total_float_hr_cnt
+%R	10000	C011	SCC.PRE	A1000	Site establishment, preliminaries and supervision	TT_LOE	TK_Active	46.8	2025-11-13 17:00	2028-04-14 17:00	2025-11-13 17:00		2028-04-19 17:00	40
+%R	10001	C011	SCC.ENG	A1010	Detailed design and engineering	TT_Task	TK_Active	88.3	2025-11-13 17:00	2026-12-15 17:00	2025-11-13 17:00		2027-01-01 17:00	0
+%R	10002	C011	SCC.100.CIV	A1020	Area 100 Inlet - Civils - Excavate and blind (part 1 of 2)	TT_Task	TK_Active	88.2	2025-11-13 17:00	2026-02-26 17:00	2025-11-13 17:00		2027-01-01 17:00	400
+%R	10003	C011	SCC.100.CIV	A1030	Area 100 Inlet - Civils - Excavate and blind (part 2 of 2)	TT_Task	TK_Active	87.1	2025-12-10 17:00	2026-03-15 17:00	2025-12-10 17:00		2027-01-01 17:00	240
+%R	10004	C011	SCC.100.CIV	A1040	Area 100 Inlet - Civils - Pour foundations (part 1 of 2)	TT_Task	TK_Active	89.9	2026-01-06 17:00	2026-04-07 17:00	2026-01-06 17:00		2027-01-01 17:00	400
+%R	10005	C011	SCC.100.CIV	A1050	Area 100 Inlet - Civils - Pour foundations (part 2 of 2)	TT_Task	TK_Active	87.6	2026-02-02 17:00	2026-03-19 17:00	2026-02-02 17:00		2027-01-01 17:00	160
+%R	10006	C011	SCC.100.CIV	A1060	Area 100 Inlet - Civils - Backfill and compact	TT_Task	TK_Active	84.8	2026-02-28 17:00	2026-06-13 17:00	2026-02-28 17:00		2027-01-01 17:00	80
+%R	10007	C011	SCC.100.CIV	A1070	Area 100 Inlet - Civils - Install underground drainage	TT_Task	TK_Active	83.9	2026-04-23 17:00	2026-06-21 17:00	2026-04-23 17:00		2027-01-01 17:00	400
+%R	10008	C011	SCC.200.CIV	A1080	Area 200 Process - Civils - Excavate and blind (part 1 of 3)	TT_Task	TK_Active	86.0	2025-12-27 17:00	2026-03-28 17:00	2025-12-27 17:00		2027-01-01 17:00	160
+%R	10009	C011	SCC.200.CIV	A1090	Area 200 Process - Civils - Excavate and blind (part 2 of 3)	TT_Task	TK_Active	84.5	2026-01-14 17:00	2026-03-20 17:00	2026-01-14 17:00		2027-01-01 17:00	160
+%R	10010	C011	SCC.200.CIV	A1100	Area 200 Process - Civils - Excavate and blind (part 3 of 3)	TT_Task	TK_Active	84.4	2026-02-01 17:00	2026-03-20 17:00	2026-02-01 17:00		2027-01-01 17:00	80
+%R	10011	C011	SCC.200.CIV	A1110	Area 200 Process - Civils - Pour foundations	TT_Task	TK_Active	84.8	2026-02-19 17:00	2026-05-09 17:00	2026-02-19 17:00		2027-01-01 17:00	40
+%R	10012	C011	SCC.200.CIV	A1120	Area 200 Process - Civils - Backfill and compact (part 1 of 2)	TT_Task	TK_Active	86.8	2026-04-14 17:00	2026-06-13 17:00	2026-04-14 17:00		2027-01-01 17:00	40
+%R	10013	C011	SCC.200.CIV	A1130	Area 200 Process - Civils - Backfill and compact (part 2 of 2)	TT_Task	TK_Active	85.7	2026-05-10 17:00	2026-09-03 17:00	2026-05-10 17:00		2027-01-01 17:00	160
+%R	10014	C011	SCC.200.CIV	A1140	Area 200 Process - Civils - Install underground drainage	TT_Task	TK_Active	88.1	2026-06-06 17:00	2026-08-11 17:00	2026-06-06 17:00		2027-01-01 17:00	0
+%R	10015	C011	SCC.300.CIV	A1150	Area 300 Utilities - Civils - Excavate and blind (part 1 of 2)	TT_Task	TK_Active	87.8	2026-02-09 17:00	2026-06-02 17:00	2026-02-09 17:00		2027-01-01 17:00	240
+%R	10016	C011	SCC.300.CIV	A1160	Area 300 Utilities - Civils - Excavate and blind (part 2 of 2)	TT_Task	TK_Active	87.5	2026-03-08 17:00	2026-05-31 17:00	2026-03-08 17:00		2027-01-01 17:00	80
+%R	10017	C011	SCC.300.CIV	A1170	Area 300 Utilities - Civils - Pour foundations	TT_Task	TK_Active	83.5	2026-04-04 17:00	2026-06-19 17:00	2026-04-04 17:00		2027-01-01 17:00	240
+%R	10018	C011	SCC.300.CIV	A1180	Area 300 Utilities - Civils - Backfill and compact (part 1 of 3)	TT_Task	TK_Active	88.6	2026-05-28 17:00	2026-09-18 17:00	2026-05-28 17:00		2027-01-01 17:00	0
+%R	10019	C011	SCC.300.CIV	A1190	Area 300 Utilities - Civils - Backfill and compact (part 2 of 3)	TT_Task	TK_Active	89.0	2026-06-15 17:00	2026-08-05 17:00	2026-06-15 17:00		2027-01-01 17:00	240
+%R	10020	C011	SCC.300.CIV	A1200	Area 300 Utilities - Civils - Backfill and compact (part 3 of 3)	TT_Task	TK_Active	84.9	2026-07-02 17:00	2026-09-04 17:00	2026-07-02 17:00		2027-01-01 17:00	160
+%R	10021	C011	SCC.300.CIV	A1210	Area 300 Utilities - Civils - Install underground drainage (part 1 of 2)	TT_Task	TK_Active	84.7	2026-07-20 17:00	2026-09-03 17:00	2026-07-20 17:00		2027-01-01 17:00	240
+%R	10022	C011	SCC.300.CIV	A1220	Area 300 Utilities - Civils - Install underground drainage (part 2 of 2)	TT_Task	TK_Active	86.8	2026-08-16 17:00	2026-10-30 17:00	2026-08-16 17:00		2027-01-01 17:00	160
+%R	10023	C011	SCC.400.CIV	A1230	Area 400 Storage - Civils - Excavate and blind	TT_Task	TK_Active	89.4	2026-03-25 17:00	2026-05-25 17:00	2026-03-25 17:00		2027-01-01 17:00	240
+%R	10024	C011	SCC.400.CIV	A1240	Area 400 Storage - Civils - Pour foundations (part 1 of 3)	TT_Task	TK_Active	83.9	2026-05-18 17:00	2026-08-09 17:00	2026-05-18 17:00		2027-01-01 17:00	160
+%R	10025	C011	SCC.400.CIV	A1250	Area 400 Storage - Civils - Pour foundations (part 2 of 3)	TT_Task	TK_Active	87.8	2026-06-05 17:00	2026-08-13 17:00	2026-06-05 17:00		2027-01-01 17:00	80
+%R	10026	C011	SCC.400.CIV	A1260	Area 400 Storage - Civils - Pour foundations (part 3 of 3)	TT_Task	TK_Active	88.9	2026-06-23 17:00	2026-08-16 17:00	2026-06-23 17:00		2027-01-01 17:00	160
+%R	10027	C011	SCC.400.CIV	A1270	Area 400 Storage - Civils - Backfill and compact	TT_Task	TK_Active	87.0	2026-07-11 17:00	2026-10-30 17:00	2026-07-11 17:00		2027-01-01 17:00	240
+%R	10028	C011	SCC.400.CIV	A1280	Area 400 Storage - Civils - Install underground drainage (part 1 of 3)	TT_Task	TK_Active	89.7	2026-08-31 17:00	2026-11-16 17:00	2026-08-31 17:00		2027-01-01 17:00	0
+%R	10029	C011	SCC.400.CIV	A1290	Area 400 Storage - Civils - Install underground drainage (part 2 of 3)	TT_Task	TK_Active	83.7	2026-08-31 17:00	2026-12-24 17:00	2026-08-31 17:00		2027-01-01 17:00	0
+%R	10030	C011	SCC.400.CIV	A1300	Area 400 Storage - Civils - Install underground drainage (part 3 of 3)	TT_Task	TK_Active	86.2	2026-08-31 17:00	2026-12-16 17:00	2026-08-31 17:00		2027-01-01 17:00	400
+%R	10031	C011	SCC.500.CIV	A1310	Area 500 Export - Civils - Excavate and blind (part 1 of 2)	TT_Task	TK_Active	87.8	2026-05-09 17:00	2026-07-09 17:00	2026-05-09 17:00		2027-01-01 17:00	160
+%R	10032	C011	SCC.500.CIV	A1320	Area 500 Export - Civils - Excavate and blind (part 2 of 2)	TT_Task	TK_Active	89.0	2026-06-04 17:00	2026-08-03 17:00	2026-06-04 17:00		2027-01-01 17:00	40
+%R	10033	C011	SCC.500.CIV	A1330	Area 500 Export - Civils - Pour foundations	TT_Task	TK_Active	83.4	2026-07-01 17:00	2026-10-03 17:00	2026-07-01 17:00		2027-01-01 17:00	240
+%R	10034	C011	SCC.500.CIV	A1340	Area 500 Export - Civils - Backfill and compact (part 1 of 2)	TT_Task	TK_Active	86.3	2026-08-24 17:00	2026-11-26 17:00	2026-08-24 17:00		2027-01-01 17:00	0
+%R	10035	C011	SCC.500.CIV	A1350	Area 500 Export - Civils - Backfill and compact (part 2 of 2)	TT_Task	TK_Active	87.1	2026-08-31 17:00	2026-12-12 17:00	2026-08-31 17:00		2027-01-01 17:00	400
+%R	10036	C011	SCC.500.CIV	A1360	Area 500 Export - Civils - Install underground drainage (part 1 of 3)	TT_Task	TK_Active	84.1	2026-08-31 17:00	2026-11-19 17:00	2026-08-31 17:00		2027-01-01 17:00	40
+%R	10037	C011	SCC.500.CIV	A1370	Area 500 Export - Civils - Install underground drainage (part 2 of 3)	TT_Task	TK_Active	83.7	2026-08-31 17:00	2026-12-25 17:00	2026-08-31 17:00		2027-01-01 17:00	240
+%R	10038	C011	SCC.500.CIV	A1380	Area 500 Export - Civils - Install underground drainage (part 3 of 3)	TT_Task	TK_Active	89.4	2026-08-31 17:00	2026-12-16 17:00	2026-08-31 17:00		2027-01-01 17:00	40
+%R	10039	C011	SCC.600.CIV	A1390	Area 600 Control Building - Civils - Excavate and blind (part 1 of 3)	TT_Task	TK_Active	89.1	2026-06-22 17:00	2026-08-11 17:00	2026-06-22 17:00		2027-01-01 17:00	160
+%R	10040	C011	SCC.600.CIV	A1400	Area 600 Control Building - Civils - Excavate and blind (part 2 of 3)	TT_Task	TK_Active	89.0	2026-07-10 17:00	2026-09-10 17:00	2026-07-10 17:00		2027-01-01 17:00	240
+%R	10041	C011	SCC.600.CIV	A1410	Area 600 Control Building - Civils - Excavate and blind (part 3 of 3)	TT_Task	TK_Active	85.0	2026-07-28 17:00	2026-10-28 17:00	2026-07-28 17:00		2027-01-01 17:00	400
+%R	10042	C011	SCC.600.CIV	A1420	Area 600 Control Building - Civils - Pour foundations (part 1 of 2)	TT_Task	TK_Active	87.4	2026-08-14 17:00	2026-11-01 17:00	2026-08-14 17:00		2027-01-01 17:00	80
+%R	10043	C011	SCC.600.CIV	A1430	Area 600 Control Building - Civils - Pour foundations (part 2 of 2)	TT_Task	TK_Active	83.1	2026-08-31 17:00	2026-11-01 17:00	2026-08-31 17:00		2027-01-01 17:00	80
+%R	10044	C011	SCC.600.CIV	A1440	Area 600 Control Building - Civils - Backfill and compact (part 1 of 3)	TT_Task	TK_Active	86.4	2026-08-31 17:00	2026-11-30 17:00	2026-08-31 17:00		2027-01-01 17:00	160
+%R	10045	C011	SCC.600.CIV	A1450	Area 600 Control Building - Civils - Backfill and compact (part 2 of 3)	TT_Task	TK_Active	86.6	2026-08-31 17:00	2026-11-28 17:00	2026-08-31 17:00		2027-01-01 17:00	0
+%R	10046	C011	SCC.600.CIV	A1460	Area 600 Control Building - Civils - Backfill and compact (part 3 of 3)	TT_Task	TK_Active	85.5	2026-08-31 17:00	2026-12-20 17:00	2026-08-31 17:00		2027-01-01 17:00	40
+%R	10047	C011	SCC.600.CIV	A1470	Area 600 Control Building - Civils - Install underground drainage (part 1 of 2)	TT_Task	TK_Active	89.9	2026-08-31 17:00	2026-11-04 17:00	2026-08-31 17:00		2027-01-01 17:00	400
+%R	10048	C011	SCC.600.CIV	A1480	Area 600 Control Building - Civils - Install underground drainage (part 2 of 2)	TT_Task	TK_Active	83.5	2026-08-31 17:00	2026-11-01 17:00	2026-08-31 17:00		2027-01-01 17:00	160
+%R	10049	C011	SCC.100.STR	A1490	Area 100 Inlet - Structural - Erect primary steel	TT_Task	TK_Active	88.6	2026-03-25 17:00	2026-07-26 17:00	2026-03-25 17:00		2027-01-01 17:00	80
+%R	10050	C011	SCC.100.STR	A1500	Area 100 Inlet - Structural - Erect secondary steel	TT_Task	TK_Active	89.5	2026-06-04 17:00	2026-09-29 17:00	2026-06-04 17:00		2027-01-01 17:00	240
+%R	10051	C011	SCC.100.STR	A1510	Area 100 Inlet - Structural - Install grating and handrail	TT_Task	TK_Active	88.9	2026-08-14 17:00	2026-11-12 17:00	2026-08-14 17:00		2027-01-01 17:00	0
+%R	10052	C011	SCC.200.STR	A1520	Area 200 Process - Structural - Erect primary steel	TT_Task	TK_Active	83.3	2026-05-09 17:00	2026-08-28 17:00	2026-05-09 17:00		2027-01-01 17:00	80
+%R	10053	C011	SCC.200.STR	A1530	Area 200 Process - Structural - Erect secondary steel	TT_Task	TK_Active	89.7	2026-07-18 17:00	2026-10-17 17:00	2026-07-18 17:00		2027-01-01 17:00	0
+%R	10054	C011	SCC.200.STR	A1540	Area 200 Process - Structural - Install grating and handrail	TT_Task	TK_Active	76.1	2026-09-27 17:00	2027-01-10 17:00	2026-09-27 17:00		2027-01-11 17:00	80
+%R	10055	C011	SCC.300.STR	A1550	Area 300 Utilities - Structural - Erect primary steel	TT_Task	TK_Active	87.2	2026-06-22 17:00	2026-09-20 17:00	2026-06-22 17:00		2027-01-01 17:00	400
+%R	10056	C011	SCC.300.STR	A1560	Area 300 Utilities - Structural - Erect secondary steel	TT_Task	TK_Active	86.1	2026-08-31 17:00	2026-12-09 17:00	2026-08-31 17:00		2027-01-01 17:00	40
+%R	10057	C011	SCC.300.STR	A1570	Area 300 Utilities - Structural - Install grating and handrail	TT_Task	TK_Active	50.2	2026-11-10 17:00	2027-02-05 17:00	2026-11-10 17:00		2027-02-06 17:00	0
+%R	10058	C011	SCC.400.STR	A1580	Area 400 Storage - Structural - Erect primary steel	TT_Task	TK_Active	83.1	2026-08-05 17:00	2026-09-29 17:00	2026-08-05 17:00		2027-01-01 17:00	0
+%R	10059	C011	SCC.400.STR	A1590	Area 400 Storage - Structural - Erect secondary steel	TT_Task	TK_Active	84.0	2026-10-15 17:00	2026-12-24 17:00	2026-10-15 17:00		2027-01-01 17:00	0
+%R	10060	C011	SCC.400.STR	A1600	Area 400 Storage - Structural - Install grating and handrail	TT_Task	TK_Active	4.9	2026-12-24 17:00	2027-04-23 17:00	2026-12-24 17:00		2027-04-25 17:00	240
+%R	10061	C011	SCC.500.STR	A1610	Area 500 Export - Structural - Erect primary steel	TT_Task	TK_Active	86.9	2026-09-18 17:00	2026-12-16 17:00	2026-09-18 17:00		2027-01-01 17:00	0
+%R	10062	C011	SCC.500.STR	A1620	Area 500 Export - Structural - Erect secondary steel	TT_Task	TK_Active	33.5	2026-11-28 17:00	2027-02-20 17:00	2026-11-28 17:00		2027-02-21 17:00	0
+%R	10063	C011	SCC.500.STR	A1630	Area 500 Export - Structural - Install grating and handrail	TT_Task	TK_NotStart	0.0	2027-01-29 17:00	2027-05-03 17:00			2027-05-05 17:00	40
+%R	10064	C011	SCC.600.STR	A1640	Area 600 Control Building - Structural - Erect primary steel	TT_Task	TK_Active	52.8	2026-11-01 17:00	2027-02-06 17:00	2026-11-01 17:00		2027-02-07 17:00	0
+%R	10065	C011	SCC.600.STR	A1650	Area 600 Control Building - Structural - Erect secondary steel	TT_Task	TK_NotStart	0.0	2027-01-11 17:00	2027-04-29 17:00			2027-05-01 17:00	400
+%R	10066	C011	SCC.600.STR	A1660	Area 600 Control Building - Structural - Install grating and handrail	TT_Task	TK_NotStart	0.0	2027-01-29 17:00	2027-03-26 17:00			2027-03-28 17:00	0
+%R	10067	C011	SCC.100.MEC	A1670	Area 100 Inlet - Mechanical - Set equipment	TT_Task	TK_Active	89.8	2026-08-05 17:00	2026-10-25 17:00	2026-08-05 17:00		2027-01-01 17:00	40
+%R	10068	C011	SCC.100.MEC	A1680	Area 100 Inlet - Mechanical - Align rotating equipment	TT_Task	TK_Active	53.7	2026-10-15 17:00	2027-02-15 17:00	2026-10-15 17:00		2027-02-16 17:00	400
+%R	10069	C011	SCC.100.MEC	A1690	Area 100 Inlet - Mechanical - Install package skids	TT_Task	TK_Active	5.2	2026-12-24 17:00	2027-04-23 17:00	2026-12-24 17:00		2027-04-25 17:00	160
+%R	10070	C011	SCC.200.MEC	A1700	Area 200 Process - Mechanical - Set equipment	TT_Task	TK_Active	86.3	2026-09-18 17:00	2026-12-31 17:00	2026-09-18 17:00		2027-01-01 17:00	40
+%R	10071	C011	SCC.200.MEC	A1710	Area 200 Process - Mechanical - Align rotating equipment	TT_Task	TK_Active	43.4	2026-11-28 17:00	2027-02-04 17:00	2026-11-28 17:00		2027-02-05 17:00	0
+%R	10072	C011	SCC.200.MEC	A1720	Area 200 Process - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-02-06 17:00	2027-05-16 17:00			2027-05-18 17:00	80
+%R	10073	C011	SCC.300.MEC	A1730	Area 300 Utilities - Mechanical - Set equipment	TT_Task	TK_Active	72.6	2026-11-01 17:00	2027-01-14 17:00	2026-11-01 17:00		2027-01-15 17:00	160
+%R	10074	C011	SCC.300.MEC	A1740	Area 300 Utilities - Mechanical - Align rotating equipment	TT_Task	TK_NotStart	0.0	2027-01-11 17:00	2027-03-25 17:00			2027-03-27 17:00	40
+%R	10075	C011	SCC.300.MEC	A1750	Area 300 Utilities - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-03-22 17:00	2027-05-07 17:00			2027-05-09 17:00	240
+%R	10076	C011	SCC.400.MEC	A1760	Area 400 Storage - Mechanical - Set equipment	TT_Task	TK_Active	14.9	2026-12-15 17:00	2027-03-21 17:00	2026-12-15 17:00		2027-03-23 17:00	400
+%R	10077	C011	SCC.400.MEC	A1770	Area 400 Storage - Mechanical - Align rotating equipment	TT_Task	TK_NotStart	0.0	2027-02-24 17:00	2027-05-04 17:00			2027-05-06 17:00	400
+%R	10078	C011	SCC.400.MEC	A1780	Area 400 Storage - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-05-06 17:00	2027-09-01 17:00			2027-09-04 17:00	0
+%R	10079	C011	SCC.500.MEC	A1790	Area 500 Export - Mechanical - Set equipment	TT_Task	TK_NotStart	0.0	2027-01-29 17:00	2027-03-28 17:00			2027-03-30 17:00	0
+%R	10080	C011	SCC.500.MEC	A1800	Area 500 Export - Mechanical - Align rotating equipment	TT_Task	TK_NotStart	0.0	2027-04-09 17:00	2027-05-30 17:00			2027-06-01 17:00	160
+%R	10081	C011	SCC.500.MEC	A1810	Area 500 Export - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-06-10 17:00	2027-09-21 17:00			2027-09-24 17:00	400
+%R	10082	C011	SCC.600.MEC	A1820	Area 600 Control Building - Mechanical - Set equipment	TT_Task	TK_NotStart	0.0	2027-03-14 17:00	2027-06-05 17:00			2027-06-07 17:00	160
+%R	10083	C011	SCC.600.MEC	A1830	Area 600 Control Building - Mechanical - Align rotating equipment	TT_Task	TK_NotStart	0.0	2027-05-23 17:00	2027-07-08 17:00			2027-07-10 17:00	400
+%R	10084	C011	SCC.600.MEC	A1840	Area 600 Control Building - Mechanical - Install package skids	TT_Task	TK_NotStart	0.0	2027-06-10 17:00	2027-09-30 17:00			2027-10-03 17:00	40
+%R	10085	C011	SCC.100.PIP	A1850	Area 100 Inlet - Piping - Fabricate spools (part 1 of 3)	TT_Task	TK_Active	89.0	2026-08-05 17:00	2026-10-17 17:00	2026-08-05 17:00		2027-01-01 17:00	240
+%R	10086	C011	SCC.100.PIP	A1860	Area 100 Inlet - Piping - Fabricate spools (part 2 of 3)	TT_Task	TK_Active	86.2	2026-08-31 17:00	2026-12-18 17:00	2026-08-31 17:00		2027-01-01 17:00	0
+%R	10087	C011	SCC.100.PIP	A1870	Area 100 Inlet - Piping - Fabricate spools (part 3 of 3)	TT_Task	TK_Active	73.2	2026-09-26 17:00	2027-01-15 17:00	2026-09-26 17:00		2027-01-16 17:00	0
+%R	10088	C011	SCC.100.PIP	A1880	Area 100 Inlet - Piping - Install spools	TT_Task	TK_Active	76.6	2026-10-22 17:00	2027-01-09 17:00	2026-10-22 17:00		2027-01-10 17:00	240
+%R	10089	C011	SCC.100.PIP	A1890	Area 100 Inlet - Piping - Hydrotest (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-01-07 17:00	2027-03-15 17:00			2027-03-17 17:00	40
+%R	10090	C011	SCC.100.PIP	A1900	Area 100 Inlet - Piping - Hydrotest (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-02-02 17:00	2027-04-16 17:00			2027-04-18 17:00	40
+%R	10091	C011	SCC.100.PIP	A1910	Area 100 Inlet - Piping - Hydrotest (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-02-28 17:00	2027-05-31 17:00			2027-06-02 17:00	0
+%R	10092	C011	SCC.100.PIP	A1920	Area 100 Inlet - Piping - Reinstate and box up (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-03-26 17:00	2027-07-25 17:00			2027-07-27 17:00	160
+%R	10093	C011	SCC.100.PIP	A1930	Area 100 Inlet - Piping - Reinstate and box up (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-04-21 17:00	2027-07-09 17:00			2027-07-11 17:00	0
+%R	10094	C011	SCC.100.PIP	A1940	Area 100 Inlet - Piping - Reinstate and box up (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-05-17 17:00	2027-09-04 17:00			2027-09-07 17:00	240
+%R	10095	C011	SCC.200.PIP	A1950	Area 200 Process - Piping - Fabricate spools (part 1 of 3)	TT_Task	TK_Active	85.0	2026-09-18 17:00	2027-01-01 17:00	2026-09-18 17:00		2027-01-02 17:00	240
+%R	10096	C011	SCC.200.PIP	A1960	Area 200 Process - Piping - Fabricate spools (part 2 of 3)	TT_Task	TK_Active	75.7	2026-10-14 17:00	2027-01-14 17:00	2026-10-14 17:00		2027-01-15 17:00	400
+%R	10097	C011	SCC.200.PIP	A1970	Area 200 Process - Piping - Fabricate spools (part 3 of 3)	TT_Task	TK_Active	41.5	2026-11-09 17:00	2027-02-22 17:00	2026-11-09 17:00		2027-02-23 17:00	40
+%R	10098	C011	SCC.200.PIP	A1980	Area 200 Process - Piping - Install spools	TT_Task	TK_Active	27.3	2026-12-05 17:00	2027-02-25 17:00	2026-12-05 17:00		2027-02-26 17:00	160
+%R	10099	C011	SCC.200.PIP	A1990	Area 200 Process - Piping - Hydrotest (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-02-20 17:00	2027-06-01 17:00			2027-06-03 17:00	400
+%R	10100	C011	SCC.200.PIP	A2000	Area 200 Process - Piping - Hydrotest (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-03-31 17:00	2027-07-08 17:00			2027-07-10 17:00	400
+%R	10101	C011	SCC.200.PIP	A2010	Area 200 Process - Piping - Reinstate and box up (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-05-09 17:00	2027-08-04 17:00			2027-08-07 17:00	80
+%R	10102	C011	SCC.200.PIP	A2020	Area 200 Process - Piping - Reinstate and box up (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-06-04 17:00	2027-07-26 17:00			2027-07-28 17:00	40
+%R	10103	C011	SCC.200.PIP	A2030	Area 200 Process - Piping - Reinstate and box up (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-06-30 17:00	2027-09-10 17:00			2027-09-13 17:00	40
+%R	10104	C011	SCC.300.PIP	A2040	Area 300 Utilities - Piping - Fabricate spools (part 1 of 3)	TT_Task	TK_Active	61.9	2026-11-01 17:00	2027-01-27 17:00	2026-11-01 17:00		2027-01-28 17:00	0
+%R	10105	C011	SCC.300.PIP	A2050	Area 300 Utilities - Piping - Fabricate spools (part 2 of 3)	TT_Task	TK_Active	27.7	2026-11-27 17:00	2027-03-14 17:00	2026-11-27 17:00		2027-03-16 17:00	240
+%R	10106	C011	SCC.300.PIP	A2060	Area 300 Utilities - Piping - Fabricate spools (part 3 of 3)	TT_Task	TK_Active	6.1	2026-12-23 17:00	2027-04-18 17:00	2026-12-23 17:00		2027-04-20 17:00	240
+%R	10107	C011	SCC.300.PIP	A2070	Area 300 Utilities - Piping - Install spools (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-01-18 17:00	2027-03-25 17:00			2027-03-27 17:00	160
+%R	10108	C011	SCC.300.PIP	A2080	Area 300 Utilities - Piping - Install spools (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-02-13 17:00	2027-05-23 17:00			2027-05-25 17:00	400
+%R	10109	C011	SCC.300.PIP	A2090	Area 300 Utilities - Piping - Install spools (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-03-11 17:00	2027-05-31 17:00			2027-06-02 17:00	0
+%R	10110	C011	SCC.300.PIP	A2100	Area 300 Utilities - Piping - Hydrotest (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-04-06 17:00	2027-05-22 17:00			2027-05-24 17:00	0
+%R	10111	C011	SCC.300.PIP	A2110	Area 300 Utilities - Piping - Hydrotest (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-05-02 17:00	2027-06-15 17:00			2027-06-17 17:00	240
+%R	10112	C011	SCC.300.PIP	A2120	Area 300 Utilities - Piping - Hydrotest (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-05-27 17:00	2027-08-03 17:00			2027-08-06 17:00	0
+%R	10113	C011	SCC.300.PIP	A2130	Area 300 Utilities - Piping - Reinstate and box up (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-06-22 17:00	2027-08-30 17:00			2027-09-02 17:00	80
+%R	10114	C011	SCC.300.PIP	A2140	Area 300 Utilities - Piping - Reinstate and box up (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-07-31 17:00	2027-10-05 17:00			2027-10-08 17:00	40
+%R	10115	C011	SCC.400.PIP	A2150	Area 400 Storage - Piping - Fabricate spools	TT_Task	TK_Active	16.4	2026-12-15 17:00	2027-03-06 17:00	2026-12-15 17:00		2027-03-07 17:00	240
+%R	10116	C011	SCC.400.PIP	A2160	Area 400 Storage - Piping - Install spools (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-03-03 17:00	2027-05-29 17:00			2027-05-31 17:00	80
+%R	10117	C011	SCC.400.PIP	A2170	Area 400 Storage - Piping - Install spools (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-04-11 17:00	2027-08-03 17:00			2027-08-06 17:00	0
+%R	10118	C011	SCC.400.PIP	A2180	Area 400 Storage - Piping - Hydrotest (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-05-20 17:00	2027-08-27 17:00			2027-08-30 17:00	80
+%R	10119	C011	SCC.400.PIP	A2190	Area 400 Storage - Piping - Hydrotest (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-06-28 17:00	2027-09-13 17:00			2027-09-16 17:00	0
+%R	10120	C011	SCC.400.PIP	A2200	Area 400 Storage - Piping - Reinstate and box up (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-08-05 17:00	2027-10-09 17:00			2027-10-12 17:00	0
+%R	10121	C011	SCC.400.PIP	A2210	Area 400 Storage - Piping - Reinstate and box up (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-08-31 17:00	2027-11-29 17:00			2027-12-03 17:00	80
+%R	10122	C011	SCC.400.PIP	A2220	Area 400 Storage - Piping - Reinstate and box up (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-09-26 17:00	2028-01-12 17:00			2028-01-16 17:00	40
+%R	10123	C011	SCC.500.PIP	A2230	Area 500 Export - Piping - Fabricate spools (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-01-29 17:00	2027-03-16 17:00			2027-03-18 17:00	0
+%R	10124	C011	SCC.500.PIP	A2240	Area 500 Export - Piping - Fabricate spools (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-03-08 17:00	2027-04-24 17:00			2027-04-26 17:00	80
+%R	10125	C011	SCC.500.PIP	A2250	Area 500 Export - Piping - Install spools (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-04-16 17:00	2027-07-05 17:00			2027-07-07 17:00	40
+%R	10126	C011	SCC.500.PIP	A2260	Area 500 Export - Piping - Install spools (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-05-12 17:00	2027-07-24 17:00			2027-07-26 17:00	40
+%R	10127	C011	SCC.500.PIP	A2270	Area 500 Export - Piping - Install spools (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-06-07 17:00	2027-09-03 17:00			2027-09-06 17:00	0
+%R	10128	C011	SCC.500.PIP	A2280	Area 500 Export - Piping - Hydrotest (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-07-03 17:00	2027-10-14 17:00			2027-10-17 17:00	400
+%R	10129	C011	SCC.500.PIP	A2290	Area 500 Export - Piping - Hydrotest (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-08-11 17:00	2027-10-26 17:00			2027-10-29 17:00	0
+%R	10130	C011	SCC.500.PIP	A2300	Area 500 Export - Piping - Reinstate and box up (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-09-19 17:00	2028-01-20 17:00			2028-01-24 17:00	160
+%R	10131	C011	SCC.500.PIP	A2310	Area 500 Export - Piping - Reinstate and box up (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-10-15 17:00	2028-02-03 17:00			2028-02-07 17:00	0
+%R	10132	C011	SCC.500.PIP	A2320	Area 500 Export - Piping - Reinstate and box up (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-10-20 17:00	2027-12-23 17:00			2027-12-27 17:00	160
+%R	10133	C011	SCC.600.PIP	A2330	Area 600 Control Building - Piping - Fabricate spools (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-03-14 17:00	2027-05-31 17:00			2027-06-02 17:00	40
+%R	10134	C011	SCC.600.PIP	A2340	Area 600 Control Building - Piping - Fabricate spools (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-04-09 17:00	2027-05-26 17:00			2027-05-28 17:00	160
+%R	10135	C011	SCC.600.PIP	A2350	Area 600 Control Building - Piping - Fabricate spools (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-05-04 17:00	2027-07-16 17:00			2027-07-18 17:00	40
+%R	10136	C011	SCC.600.PIP	A2360	Area 600 Control Building - Piping - Install spools (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-05-30 17:00	2027-09-30 17:00			2027-10-03 17:00	400
+%R	10137	C011	SCC.600.PIP	A2370	Area 600 Control Building - Piping - Install spools (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-06-25 17:00	2027-08-20 17:00			2027-08-23 17:00	240
+%R	10138	C011	SCC.600.PIP	A2380	Area 600 Control Building - Piping - Install spools (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-07-21 17:00	2027-10-24 17:00			2027-10-27 17:00	80
+%R	10139	C011	SCC.600.PIP	A2390	Area 600 Control Building - Piping - Hydrotest (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-08-16 17:00	2027-12-17 17:00			2027-12-21 17:00	400
+%R	10140	C011	SCC.600.PIP	A2400	Area 600 Control Building - Piping - Hydrotest (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-09-11 17:00	2027-12-11 17:00			2027-12-15 17:00	240
+%R	10141	C011	SCC.600.PIP	A2410	Area 600 Control Building - Piping - Hydrotest (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-10-07 17:00	2027-11-25 17:00			2027-11-29 17:00	0
+%R	10142	C011	SCC.600.PIP	A2420	Area 600 Control Building - Piping - Reinstate and box up	TT_Task	TK_NotStart	0.0	2027-10-20 17:00	2028-01-09 17:00			2028-01-13 17:00	400
+%R	10143	C011	SCC.100.ELE	A2430	Area 100 Inlet - Electrical - Install cable tray (part 1 of 3)	TT_Task	TK_Active	59.8	2026-11-01 17:00	2027-01-24 17:00	2026-11-01 17:00		2027-01-25 17:00	0
+%R	10144	C011	SCC.100.ELE	A2440	Area 100 Inlet - Electrical - Install cable tray (part 2 of 3)	TT_Task	TK_Active	29.7	2026-11-29 17:00	2027-03-05 17:00	2026-11-29 17:00		2027-03-06 17:00	400
+%R	10145	C011	SCC.100.ELE	A2450	Area 100 Inlet - Electrical - Install cable tray (part 3 of 3)	TT_Task	TK_Active	2.0	2026-12-28 17:00	2027-04-30 17:00	2026-12-28 17:00		2027-05-02 17:00	0
+%R	10146	C011	SCC.100.ELE	A2460	Area 100 Inlet - Electrical - Pull cables (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-01-25 17:00	2027-03-12 17:00			2027-03-14 17:00	0
+%R	10147	C011	SCC.100.ELE	A2470	Area 100 Inlet - Electrical - Pull cables (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-02-22 17:00	2027-05-29 17:00			2027-05-31 17:00	240
+%R	10148	C011	SCC.100.ELE	A2480	Area 100 Inlet - Electrical - Pull cables (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-03-22 17:00	2027-05-11 17:00			2027-05-13 17:00	0
+%R	10149	C011	SCC.100.ELE	A2490	Area 100 Inlet - Electrical - Terminate and test (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-04-20 17:00	2027-06-17 17:00			2027-06-19 17:00	400
+%R	10150	C011	SCC.100.ELE	A2500	Area 100 Inlet - Electrical - Terminate and test (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-06-01 17:00	2027-08-26 17:00			2027-08-29 17:00	0
+%R	10151	C011	SCC.200.ELE	A2510	Area 200 Process - Electrical - Install cable tray	TT_Task	TK_Active	21.4	2026-12-15 17:00	2027-02-18 17:00	2026-12-15 17:00		2027-02-19 17:00	0
+%R	10152	C011	SCC.200.ELE	A2520	Area 200 Process - Electrical - Pull cables (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-03-10 17:00	2027-05-11 17:00			2027-05-13 17:00	0
+%R	10153	C011	SCC.200.ELE	A2530	Area 200 Process - Electrical - Pull cables (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-04-07 17:00	2027-06-17 17:00			2027-06-19 17:00	40
+%R	10154	C011	SCC.200.ELE	A2540	Area 200 Process - Electrical - Pull cables (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-05-06 17:00	2027-08-15 17:00			2027-08-18 17:00	80
+%R	10155	C011	SCC.200.ELE	A2550	Area 200 Process - Electrical - Terminate and test (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-06-03 17:00	2027-07-20 17:00			2027-07-22 17:00	160
+%R	10156	C011	SCC.200.ELE	A2560	Area 200 Process - Electrical - Terminate and test (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-07-01 17:00	2027-09-21 17:00			2027-09-24 17:00	80
+%R	10157	C011	SCC.200.ELE	A2570	Area 200 Process - Electrical - Terminate and test (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-07-29 17:00	2027-10-07 17:00			2027-10-10 17:00	0
+%R	10158	C011	SCC.300.ELE	A2580	Area 300 Utilities - Electrical - Install cable tray (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-01-29 17:00	2027-03-29 17:00			2027-03-31 17:00	0
+%R	10159	C011	SCC.300.ELE	A2590	Area 300 Utilities - Electrical - Install cable tray (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-02-26 17:00	2027-05-30 17:00			2027-06-01 17:00	0
+%R	10160	C011	SCC.300.ELE	A2600	Area 300 Utilities - Electrical - Install cable tray (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-03-26 17:00	2027-05-13 17:00			2027-05-15 17:00	160
+%R	10161	C011	SCC.300.ELE	A2610	Area 300 Utilities - Electrical - Pull cables (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-04-23 17:00	2027-08-15 17:00			2027-08-18 17:00	160
+%R	10162	C011	SCC.300.ELE	A2620	Area 300 Utilities - Electrical - Pull cables (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-06-05 17:00	2027-08-19 17:00			2027-08-22 17:00	0
+%R	10163	C011	SCC.300.ELE	A2630	Area 300 Utilities - Electrical - Terminate and test (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-07-17 17:00	2027-10-08 17:00			2027-10-11 17:00	400
+%R	10164	C011	SCC.300.ELE	A2640	Area 300 Utilities - Electrical - Terminate and test (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-08-28 17:00	2027-10-30 17:00			2027-11-02 17:00	240
+%R	10165	C011	SCC.400.ELE	A2650	Area 400 Storage - Electrical - Install cable tray	TT_Task	TK_NotStart	0.0	2027-03-14 17:00	2027-06-20 17:00			2027-06-22 17:00	80
+%R	10166	C011	SCC.400.ELE	A2660	Area 400 Storage - Electrical - Pull cables	TT_Task	TK_NotStart	0.0	2027-06-06 17:00	2027-09-13 17:00			2027-09-16 17:00	0
+%R	10167	C011	SCC.400.ELE	A2670	Area 400 Storage - Electrical - Terminate and test (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-08-30 17:00	2027-12-08 17:00			2027-12-12 17:00	160
+%R	10168	C011	SCC.400.ELE	A2680	Area 400 Storage - Electrical - Terminate and test (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-09-27 17:00	2028-01-02 17:00			2028-01-06 17:00	240
+%R	10169	C011	SCC.400.ELE	A2690	Area 400 Storage - Electrical - Terminate and test (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-10-26 17:00	2028-01-09 17:00			2028-01-13 17:00	40
+%R	10170	C011	SCC.500.ELE	A2700	Area 500 Export - Electrical - Install cable tray (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-04-27 17:00	2027-06-11 17:00			2027-06-13 17:00	80
+%R	10171	C011	SCC.500.ELE	A2710	Area 500 Export - Electrical - Install cable tray (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-06-08 17:00	2027-09-07 17:00			2027-09-10 17:00	0
+%R	10172	C011	SCC.500.ELE	A2720	Area 500 Export - Electrical - Pull cables (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-07-21 17:00	2027-09-07 17:00			2027-09-10 17:00	80
+%R	10173	C011	SCC.500.ELE	A2730	Area 500 Export - Electrical - Pull cables (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-09-01 17:00	2028-01-01 17:00			2028-01-05 17:00	40
+%R	10174	C011	SCC.500.ELE	A2740	Area 500 Export - Electrical - Terminate and test (part 1 of 2)	TT_Task	TK_NotStart	0.0	2027-10-13 17:00	2027-12-27 17:00			2027-12-31 17:00	0
+%R	10175	C011	SCC.500.ELE	A2750	Area 500 Export - Electrical - Terminate and test (part 2 of 2)	TT_Task	TK_NotStart	0.0	2027-11-16 17:00	2028-02-19 17:00			2028-02-23 17:00	240
+%R	10176	C011	SCC.600.ELE	A2760	Area 600 Control Building - Electrical - Install cable tray	TT_Task	TK_NotStart	0.0	2027-06-10 17:00	2027-09-02 17:00			2027-09-05 17:00	80
+%R	10177	C011	SCC.600.ELE	A2770	Area 600 Control Building - Electrical - Pull cables (part 1 of 3)	TT_Task	TK_NotStart	0.0	2027-09-03 17:00	2027-12-01 17:00			2027-12-05 17:00	0
+%R	10178	C011	SCC.600.ELE	A2780	Area 600 Control Building - Electrical - Pull cables (part 2 of 3)	TT_Task	TK_NotStart	0.0	2027-10-01 17:00	2027-11-29 17:00			2027-12-03 17:00	400
+%R	10179	C011	SCC.600.ELE	A2790	Area 600 Control Building - Electrical - Pull cables (part 3 of 3)	TT_Task	TK_NotStart	0.0	2027-10-29 17:00	2027-12-18 17:00			2027-12-22 17:00	400
+%R	10180	C011	SCC.600.ELE	A2800	Area 600 Control Building - Electrical - Terminate and test	TT_Task	TK_NotStart	0.0	2027-11-16 17:00	2028-01-09 17:00			2028-01-13 17:00	160
+%R	10181	C011	SCC.100.INS	A2810	Area 100 Inlet - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-01-29 17:00	2027-04-01 17:00			2027-04-03 17:00	160
+%R	10182	C011	SCC.100.INS	A2820	Area 100 Inlet - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-04-13 17:00	2027-06-26 17:00			2027-06-28 17:00	0
+%R	10183	C011	SCC.100.INS	A2830	Area 100 Inlet - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-06-26 17:00	2027-09-07 17:00			2027-09-10 17:00	160
+%R	10184	C011	SCC.200.INS	A2840	Area 200 Process - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-03-14 17:00	2027-05-25 17:00			2027-05-27 17:00	160
+%R	10185	C011	SCC.200.INS	A2850	Area 200 Process - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-05-27 17:00	2027-08-01 17:00			2027-08-04 17:00	0
+%R	10186	C011	SCC.200.INS	A2860	Area 200 Process - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-08-09 17:00	2027-12-02 17:00			2027-12-06 17:00	80
+%R	10187	C011	SCC.300.INS	A2870	Area 300 Utilities - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-04-27 17:00	2027-08-01 17:00			2027-08-04 17:00	400
+%R	10188	C011	SCC.300.INS	A2880	Area 300 Utilities - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-07-10 17:00	2027-10-19 17:00			2027-10-22 17:00	0
+%R	10189	C011	SCC.300.INS	A2890	Area 300 Utilities - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-09-22 17:00	2027-12-02 17:00			2027-12-06 17:00	40
+%R	10190	C011	SCC.400.INS	A2900	Area 400 Storage - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-06-10 17:00	2027-09-26 17:00			2027-09-29 17:00	40
+%R	10191	C011	SCC.400.INS	A2910	Area 400 Storage - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-08-23 17:00	2027-10-24 17:00			2027-10-27 17:00	40
+%R	10192	C011	SCC.400.INS	A2920	Area 400 Storage - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-11-05 17:00	2028-01-24 17:00			2028-01-28 17:00	0
+%R	10193	C011	SCC.500.INS	A2930	Area 500 Export - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-07-24 17:00	2027-09-12 17:00			2027-09-15 17:00	40
+%R	10194	C011	SCC.500.INS	A2940	Area 500 Export - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-10-06 17:00	2027-11-25 17:00			2027-11-29 17:00	0
+%R	10195	C011	SCC.500.INS	A2950	Area 500 Export - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-12-19 17:00	2028-04-04 17:00			2028-04-09 17:00	40
+%R	10196	C011	SCC.600.INS	A2960	Area 600 Control Building - Instrumentation - Install instruments	TT_Task	TK_NotStart	0.0	2027-09-06 17:00	2027-11-19 17:00			2027-11-22 17:00	80
+%R	10197	C011	SCC.600.INS	A2970	Area 600 Control Building - Instrumentation - Install tubing	TT_Task	TK_NotStart	0.0	2027-11-19 17:00	2028-01-10 17:00			2028-01-14 17:00	0
+%R	10198	C011	SCC.600.INS	A2980	Area 600 Control Building - Instrumentation - Loop check	TT_Task	TK_NotStart	0.0	2027-12-21 17:00	2028-02-28 17:00			2028-03-03 17:00	0
+%R	10199	C011	SCC.100.COM	A2990	Area 100 Inlet - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2027-11-07 17:00	2027-12-23 17:00			2027-12-27 17:00	80
+%R	10200	C011	SCC.100.COM	A3000	Area 100 Inlet - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2027-12-19 17:00	2028-04-14 17:00			2028-04-19 17:00	80
+%R	10201	C011	SCC.200.COM	A3010	Area 200 Process - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2027-12-21 17:00	2028-04-06 17:00			2028-04-11 17:00	240
+%R	10202	C011	SCC.200.COM	A3020	Area 200 Process - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2028-02-02 17:00	2028-04-09 17:00			2028-04-14 17:00	0
+%R	10203	C011	SCC.300.COM	A3030	Area 300 Utilities - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2028-02-03 17:00	2028-04-14 17:00			2028-04-19 17:00	80
+%R	10204	C011	SCC.300.COM	A3040	Area 300 Utilities - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2028-03-01 17:00	2028-04-14 17:00			2028-04-19 17:00	0
+%R	10205	C011	SCC.400.COM	A3050	Area 400 Storage - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2028-03-01 17:00	2028-04-14 17:00			2028-04-19 17:00	0
+%R	10206	C011	SCC.400.COM	A3060	Area 400 Storage - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2028-03-01 17:00	2028-04-14 17:00			2028-04-19 17:00	400
+%R	10207	C011	SCC.500.COM	A3070	Area 500 Export - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2028-03-01 17:00	2028-04-14 17:00			2028-04-19 17:00	40
+%R	10208	C011	SCC.500.COM	A3080	Area 500 Export - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2028-03-01 17:00	2028-04-14 17:00			2028-04-19 17:00	160
+%R	10209	C011	SCC.600.COM	A3090	Area 600 Control Building - Commissioning - Pre-commission systems	TT_Task	TK_NotStart	0.0	2028-03-01 17:00	2028-04-14 17:00			2028-04-19 17:00	0
+%R	10210	C011	SCC.600.COM	A3100	Area 600 Control Building - Commissioning - Function test	TT_Task	TK_NotStart	0.0	2028-03-01 17:00	2028-04-14 17:00			2028-04-19 17:00	0
+%T	TASKRSRC
+%F	taskrsrc_id	task_id	proj_id	rsrc_id	target_cost	act_reg_cost
+%R	50000	10000	C011	PRELIMS	9196060.16	4301215.00
+%R	50001	10001	C011	LAB	5806311.61	5128473.76
+%R	50002	10002	C011	MATL	337930.15	297894.11
+%R	50003	10003	C011	MATL	483719.77	421395.59
+%R	50004	10004	C011	PLANT	286423.45	257612.56
+%R	50005	10005	C011	SUBC	159993.42	140101.38
+%R	50006	10006	C011	LAB	148457.69	125929.92
+%R	50007	10007	C011	LAB	495358.00	415802.35
+%R	50008	10008	C011	MATL	482401.50	415030.29
+%R	50009	10009	C011	PLANT	430061.66	363280.75
+%R	50010	10010	C011	LAB	148842.89	125554.41
+%R	50011	10011	C011	SUBC	167330.99	141973.22
+%R	50012	10012	C011	SUBC	222885.12	193422.16
+%R	50013	10013	C011	MATL	336145.30	287943.95
+%R	50014	10014	C011	LAB	390953.34	344446.96
+%R	50015	10015	C011	MATL	505369.63	443647.88
+%R	50016	10016	C011	LAB	425273.73	371972.70
+%R	50017	10017	C011	SUBC	373901.97	312135.39
+%R	50018	10018	C011	PLANT	282309.05	250050.74
+%R	50019	10019	C011	PLANT	341316.94	303623.74
+%R	50020	10020	C011	PLANT	343725.76	291770.33
+%R	50021	10021	C011	PLANT	154509.38	130868.63
+%R	50022	10022	C011	SUBC	305020.85	264619.64
+%R	50023	10023	C011	SUBC	220057.09	196641.11
+%R	50024	10024	C011	SUBC	350369.45	293955.11
+%R	50025	10025	C011	PLANT	500951.32	439690.27
+%R	50026	10026	C011	SUBC	242488.93	215506.49
+%R	50027	10027	C011	MATL	401038.96	348860.34
+%R	50028	10028	C011	MATL	278491.91	249881.32
+%R	50029	10029	C011	SUBC	224708.31	188102.51
+%R	50030	10030	C011	MATL	396129.04	341493.93
+%R	50031	10031	C011	PLANT	378865.08	332492.77
+%R	50032	10032	C011	LAB	292321.98	260029.17
+%R	50033	10033	C011	LAB	283179.63	236245.51
+%R	50034	10034	C011	LAB	160663.01	138688.78
+%R	50035	10035	C011	LAB	364727.28	317624.69
+%R	50036	10036	C011	SUBC	269811.20	227013.54
+%R	50037	10037	C011	MATL	498182.87	416848.89
+%R	50038	10038	C011	MATL	279488.62	249819.30
+%R	50039	10039	C011	SUBC	213059.82	189933.34
+%R	50040	10040	C011	MATL	356606.53	317382.58
+%R	50041	10041	C011	MATL	505852.12	430049.27
+%R	50042	10042	C011	SUBC	375331.56	328068.78
+%R	50043	10043	C011	MATL	419820.53	348885.78
+%R	50044	10044	C011	SUBC	403349.24	348351.09
+%R	50045	10045	C011	SUBC	275652.17	238606.41
+%R	50046	10046	C011	LAB	257826.50	220483.01
+%R	50047	10047	C011	MATL	360161.15	323722.44
+%R	50048	10048	C011	PLANT	278314.91	232503.77
+%R	50049	10049	C011	PLANT	201586.51	178589.47
+%R	50050	10050	C011	PLANT	149530.49	133769.85
+%R	50051	10051	C011	LAB	439185.75	390626.81
+%R	50052	10052	C011	LAB	275613.52	229723.35
+%R	50053	10053	C011	PLANT	397666.17	356652.91
+%R	50054	10054	C011	LAB	410796.17	312431.79
+%R	50055	10055	C011	SUBC	222481.05	193992.05
+%R	50056	10056	C011	MATL	340292.25	293007.31
+%R	50057	10057	C011	LAB	502250.29	251950.27
+%R	50058	10058	C011	PLANT	423732.47	351916.45
+%R	50059	10059	C011	SUBC	403163.97	338712.05
+%R	50060	10060	C011	LAB	231182.02	11302.78
+%R	50061	10061	C011	SUBC	327743.97	284967.79
+%R	50062	10062	C011	LAB	190334.65	63806.63
+%R	50063	10063	C011	LAB	466644.77	0.00
+%R	50064	10064	C011	PLANT	236774.16	124999.70
+%R	50065	10065	C011	LAB	286556.27	0.00
+%R	50066	10066	C011	LAB	357239.97	0.00
+%R	50067	10067	C011	PLANT	328323.31	294771.07
+%R	50068	10068	C011	SUBC	343394.69	184462.32
+%R	50069	10069	C011	SUBC	260923.44	13509.99
+%R	50070	10070	C011	MATL	155447.95	134126.51
+%R	50071	10071	C011	LAB	389982.62	169143.91
+%R	50072	10072	C011	SUBC	441905.73	0.00
+%R	50073	10073	C011	SUBC	230873.61	167714.47
+%R	50074	10074	C011	LAB	331177.35	0.00
+%R	50075	10075	C011	PLANT	269255.05	0.00
+%R	50076	10076	C011	LAB	183316.20	27277.56
+%R	50077	10077	C011	SUBC	458714.83	0.00
+%R	50078	10078	C011	MATL	221781.68	0.00
+%R	50079	10079	C011	SUBC	171568.31	0.00
+%R	50080	10080	C011	MATL	428834.75	0.00
+%R	50081	10081	C011	SUBC	227361.32	0.00
+%R	50082	10082	C011	MATL	391298.08	0.00
+%R	50083	10083	C011	SUBC	438279.70	0.00
+%R	50084	10084	C011	PLANT	207165.68	0.00
+%R	50085	10085	C011	SUBC	249124.15	221819.23
+%R	50086	10086	C011	LAB	470796.82	405998.43
+%R	50087	10087	C011	PLANT	393540.43	288039.40
+%R	50088	10088	C011	PLANT	435772.27	333857.27
+%R	50089	10089	C011	SUBC	318980.69	0.00
+%R	50090	10090	C011	LAB	335534.80	0.00
+%R	50091	10091	C011	SUBC	248318.89	0.00
+%R	50092	10092	C011	SUBC	256592.08	0.00
+%R	50093	10093	C011	LAB	290796.96	0.00
+%R	50094	10094	C011	PLANT	474964.74	0.00
+%R	50095	10095	C011	MATL	306753.48	260819.28
+%R	50096	10096	C011	MATL	259230.58	196338.89
+%R	50097	10097	C011	MATL	247943.15	102999.84
+%R	50098	10098	C011	MATL	149277.72	40824.14
+%R	50099	10099	C011	SUBC	144710.55	0.00
+%R	50100	10100	C011	MATL	150620.37	0.00
+%R	50101	10101	C011	LAB	348614.82	0.00
+%R	50102	10102	C011	PLANT	143622.49	0.00
+%R	50103	10103	C011	LAB	501352.16	0.00
+%R	50104	10104	C011	MATL	273828.82	169465.46
+%R	50105	10105	C011	LAB	285643.01	79076.90
+%R	50106	10106	C011	LAB	360563.07	21850.33
+%R	50107	10107	C011	MATL	380511.85	0.00
+%R	50108	10108	C011	PLANT	249426.12	0.00
+%R	50109	10109	C011	LAB	236737.08	0.00
+%R	50110	10110	C011	MATL	221753.50	0.00
+%R	50111	10111	C011	PLANT	478190.08	0.00
+%R	50112	10112	C011	MATL	132495.45	0.00
+%R	50113	10113	C011	MATL	351983.35	0.00
+%R	50114	10114	C011	PLANT	169762.83	0.00
+%R	50115	10115	C011	MATL	321458.85	52854.47
+%R	50116	10116	C011	SUBC	461623.74	0.00
+%R	50117	10117	C011	LAB	430946.31	0.00
+%R	50118	10118	C011	LAB	317159.16	0.00
+%R	50119	10119	C011	LAB	275139.35	0.00
+%R	50120	10120	C011	PLANT	295686.35	0.00
+%R	50121	10121	C011	PLANT	506250.57	0.00
+%R	50122	10122	C011	MATL	448200.28	0.00
+%R	50123	10123	C011	PLANT	241298.95	0.00
+%R	50124	10124	C011	MATL	429711.86	0.00
+%R	50125	10125	C011	SUBC	325282.23	0.00
+%R	50126	10126	C011	LAB	477812.92	0.00
+%R	50127	10127	C011	MATL	302838.60	0.00
+%R	50128	10128	C011	LAB	299720.27	0.00
+%R	50129	10129	C011	LAB	337089.35	0.00
+%R	50130	10130	C011	LAB	475592.76	0.00
+%R	50131	10131	C011	PLANT	155085.46	0.00
+%R	50132	10132	C011	SUBC	496135.75	0.00
+%R	50133	10133	C011	MATL	338326.63	0.00
+%R	50134	10134	C011	MATL	236870.13	0.00
+%R	50135	10135	C011	LAB	490092.11	0.00
+%R	50136	10136	C011	PLANT	131884.24	0.00
+%R	50137	10137	C011	LAB	274953.33	0.00
+%R	50138	10138	C011	SUBC	168872.39	0.00
+%R	50139	10139	C011	MATL	467601.03	0.00
+%R	50140	10140	C011	LAB	334717.59	0.00
+%R	50141	10141	C011	PLANT	396695.27	0.00
+%R	50142	10142	C011	PLANT	469261.94	0.00
+%R	50143	10143	C011	LAB	482757.54	288510.44
+%R	50144	10144	C011	MATL	435812.02	129277.03
+%R	50145	10145	C011	PLANT	477376.39	9759.08
+%R	50146	10146	C011	MATL	210479.99	0.00
+%R	50147	10147	C011	MATL	208321.20	0.00
+%R	50148	10148	C011	MATL	416595.38	0.00
+%R	50149	10149	C011	PLANT	465801.84	0.00
+%R	50150	10150	C011	PLANT	498236.87	0.00
+%R	50151	10151	C011	SUBC	436578.89	93300.24
+%R	50152	10152	C011	MATL	189753.14	0.00
+%R	50153	10153	C011	SUBC	403009.92	0.00
+%R	50154	10154	C011	MATL	427665.68	0.00
+%R	50155	10155	C011	SUBC	188987.21	0.00
+%R	50156	10156	C011	PLANT	491211.66	0.00
+%R	50157	10157	C011	MATL	225433.82	0.00
+%R	50158	10158	C011	PLANT	368376.40	0.00
+%R	50159	10159	C011	SUBC	482565.74	0.00
+%R	50160	10160	C011	SUBC	341009.65	0.00
+%R	50161	10161	C011	PLANT	376511.77	0.00
+%R	50162	10162	C011	SUBC	373219.69	0.00
+%R	50163	10163	C011	PLANT	495123.51	0.00
+%R	50164	10164	C011	SUBC	232875.44	0.00
+%R	50165	10165	C011	PLANT	151858.07	0.00
+%R	50166	10166	C011	PLANT	271701.33	0.00
+%R	50167	10167	C011	SUBC	499461.77	0.00
+%R	50168	10168	C011	LAB	365613.11	0.00
+%R	50169	10169	C011	SUBC	399668.54	0.00
+%R	50170	10170	C011	SUBC	282887.66	0.00
+%R	50171	10171	C011	LAB	173205.72	0.00
+%R	50172	10172	C011	SUBC	137413.70	0.00
+%R	50173	10173	C011	LAB	268006.26	0.00
+%R	50174	10174	C011	MATL	485446.62	0.00
+%R	50175	10175	C011	MATL	358015.38	0.00
+%R	50176	10176	C011	PLANT	316865.24	0.00
+%R	50177	10177	C011	PLANT	217653.54	0.00
+%R	50178	10178	C011	MATL	402418.55	0.00
+%R	50179	10179	C011	PLANT	455704.96	0.00
+%R	50180	10180	C011	MATL	272679.57	0.00
+%R	50181	10181	C011	SUBC	292574.50	0.00
+%R	50182	10182	C011	LAB	188870.76	0.00
+%R	50183	10183	C011	PLANT	459705.75	0.00
+%R	50184	10184	C011	MATL	152313.61	0.00
+%R	50185	10185	C011	LAB	360777.95	0.00
+%R	50186	10186	C011	SUBC	218662.78	0.00
+%R	50187	10187	C011	MATL	181944.16	0.00
+%R	50188	10188	C011	LAB	179560.54	0.00
+%R	50189	10189	C011	SUBC	502811.52	0.00
+%R	50190	10190	C011	LAB	352196.13	0.00
+%R	50191	10191	C011	SUBC	195237.72	0.00
+%R	50192	10192	C011	PLANT	293008.74	0.00
+%R	50193	10193	C011	SUBC	325492.85	0.00
+%R	50194	10194	C011	LAB	441163.33	0.00
+%R	50195	10195	C011	LAB	282657.48	0.00
+%R	50196	10196	C011	SUBC	410952.67	0.00
+%R	50197	10197	C011	LAB	128919.97	0.00
+%R	50198	10198	C011	SUBC	502470.01	0.00
+%R	50199	10199	C011	MATL	433553.29	0.00
+%R	50200	10200	C011	LAB	287621.64	0.00
+%R	50201	10201	C011	MATL	450781.96	0.00
+%R	50202	10202	C011	PLANT	235564.26	0.00
+%R	50203	10203	C011	MATL	187820.40	0.00
+%R	50204	10204	C011	PLANT	462065.13	0.00
+%R	50205	10205	C011	MATL	167752.34	0.00
+%R	50206	10206	C011	LAB	227137.37	0.00
+%R	50207	10207	C011	MATL	219773.71	0.00
+%R	50208	10208	C011	LAB	164540.72	0.00
+%R	50209	10209	C011	MATL	371322.80	0.00
+%R	50210	10210	C011	SUBC	455870.76	0.00
+%E

@@ -1,0 +1,10 @@
+# Contract terms for C013: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C013
+name: "Hartfield Process Control Retrofit"
+customer: "Tamsin Petrochemicals"
+contract_price: 59_966_150
+start_date: 2025-03-17
+completion_date: 2028-05-09
+ld_rate_per_day: 25_600
+ld_cap: 5_997_000

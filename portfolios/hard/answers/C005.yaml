@@ -1,0 +1,33 @@
+# Answer key for C005. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C005
+scenario: t1_ok_grudging+t1_ok_customer_ref+t1_withdrawn
+notes: "4 variations in TP; E2 e2_routine; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_withdrawn
+    correction:
+      variations: {VO-001: 0}
+    why: "Accepted in 2026-07-14_letter_HXC-TEJ-118.md, then ERI-014 withdrawn before work started (2026-08-12_letter_HXC-TEJ-120.md); clause 14.5 means nothing is payable."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    tag: t1_ok_grudging
+    why: "2026-10-06_letter_HXC-TEJ-106.md rejects the extension of time but accepts the price £1,406,293."
+  - check: T1
+    ref: VO-003
+    verdict: supported
+    tag: t1_ok_customer_ref
+    why: "2026-09-29_letter_HXC-TEJ-116.md accepts ERI-019 at £1,637,805; 2026-09-11_letter_BRK-TEJ-L-0331.md links ERI-019 to VO-003."
+  - check: T1
+    ref: VO-005
+    verdict: supported
+    why: "Accepted at £2,664,861 in 2026-10-15_letter_HXC-TEJ-109.md."
+  - check: E2
+    ref: ETC
+    verdict: supported
+  - check: M1
+    ref: PROVISION
+    verdict: supported

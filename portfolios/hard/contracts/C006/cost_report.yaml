@@ -1,0 +1,45 @@
+# Management's cost report and variation register for C006 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C006
+period_end: 2026-12-31
+contract_price: 39_880_270
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 30_360_816
+etc: 13_821_756  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 7_172_428
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 5_193_828
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 1_193_500
+    basis: "7 months to 03 August 2027 at £170,500 per month"
+  - item: "Risk and contingency"
+    amount: 262_000
+    basis: "Quantified risk register, P50"
+provision_booked: 691_000  # onerous contract provision
+commentary: "Cumulative CPI depressed by the closed-out pipe rack rework; remaining work at plan rates. Forecast loss of £2,209,584 at completion. Loss to date recognised through margin; provision of £691,000 held for the remaining loss."
+variations:  # the variation register
+  - id: VO-001
+    description: "Out-of-hours working to suit the Employer's shutdown window"
+    amount: 805_934
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-002
+    description: "Extra piling at grid line C following the revised loading"
+    amount: 255_892
+    included_in_tp: true
+    reported_status: "Instructed"
+  - id: VO-003
+    description: "Upgraded fire and gas detection to the Employer's revised standard"
+    amount: 552_465
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-004
+    description: "Additional sampling points and analyser house"
+    amount: 478_427
+    included_in_tp: true
+    reported_status: "Approved"

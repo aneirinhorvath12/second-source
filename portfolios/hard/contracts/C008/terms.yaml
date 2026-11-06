@@ -1,0 +1,10 @@
+# Contract terms for C008: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C008
+name: "Ashby Fell Pumping Station"
+customer: "Hexley Chemicals"
+contract_price: 55_605_290
+start_date: 2026-01-07
+completion_date: 2028-08-23
+ld_rate_per_day: 43_000
+ld_cap: 5_561_000

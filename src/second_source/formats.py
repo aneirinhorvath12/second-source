@@ -49,6 +49,14 @@ def cost_report_yaml(r: CostReport) -> str:
         f"ld_deduction: {num(r.ld_deduction)}",
         f"cost_to_date: {num(r.cost_to_date)}",
         f"etc: {num(r.etc)}  # estimate to complete",
+    ]
+    if r.etc_breakdown:
+        lines.append("etc_breakdown:  # management's build-up; should sum to etc")
+        for e in r.etc_breakdown:
+            lines += [f"  - item: {text(e.item)}", f"    amount: {num(e.amount)}"]
+            if e.basis:
+                lines.append(f"    basis: {text(e.basis)}")
+    lines += [
         f"provision_booked: {num(r.provision_booked)}  # onerous contract provision",
         f"commentary: {text(r.commentary)}",
     ]

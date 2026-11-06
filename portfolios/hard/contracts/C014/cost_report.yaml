@@ -1,0 +1,48 @@
+# Management's cost report and variation register for C014 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C014
+period_end: 2026-12-31
+contract_price: 39_421_850
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 23_801_937
+etc: 12_871_905  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 6_377_277
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 4_618_028
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 1_167_600
+    basis: "12 months to 15 January 2028 at £97,300 per month"
+  - item: "Allowance: Tregarth Groundworks final account"
+    amount: 467_000
+    basis: "QS assessment of likely settlement"
+  - item: "Risk and contingency"
+    amount: 242_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: ""
+variations:  # the variation register
+  - id: VO-001
+    description: "Removal of asbestos-containing lagging found in the existing pipe rack"
+    amount: 918_238
+    included_in_tp: true
+    reported_status: "Instructed"
+  - id: VO-002
+    description: "Additional earthing and lightning protection to the new standard"
+    amount: 793_930
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-003
+    description: "Extra noise attenuation enclosures for the compressors"
+    amount: 869_922
+    included_in_tp: true
+    reported_status: "Approved (commercial view)"
+  - id: VO-004
+    description: "Additional sampling points and analyser house"
+    amount: 236_531
+    included_in_tp: false
+    reported_status: "Submitted"

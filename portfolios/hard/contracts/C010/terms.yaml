@@ -1,0 +1,10 @@
+# Contract terms for C010: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C010
+name: "Glenwick Pipeline Spur"
+customer: "Blythe Industrial Holdings"
+contract_price: 102_139_350
+start_date: 2025-10-02
+completion_date: 2028-06-29
+ld_rate_per_day: 64_000
+ld_cap: 10_214_000

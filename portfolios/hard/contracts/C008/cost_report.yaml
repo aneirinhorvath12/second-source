@@ -1,0 +1,45 @@
+# Management's cost report and variation register for C008 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C008
+period_end: 2026-12-31
+contract_price: 55_605_290
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 23_193_284
+etc: 27_878_034  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 13_721_196
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 9_936_038
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 3_516_800
+    basis: "16 months to 08 May 2028 at £219,800 per month"
+  - item: "Risk and contingency"
+    amount: 704_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: "Cost to date includes early procurement of materials held on site."
+variations:  # the variation register
+  - id: VO-001
+    description: "Upgrade of the PLC to the Employer's newly selected platform"
+    amount: 269_119
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-002
+    description: "Additional bridge crane in the maintenance workshop"
+    amount: 500_578
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-003
+    description: "Upgraded fire and gas detection to the Employer's revised standard"
+    amount: 1_013_038
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-004
+    description: "Additional sampling points and analyser house"
+    amount: 742_287
+    included_in_tp: false
+    reported_status: "Submitted"

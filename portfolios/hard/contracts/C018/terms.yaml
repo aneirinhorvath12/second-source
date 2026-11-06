@@ -1,0 +1,10 @@
+# Contract terms for C018: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C018
+name: "Pellow Wind Substation"
+customer: "Ardent Water Ltd"
+contract_price: 49_470_760
+start_date: 2025-08-08
+completion_date: 2028-09-07
+ld_rate_per_day: 30_900
+ld_cap: 4_947_000

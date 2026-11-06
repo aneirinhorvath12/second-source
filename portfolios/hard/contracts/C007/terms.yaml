@@ -1,0 +1,10 @@
+# Contract terms for C007: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C007
+name: "Corran Point Desalination"
+customer: "Sorrel Renewables"
+contract_price: 68_717_420
+start_date: 2025-12-26
+completion_date: 2028-07-09
+ld_rate_per_day: 44_000
+ld_cap: 6_872_000

@@ -65,6 +65,11 @@ def check_contract(root: Path, cdir: Path) -> list[Problem]:
     ids = [v.id for v in cf.report.variations]
     if len(ids) != len(set(ids)):
         err("cost_report.yaml", "duplicate variation ids")
+    if cf.report.etc_breakdown:
+        built = sum(e.amount for e in cf.report.etc_breakdown)
+        if abs(built - cf.report.etc) > 1:
+            warn("cost_report.yaml",
+                 f"etc_breakdown sums to {_money(built)} but etc is {_money(cf.report.etc)}")
     if abs(ledger_total(cdir) - cf.report.cost_to_date) > 1:
         warn("ledger.csv", f"totals {_money(ledger_total(cdir))} but cost_to_date is "
                            f"{_money(cf.report.cost_to_date)}")
@@ -81,7 +86,7 @@ def check_contract(root: Path, cdir: Path) -> list[Problem]:
             warn("docs/contract.md", "doesn't mention the completion date in terms.yaml")
 
     for doc_name, text in cf.docs.items():
-        if re.search(r"\b(answer|seeded|ground truth)\b", text, re.IGNORECASE):
+        if re.search(r"\b(answer key|seeded|ground truth|synthetic)\b", text, re.IGNORECASE):
             warn(f"docs/{doc_name}", "mentions answers or seeding: systems can read this file")
 
     key_path = root / "answers" / f"{cid}.yaml"

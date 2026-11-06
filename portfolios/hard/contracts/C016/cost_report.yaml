@@ -1,0 +1,45 @@
+# Management's cost report and variation register for C016 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C016
+period_end: 2026-12-31
+contract_price: 73_805_570
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 25_763_001
+etc: 42_630_613  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 22_176_656
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 16_058_957
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 3_699_000
+    basis: "15 months to 11 April 2028 at £246,600 per month"
+  - item: "Risk and contingency"
+    amount: 696_000
+    basis: "Quantified risk register, P50"
+provision_booked: 0  # onerous contract provision
+commentary: ""
+variations:  # the variation register
+  - id: VO-001
+    description: "Widened pipe rack to accommodate the Employer's future lines"
+    amount: 916_583
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-002
+    description: "Extended scaffold hire for the Employer's inspection campaign"
+    amount: 1_838_419
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-003
+    description: "Additional bridge crane in the maintenance workshop"
+    amount: 1_812_667
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-004
+    description: "Extra drainage to the laydown area after the Employer's change of use"
+    amount: 744_486
+    included_in_tp: false
+    reported_status: "Under review"

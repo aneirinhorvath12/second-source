@@ -1,0 +1,53 @@
+# Answer key for C009. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C009
+scenario: t1_value_disputed+t1_time_barred+t1_no_response+t1_rejected_oblique+e2_cpi_trend+m1_no_provision
+notes: "4 variations in TP; E2 e2_cpi_trend; M1 m1_no_provision."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: misstated
+    tag: t1_time_barred
+    correction:
+      variations: {VO-001: 0}
+    why: "2026-09-15_letter_BRK-MBT-L-0338.md says Brackmoor knew on 23 June 2026 but notified 12 weeks later; clause 15.2 bars any adjustment."
+  - check: T1
+    ref: VO-002
+    verdict: misstated
+    tag: t1_rejected_oblique
+    correction:
+      variations: {VO-002: 0}
+    why: "2026-07-27_letter_NVE-MBT-126.md says the work is Contractor's design under clause 2.3 and no adjustment is due: a rejection, though it never says so."
+  - check: T1
+    ref: VO-003
+    verdict: insufficient_evidence
+    tag: t1_no_response
+    correction:
+      variations: {VO-003: 0}
+    range:
+      low:
+        variations: {VO-003: 0}
+      high: {}  # as reported
+    request: "The ER's written acceptance of quotation BRK/MBT/Q/047"
+    why: "Quotation submitted; minutes show it is still awaited; no acceptance anywhere."
+  - check: T1
+    ref: VO-005
+    verdict: judgement_call
+    tag: t1_value_disputed
+    range:
+      low:
+        variations: {VO-005: 549_900}
+      high: {}  # as reported
+    why: "Scope agreed (2026-11-04_letter_NVE-MBT-120.md) but value disputed: £549,900 offered vs £805,409 claimed; an estimate subject to the constraint."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_cpi_trend
+    correction:
+      etc: 56_515_049
+    why: "Remaining work at budget rates despite CPI around 0.82 for months and no evidence of improvement."
+  - check: M1
+    ref: PROVISION
+    verdict: misstated
+    tag: m1_no_provision
+    why: "Management's own EAC exceeds TP, no provision booked; an unsubmitted claim is not in TP and can't offset it."

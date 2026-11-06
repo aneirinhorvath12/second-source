@@ -1,0 +1,40 @@
+# Answer key for C018. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C018
+scenario: t1_withdrawn+t1_ok_after_query+t1_time_barred+t1_ok_vat+e2_cpi_trend
+notes: "4 variations in TP; E2 e2_cpi_trend; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    tag: t1_ok_after_query
+    why: "Initially queried (2026-07-26_letter_AWL-PWS-110.md) but accepted at £529,019 in 2026-08-31_letter_AWL-PWS-113.md, before the period end."
+  - check: T1
+    ref: VO-002
+    verdict: misstated
+    tag: t1_time_barred
+    correction:
+      variations: {VO-002: 0}
+    why: "2026-10-25_letter_BRK-PWS-L-0349.md says Brackmoor knew on 12 July 2026 but notified 15 weeks later; clause 15.2 bars any adjustment."
+  - check: T1
+    ref: VO-003
+    verdict: supported
+    tag: t1_ok_vat
+    why: "2026-08-07_letter_AWL-PWS-120.md accepts £365,254 including VAT, which is £304,378 net (clause 4.2: contract sums exclude VAT)."
+  - check: T1
+    ref: VO-004
+    verdict: misstated
+    tag: t1_withdrawn
+    correction:
+      variations: {VO-004: 0}
+    why: "Accepted in 2026-09-09_letter_AWL-PWS-106.md, then ERI-032 withdrawn before work started (2026-10-09_letter_AWL-PWS-109.md); clause 14.5 means nothing is payable."
+  - check: E2
+    ref: ETC
+    verdict: misstated
+    tag: e2_cpi_trend
+    correction:
+      etc: 26_963_768
+    why: "Remaining work at budget rates despite CPI around 0.84 for months and no evidence of improvement."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

@@ -41,6 +41,14 @@ class Terms(BaseModel):
     ld_cap: float
 
 
+class EtcLine(BaseModel):
+    """One line of management's build-up of the estimate to complete."""
+
+    item: str
+    amount: float
+    basis: str = ""
+
+
 class CostReport(BaseModel):
     """Management's reported position for one contract at one period end."""
 
@@ -52,6 +60,7 @@ class CostReport(BaseModel):
     ld_deduction: float = 0.0
     cost_to_date: float
     etc: float
+    etc_breakdown: list[EtcLine] = Field(default_factory=list)
     provision_booked: float = 0.0
     commentary: str = ""
 

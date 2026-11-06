@@ -1,0 +1,28 @@
+# Answer key for C012. Systems never see this file.
+# Corrections say what the inputs should be; the engine computes the profit effects.
+contract_id: C012
+scenario: t1_ok_misfiled+t1_ok_customer_ref+e2_slip_covered
+notes: "3 variations in TP; E2 e2_slip_covered; M1 m1_routine."
+judgements:
+  - check: T1
+    ref: VO-001
+    verdict: supported
+    why: "Accepted at £2,300,124 in 2026-08-16_letter_TPC-RGR-144.md."
+  - check: T1
+    ref: VO-002
+    verdict: supported
+    tag: t1_ok_misfiled
+    why: "Accepted in 2026-09-29_letter_TPC-RGR-146.md. The rejection of a 'VO-002' in 2026-10-09_letter_HXC-FHP-149.md is about Fennick Hydrogen Pilot, a different contract."
+  - check: T1
+    ref: VO-003
+    verdict: supported
+    tag: t1_ok_customer_ref
+    why: "2026-11-14_letter_TPC-RGR-151.md accepts ERI-027 at £1,808,284; 2026-10-16_letter_BRK-RGR-L-0316.md links ERI-027 to VO-003."
+  - check: E2
+    ref: ETC
+    verdict: supported
+    tag: e2_slip_covered
+    why: "P6 shows a slip, but the preliminaries line runs to the new forecast finish."
+  - check: M1
+    ref: PROVISION
+    verdict: supported

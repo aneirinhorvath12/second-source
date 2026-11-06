@@ -1,0 +1,10 @@
+# Contract terms for C019: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C019
+name: "Strathcorr Compressor Station"
+customer: "Eastmarch Utilities"
+contract_price: 116_411_990
+start_date: 2025-02-09
+completion_date: 2028-04-04
+ld_rate_per_day: 35_300
+ld_cap: 11_641_000

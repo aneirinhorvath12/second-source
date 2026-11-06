@@ -1,0 +1,55 @@
+# Management's cost report and variation register for C020 at 31 December 2026.
+# Every system sees this file (with comments stripped). Never put answers here.
+contract_id: C020
+period_end: 2026-12-31
+contract_price: 147_261_360
+claims_in_tp: 0
+ld_deduction: 0
+cost_to_date: 89_356_326
+etc: 72_078_572  # estimate to complete
+etc_breakdown:  # management's build-up; should sum to etc
+  - item: "Direct works: remaining packages"
+    amount: 37_311_036
+    basis: "P6 remaining budget, adjusted to current productivity"
+  - item: "Subcontract packages: committed balance and forecast"
+    amount: 27_018_336
+    basis: "Subcontract ledger and package forecasts"
+  - item: "Preliminaries and site overheads"
+    amount: 6_277_200
+    basis: "12 months to 25 December 2027 at £523,100 per month"
+  - item: "Risk and contingency"
+    amount: 1_472_000
+    basis: "Quantified risk register, P50"
+provision_booked: 1_175_000  # onerous contract provision
+commentary: "Productivity below plan; ETC reforecast bottom-up at current rates. Loss provision of £1,175,000 established at Q3 and reviewed at year end: considered adequate."
+variations:  # the variation register
+  - id: VO-001
+    description: "Relocation of the control room following the Employer's layout change"
+    amount: 2_334_293
+    included_in_tp: true
+    reported_status: "Agreed"
+  - id: VO-002
+    description: "Extended scaffold hire for the Employer's inspection campaign"
+    amount: 1_669_718
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-003
+    description: "Additional CCTV and access control at the perimeter"
+    amount: 2_187_315
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-004
+    description: "Upgrade of the PLC to the Employer's newly selected platform"
+    amount: 1_601_465
+    included_in_tp: true
+    reported_status: "Approved"
+  - id: VO-005
+    description: "Enlarged foundations for the Employer's future compressor"
+    amount: 1_347_892
+    included_in_tp: false
+    reported_status: "Submitted"
+  - id: VO-006
+    description: "Upgraded fire and gas detection to the Employer's revised standard"
+    amount: 969_180
+    included_in_tp: false
+    reported_status: "Submitted"
