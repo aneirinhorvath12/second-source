@@ -40,7 +40,9 @@ flowchart LR
 |---|---|---|
 | T1 | Is each variation in TP agreed by the customer, or enforceable? (IFRS 15.18-21) | Variation register vs customer letters |
 | E2 | Is management's ETC credible against earned value and physical progress? | P6 schedule, cost report, review minutes |
-| M1 | If management's own EAC exceeds TP, is the full loss provided for? (IAS 37.66-69) | Engine output |
+| M1 | Is the contract onerous on the best estimate (management's numbers with every misstated input corrected), and is the full loss provided for? (IAS 37.66-69) | Engine output, plus whatever settles T1 and E2 |
+
+Each check owns one line of the accounts, so no effect is counted twice: T1 and E2 effects are on revenue to date (through TP and POC), and M1's is on the onerous provision. On a contract that turns loss-making once corrected, E2 carries the revenue effect and M1 carries the provision.
 
 ### Verdicts
 

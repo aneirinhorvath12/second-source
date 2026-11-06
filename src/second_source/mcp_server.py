@@ -65,7 +65,8 @@ def get_schedule_metrics(contract_id: str) -> str:
 @server.tool()
 def run_scenario(contract_id: str, overrides: dict[str, float]) -> str:
     """Recompute a contract's position with inputs changed (variations_in_tp, claims_in_tp,
-    ld_deduction, etc) and return the effect on cumulative profit to date."""
+    ld_deduction, etc). Returns the effect on revenue to date and the effect of holding the
+    provision the new position requires instead of the one booked."""
     bad = set(overrides) - set(OVERRIDABLE)
     if bad:
         raise ValueError(f"Cannot override {sorted(bad)}; allowed: {OVERRIDABLE}")
@@ -73,7 +74,9 @@ def run_scenario(contract_id: str, overrides: dict[str, float]) -> str:
     rep = cf.inputs()
     corrected = engine.Inputs(**{**asdict(rep), **{k: float(v) for k, v in overrides.items()}})
     return json.dumps({"position": asdict(engine.position(corrected)),
-                       "profit_effect_vs_reported": engine.profit_effect(rep, corrected)}, indent=2)
+                       "revenue_effect_vs_reported": engine.revenue_effect(rep, corrected),
+                       "provision_effect_vs_booked": engine.provision_effect(rep, corrected)},
+                      indent=2)
 
 
 @server.tool()

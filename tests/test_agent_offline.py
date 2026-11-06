@@ -8,6 +8,7 @@ import pytest
 
 from second_source.agent.investigator import investigate
 from second_source.agent.tools import Toolbox
+from second_source.answers import best_estimate, read_key
 from second_source.store import load_contract, load_labels
 from second_source.triggers import Candidate
 
@@ -53,13 +54,23 @@ def test_fabricated_quote_is_bounced_back(labels):
     assert "not found verbatim" in msg
 
 
-def test_m1_effect_is_the_engine_shortfall(labels):
+def test_m1_effect_is_the_provision_on_the_best_estimate(labels):
     cf, issue = _find(labels, "m1_no_provision")
+    best = best_estimate(read_key(HARD / "answers" / f"{cf.contract_id}.yaml")).settled.apply(cf.report)
     box = Toolbox(cf, "M1", "PROVISION")
     _, finding = box.call("record_finding", {
-        "verdict": "misstated", "confidence": 0.9, "rationale": "Own EAC exceeds TP.", "evidence": [],
+        "verdict": "misstated", "confidence": 0.9, "rationale": "Onerous once corrected.", "evidence": [],
+        "low_case": {"variations_in_tp": best.variations_in_tp, "etc": best.etc},
     })
     assert finding.profit_effect_low == pytest.approx(issue.true_profit_effect)
+
+
+def test_m1_with_no_case_tests_managements_own_numbers(labels):
+    cf, _ = _find(labels, "m1_no_provision")
+    _, finding = Toolbox(cf, "M1", "PROVISION").call("record_finding", {
+        "verdict": "misstated", "confidence": 0.9, "rationale": "Own EAC exceeds TP.", "evidence": [],
+    })
+    assert finding.profit_effect_low == pytest.approx(-cf.position().provision_shortfall)
 
 
 def test_bad_override_returns_a_recoverable_error():

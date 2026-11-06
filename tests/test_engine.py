@@ -53,18 +53,37 @@ def test_scenario_rejects_unknown_inputs():
         e.scenario(e.Inputs(contract_price=1), etcc=5)
 
 
-def test_profit_effect_of_removing_unaccepted_variation():
+def test_removing_unaccepted_variation_moves_revenue_only_on_a_profitable_contract():
     reported = e.Inputs(contract_price=100, variations_in_tp=10, cost_to_date=40, etc=40)
     corrected = e.Inputs(contract_price=100, variations_in_tp=0, cost_to_date=40, etc=40)
-    # POC = 0.5, so revenue to date falls by 0.5 x 10
-    assert e.profit_effect(reported, corrected) == pytest.approx(-5.0)
+    # POC = 0.5, so revenue to date falls by 0.5 x 10; still profitable, so no provision
+    assert e.revenue_effect(reported, corrected) == pytest.approx(-5.0)
+    assert e.provision_effect(reported, corrected) == 0.0
 
 
-def test_profit_effect_of_understated_etc_that_tips_onerous():
+def test_understated_etc_that_tips_onerous_splits_between_revenue_and_provision():
     reported = e.Inputs(contract_price=100, cost_to_date=50, etc=40)  # EAC 90, margin 10
     corrected = e.Inputs(contract_price=100, cost_to_date=50, etc=60)  # EAC 110, loss 10
-    # reported profit = 50/90*100 - 50 = 5.56; corrected = -10 (full loss)
+    # E2 owns revenue: 50/110 x 100 - 50/90 x 100
+    assert e.revenue_effect(reported, corrected) == pytest.approx(5000 / 110 - 5000 / 90)
+    # M1 owns the provision: (1 - 50/110) x 10, none booked
+    assert e.provision_effect(reported, corrected) == pytest.approx(-(1 - 50 / 110) * 10)
+    # together they move profit to the full expected loss
     assert e.profit_effect(reported, corrected) == pytest.approx(-10 - (5000 / 90 - 50))
+
+
+def test_revenue_and_provision_effects_add_up_to_the_profit_change():
+    rng = random.Random(11)
+    for _ in range(500):
+        rep = e.Inputs(contract_price=rng.uniform(50, 500), variations_in_tp=rng.uniform(0, 50),
+                       cost_to_date=rng.uniform(1, 300), etc=rng.uniform(0, 300),
+                       provision_booked=rng.uniform(0, 20))
+        cor = e.Inputs(contract_price=rep.contract_price, variations_in_tp=rng.uniform(0, 50),
+                       cost_to_date=rep.cost_to_date, etc=rng.uniform(0, 300),
+                       provision_booked=rep.provision_booked)
+        booked_profit = e.position(rep).profit_to_date
+        true_profit = e.correct_profit_to_date(cor)
+        assert e.profit_effect(rep, cor) == pytest.approx(true_profit - booked_profit)
 
 
 def test_earned_value():

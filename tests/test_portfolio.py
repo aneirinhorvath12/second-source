@@ -6,7 +6,8 @@ from pathlib import Path
 import pytest
 import yaml
 
-from second_source.answers import compile_key, read_key
+from second_source import engine
+from second_source.answers import best_estimate, compile_key, read_key
 from second_source.portfolio import check_portfolio
 from second_source.store import load_contract, read_cost_report
 
@@ -87,3 +88,36 @@ def test_yaml_comments_never_reach_a_system(one_contract):
     report.write_text(report.read_text() + "# answer: VO-002 was rejected\n")
     cf = load_contract(one_contract / "contracts" / "C009")
     assert all("rejected" not in text for name, text in cf.sources().items() if name.endswith(".yaml"))
+
+
+def test_m1_is_tested_on_the_corrected_numbers(one_contract):
+    """C009's M1 effect is the provision its corrected numbers need, not management's own shortfall."""
+    cdir = one_contract / "contracts" / "C009"
+    cf = load_contract(cdir)
+    key = read_key(one_contract / "answers" / "C009.yaml")
+    m1 = next(i for i in compile_key(key, cf.report).issues if i.check == "M1")
+    best = best_estimate(key).settled.apply(cf.report)
+    assert m1.true_profit_effect == pytest.approx(cf.report.provision_booked
+                                                  - engine.position(best).provision_required)
+    assert m1.true_profit_effect < -cf.position().provision_shortfall
+
+
+def test_m1_with_a_correction_of_its_own_is_an_error(one_contract):
+    key = one_contract / "answers" / "C009.yaml"
+
+    def give_m1_a_correction(d):
+        next(j for j in d["judgements"] if j["check"] == "M1")["correction"] = {"etc": 1}
+
+    edit_yaml(key, give_m1_a_correction)
+    assert any("M1 takes no correction" in p.message for p in errors(one_contract))
+
+
+def test_supported_m1_that_corrections_make_onerous_is_flagged(one_contract):
+    key = one_contract / "answers" / "C009.yaml"
+
+    def m1_supported(d):
+        m1 = next(j for j in d["judgements"] if j["check"] == "M1")
+        m1["verdict"] = "supported"
+
+    edit_yaml(key, m1_supported)
+    assert any("corrected numbers need" in p.message for p in check_portfolio(one_contract))

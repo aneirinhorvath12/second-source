@@ -15,6 +15,7 @@ CPI_FLOOR = 0.95
 EAC_DIVERGENCE_TOL = 0.02
 PROGRESS_GAP_TOL = 0.03
 PROVISION_TOL = 10_000.0
+THIN_MARGIN = 0.05
 
 
 @dataclass
@@ -64,9 +65,16 @@ def candidates(cf: ContractFile) -> list[Candidate]:
         out.append(Candidate(cid, "E2", "ETC", "; ".join(reasons), n))
 
     p = cf.position()
+    reasons = []
     if p.provision_shortfall > PROVISION_TOL:
-        out.append(Candidate(cid, "M1", "PROVISION",
-                             f"EAC exceeds TP by {p.expected_loss:,.0f}; provision short by "
-                             f"{p.provision_shortfall:,.0f}.",
-                             {"expected_loss": p.expected_loss, "shortfall": p.provision_shortfall}))
+        reasons.append(f"EAC exceeds TP by {p.expected_loss:,.0f}; provision short by "
+                       f"{p.provision_shortfall:,.0f}")
+    if n["eac_evm"] > p.tp:
+        reasons.append(f"EVM EAC {n['eac_evm']:,.0f} exceeds TP {p.tp:,.0f}")
+    if 0 <= p.margin_pct < THIN_MARGIN:
+        reasons.append(f"reported margin {p.margin_pct:.1%}")
+    if reasons:
+        out.append(Candidate(cid, "M1", "PROVISION", "; ".join(reasons),
+                             {"expected_loss": p.expected_loss, "shortfall": p.provision_shortfall,
+                              "eac_evm": n["eac_evm"], "tp": p.tp}))
     return out

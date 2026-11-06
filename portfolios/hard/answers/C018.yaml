@@ -1,8 +1,8 @@
 # Answer key for C018. Systems never see this file.
 # Corrections say what the inputs should be; the engine computes the profit effects.
 contract_id: C018
-scenario: t1_withdrawn+t1_ok_after_query+t1_time_barred+t1_ok_vat+e2_cpi_trend
-notes: "4 variations in TP; E2 e2_cpi_trend; M1 m1_routine."
+scenario: t1_withdrawn+t1_ok_after_query+t1_time_barred+t1_ok_vat+e2_cpi_trend+m1_after_correction
+notes: "4 variations in TP; E2 e2_cpi_trend; M1 m1_after_correction."
 judgements:
   - check: T1
     ref: VO-001
@@ -37,4 +37,6 @@ judgements:
     why: "Remaining work at budget rates despite CPI around 0.84 for months and no evidence of improvement."
   - check: M1
     ref: PROVISION
-    verdict: supported
+    verdict: misstated
+    tag: m1_after_correction
+    why: "Profitable on management's numbers, but onerous once VO-002 and VO-004 come out of TP and the ETC reflects CPI around 0.84; no provision is booked."

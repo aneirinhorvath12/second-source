@@ -17,11 +17,16 @@ can't leave a stale number in the answers.
         correction:
           variations: {VO-002: 0}
         why: Customer letter rejects it as within the original scope.
+
+T1 and E2 effects are on revenue to date. M1 takes no correction of its own: it
+is tested on the best estimate, which is management's numbers with every
+misstated T1 and E2 correction applied. If M1 is a judgement call, its range
+comes from the other judgements' ranges.
 """
 
 from __future__ import annotations
 
-from dataclasses import replace
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 import yaml
@@ -100,24 +105,83 @@ class AnswerKey(BaseModel):
     judgements: list[Judgement]
 
 
-def _effect(report: CostReport, correction: Correction) -> float:
-    return engine.profit_effect(report.inputs(), correction.apply(report))
+ESCALATE = ("judgement_call", "insufficient_evidence")
 
 
-def compile_judgement(j: Judgement, contract_id: str, report: CostReport) -> LabelIssue:
+def merge(corrections: list[Correction]) -> Correction:
+    """Combine several judgements' corrections into one set of inputs."""
+    variations: dict[str, float] = {}
+    fields: dict[str, float] = {}
+    for c in corrections:
+        for ref, value in c.variations.items():
+            if ref in variations and variations[ref] != value:
+                raise ValueError(f"two judgements correct {ref} to different values")
+            variations[ref] = value
+        for name in ("etc", "claims_in_tp", "ld_deduction"):
+            value = getattr(c, name)
+            if value is not None:
+                if name in fields and fields[name] != value:
+                    raise ValueError(f"two judgements set {name} to different values")
+                fields[name] = value
+    return Correction(variations=variations, **fields)
+
+
+def _revenue(report: CostReport, correction: Correction) -> float:
+    return engine.revenue_effect(report.inputs(), correction.apply(report))
+
+
+def _provision(report: CostReport, correction: Correction) -> float:
+    return engine.provision_effect(report.inputs(), correction.apply(report))
+
+
+@dataclass
+class BestEstimate:
+    """What M1 is tested on, from the rest of the answer key."""
+
+    settled: Correction
+    """Every misstated T1 and E2 correction applied."""
+    low: Correction | None
+    """Also the least favourable end of every other judgement's range; None if there are no ranges."""
+    high: Correction | None
+
+
+def best_estimate(key: AnswerKey) -> BestEstimate:
+    others = [j for j in key.judgements if j.check != "M1"]
+    settled = [j.correction for j in others if j.verdict == "misstated" and j.correction is not None]
+    ranged = [j.range for j in others if j.range is not None]
+    if not ranged:
+        return BestEstimate(merge(settled), None, None)
+    return BestEstimate(merge(settled), merge(settled + [r.low for r in ranged]),
+                        merge(settled + [r.high for r in ranged]))
+
+
+def compile_judgement(j: Judgement, contract_id: str, report: CostReport,
+                      best: BestEstimate | None = None) -> LabelIssue:
     """Turn one judgement into a label with engine-computed effects."""
     effect_range: tuple[float, float] | None = None
-    if j.range is not None:
-        effect_range = (_effect(report, j.range.low), _effect(report, j.range.high))
-
-    if j.check == "M1" and j.verdict == "misstated":
-        point = -engine.position(report.inputs()).provision_shortfall
-    elif j.correction is not None:
-        point = _effect(report, j.correction)
-    elif effect_range is not None:
-        point = sum(effect_range) / 2
+    if j.check == "M1":
+        if j.correction is not None or j.range is not None:
+            raise ValueError("M1 takes no correction or range: it is tested on the other "
+                             "judgements' corrections")
+        if best is None:
+            raise ValueError("M1 needs the rest of the answer key; use compile_key")
+        if j.verdict in ESCALATE and best.low is not None and best.high is not None:
+            effect_range = (_provision(report, best.low), _provision(report, best.high))
+        if j.verdict == "misstated":
+            point = _provision(report, best.settled)
+        elif effect_range is not None:
+            point = sum(effect_range) / 2
+        else:
+            point = 0.0
     else:
-        point = 0.0
+        if j.range is not None:
+            effect_range = (_revenue(report, j.range.low), _revenue(report, j.range.high))
+        if j.correction is not None:
+            point = _revenue(report, j.correction)
+        elif effect_range is not None:
+            point = sum(effect_range) / 2
+        else:
+            point = 0.0
 
     return LabelIssue(
         contract_id=contract_id, check=j.check, ref=j.ref, expected_verdict=j.verdict,
@@ -127,9 +191,10 @@ def compile_judgement(j: Judgement, contract_id: str, report: CostReport) -> Lab
 
 
 def compile_key(key: AnswerKey, report: CostReport) -> ContractLabel:
+    best = best_estimate(key)
     return ContractLabel(
         contract_id=key.contract_id, scenario=key.scenario,
-        issues=[compile_judgement(j, key.contract_id, report) for j in key.judgements],
+        issues=[compile_judgement(j, key.contract_id, report, best) for j in key.judgements],
     )
 
 

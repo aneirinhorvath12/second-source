@@ -70,8 +70,10 @@ DEFINITIONS: list[dict[str, Any]] = [
     },
     {
         "name": "run_scenario",
-        "description": "Recompute the position with some inputs changed. Returns the new position "
-                       "and the effect on cumulative profit to date versus management's numbers.",
+        "description": "Recompute the position with some inputs changed. Returns the new position, "
+                       "the effect on revenue to date (what T1 and E2 measure) and the effect of "
+                       "holding the provision this position requires instead of the one booked "
+                       "(what M1 measures), both versus management's numbers.",
         "input_schema": {
             "type": "object",
             "properties": {"overrides": _OVERRIDES_SCHEMA},
@@ -83,7 +85,9 @@ DEFINITIONS: list[dict[str, Any]] = [
         "description": "Record your one finding and finish. For misstated, give low_case as the "
                        "corrected inputs. For judgement_call, give low_case (least favourable "
                        "supportable inputs) and high_case (most favourable; {} means as reported). "
-                       "For M1 the engine computes the provision shortfall itself.",
+                       "For M1, the cases are your best estimate of the contract's outcome: "
+                       "management's numbers with every input you think is wrong corrected ({} "
+                       "means management's own numbers). The engine computes the effects.",
         "input_schema": {
             "type": "object",
             "properties": {
@@ -168,7 +172,8 @@ class Toolbox:
         rep = self.cf.inputs()
         corrected = self._apply(rep, overrides)
         return json.dumps({"position": asdict(engine.position(corrected)),
-                           "profit_effect_vs_reported": engine.profit_effect(rep, corrected)},
+                           "revenue_effect_vs_reported": engine.revenue_effect(rep, corrected),
+                           "provision_effect_vs_booked": engine.provision_effect(rep, corrected)},
                           indent=2)
 
     # -- record -----------------------------------------------------------------
@@ -180,8 +185,10 @@ class Toolbox:
         return replace(rep, **{k: float(v) for k, v in overrides.items()})
 
     def _effect(self, case: dict[str, float] | None) -> float:
+        """T1 and E2 move revenue to date; M1 moves the provision, on the case given."""
         rep = self.cf.inputs()
-        return engine.profit_effect(rep, self._apply(rep, case))
+        measure = engine.provision_effect if self.check == "M1" else engine.revenue_effect
+        return measure(rep, self._apply(rep, case))
 
     def _record(self, args: dict[str, Any]) -> tuple[str, Finding | None]:
         evidence = [Citation(**e) for e in args.get("evidence", [])]
@@ -195,9 +202,7 @@ class Toolbox:
 
         verdict = args["verdict"]
         low = high = None
-        if self.check == "M1" and verdict == "misstated":
-            low = high = -engine.position(self.cf.inputs()).provision_shortfall
-        elif verdict == "misstated":
+        if verdict == "misstated":
             low = high = self._effect(args.get("low_case"))
         elif verdict in ("judgement_call", "insufficient_evidence") and args.get("low_case"):
             low, high = self._effect(args.get("low_case")), self._effect(args.get("high_case"))

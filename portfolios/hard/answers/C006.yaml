@@ -1,8 +1,8 @@
 # Answer key for C006. Systems never see this file.
 # Corrections say what the inputs should be; the engine computes the profit effects.
 contract_id: C006
-scenario: t1_wrong_authority+t1_ok_grudging+e2_one_off+m1_ok_provided
-notes: "4 variations in TP; E2 e2_one_off; M1 m1_ok_provided."
+scenario: t1_wrong_authority+t1_ok_grudging+e2_one_off+m1_after_correction
+notes: "4 variations in TP; E2 e2_one_off; M1 m1_after_correction."
 judgements:
   - check: T1
     ref: VO-001
@@ -31,6 +31,6 @@ judgements:
     why: "EVM looks poor, but the overrun was a documented one-off; productivity is back to plan."
   - check: M1
     ref: PROVISION
-    verdict: supported
-    tag: m1_ok_provided
-    why: "Loss-making on management's own numbers, and the provision for the remaining loss is booked in full."
+    verdict: misstated
+    tag: m1_after_correction
+    why: "The provision covers the loss on management's own numbers, but VO-002 has no valid approval; without it the loss grows and the provision is short."

@@ -56,13 +56,13 @@ uv run second-source index        # refresh INDEX.md
     why: "Customer letter rejects it as within the original scope."
 ```
 
-The engine computes the profit effect from the cost report every time, so editing a number in `cost_report.yaml` never leaves a stale effect in the answers. A correction can set `variations` (value per variation in TP), `etc`, `claims_in_tp` or `ld_deduction`; anything left out stays as reported.
+The engine computes the effects from the cost report every time, so editing a number in `cost_report.yaml` never leaves a stale effect in the answers. A correction can set `variations` (value per variation in TP), `etc`, `claims_in_tp` or `ld_deduction`; anything left out stays as reported. T1 and E2 effects are on revenue to date. M1 takes no correction of its own: it is tested on the best estimate, which is management's numbers with every misstated T1 and E2 correction in the key applied. If M1 is a judgement call, its range comes from the other judgements' ranges. `second-source show` prints the best estimate.
 
 | Verdict | What to give |
 |---|---|
 | `supported` | Nothing else |
-| `misstated` | A `correction` (M1 needs none: the engine computes the provision shortfall) |
-| `judgement_call` | A `range` with `low` and `high` corrections (`{}` means as reported); optionally a `correction` as the best estimate, otherwise the midpoint is used |
+| `misstated` | A `correction` (M1 takes none: the engine tests the provision on the best estimate) |
+| `judgement_call` | A `range` with `low` and `high` corrections (`{}` means as reported); optionally a `correction` as the best estimate, otherwise the midpoint is used. M1 takes no range: the engine uses the other judgements' ranges |
 | `insufficient_evidence` | A `request` naming the document that would settle it; optionally a `correction` and `range` |
 
 Every variation in TP needs one T1 judgement, and every contract needs an E2 `ETC` and an M1 `PROVISION` judgement. `tag` names the scenario for the score breakdowns; leave it out for unremarkable items.
