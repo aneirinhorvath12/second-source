@@ -12,6 +12,10 @@ Conventions (per contract, at a period end):
     R    cumulative revenue = POC x TP
     L    expected loss = max(0, EAC - TP)
     Provision required = (1 - POC) x L  (revenue at POC already books POC x L; IAS 37.66-69)
+
+Each check owns one line of the accounts, so no effect is counted twice:
+    T1, E2   revenue to date (through TP and POC)       revenue_effect
+    M1       onerous provision, on the best estimate     provision_effect
 """
 
 from __future__ import annotations
@@ -92,13 +96,30 @@ def scenario(i: Inputs, **overrides: float) -> Position:
     return position(replace(i, **overrides))
 
 
-def profit_effect(reported: Inputs, corrected: Inputs) -> float:
-    """Change to cumulative profit to date from correcting the inputs.
+def revenue_effect(reported: Inputs, corrected: Inputs) -> float:
+    """Change to revenue recognised to date from correcting the inputs. What T1 and E2 measure.
 
-    Negative means reported profit is overstated. The provision is always taken
-    at the required amount on both sides, so this isolates the input change.
+    Negative means revenue is overstated. Cost to date never changes, so this is
+    also the change to profit before any onerous provision.
     """
-    return correct_profit_to_date(corrected) - correct_profit_to_date(reported)
+    return position(corrected).revenue_to_date - position(reported).revenue_to_date
+
+
+def provision_effect(reported: Inputs, best: Inputs) -> float:
+    """Change to profit from holding the provision the best estimate requires. What M1 measures.
+
+    `best` is management's numbers with every misstated input corrected. Negative
+    means the provision booked is too small.
+    """
+    return reported.provision_booked - position(best).provision_required
+
+
+def profit_effect(reported: Inputs, corrected: Inputs) -> float:
+    """Total change to profit to date: the revenue effect plus the provision effect.
+
+    The two add up exactly, so each line of the accounts is counted once.
+    """
+    return revenue_effect(reported, corrected) + provision_effect(reported, corrected)
 
 
 # --- Earned value (from the P6 schedule) -------------------------------------

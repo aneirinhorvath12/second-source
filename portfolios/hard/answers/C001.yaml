@@ -1,8 +1,8 @@
 # Answer key for C001. Systems never see this file.
 # Corrections say what the inputs should be; the engine computes the profit effects.
 contract_id: C001
-scenario: t1_ok_misfiled+t1_value_disputed+t1_oral_instruction+t1_ok_customer_ref+e2_recovery+m1_ok_provided
-notes: "4 variations in TP; E2 e2_recovery; M1 m1_ok_provided."
+scenario: t1_ok_misfiled+t1_value_disputed+t1_oral_instruction+t1_ok_customer_ref+e2_recovery+m1_turns_on_judgements
+notes: "4 variations in TP; E2 e2_recovery; M1 m1_turns_on_judgements."
 judgements:
   - check: T1
     ref: VO-001
@@ -45,6 +45,6 @@ judgements:
     why: "ETC relies on £1,087,431 of savings that Corvan Piping Services hasn't agreed."
   - check: M1
     ref: PROVISION
-    verdict: supported
-    tag: m1_ok_provided
-    why: "Loss-making on management's own numbers, and the provision for the remaining loss is booked in full."
+    verdict: judgement_call
+    tag: m1_turns_on_judgements
+    why: "The provision covers the loss on management's own numbers, but the loss grows if the unagreed Corvan savings fail or VO-001 and VO-004 settle at the Employer's values."

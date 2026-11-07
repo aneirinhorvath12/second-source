@@ -1,0 +1,10 @@
+# Contract terms for C021: the summary finance holds in its systems.
+# The legal wording is in docs/contract.md; keep the two consistent.
+contract_id: C021
+name: "Carnbrook Energy Recovery Life Extension"
+customer: "Harrowfield Energy Recovery Ltd"
+contract_price: 146_200_000
+start_date: 2025-01-06
+completion_date: 2034-12-15
+ld_rate_per_day: 48_000
+ld_cap: 7_310_000

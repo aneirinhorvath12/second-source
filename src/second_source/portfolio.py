@@ -14,9 +14,10 @@ from pathlib import Path
 import yaml
 from pydantic import ValidationError
 
-from .answers import compile_key, read_key
+from . import engine
+from .answers import ESCALATE, best_estimate, compile_key, read_key
 from .store import contract_dirs, ledger_total, load_contract
-from .triggers import candidates, schedule_numbers
+from .triggers import PROVISION_TOL, candidates, schedule_numbers
 
 
 @dataclass
@@ -123,7 +124,7 @@ def check_contract(root: Path, cdir: Path) -> list[Problem]:
             err(where, "misstated needs a correction")
         if j.verdict == "supported" and (j.correction is not None or j.range is not None):
             warn(where, "supported, but has a correction or range")
-        if j.verdict == "judgement_call" and j.range is None:
+        if j.verdict == "judgement_call" and j.range is None and j.check != "M1":
             warn(where, "judgement call without a range")
         if j.verdict == "insufficient_evidence" and not j.request:
             warn(where, "insufficient evidence without a document request")
@@ -136,14 +137,31 @@ def check_contract(root: Path, cdir: Path) -> list[Problem]:
         if issue.expected_verdict == "misstated" and abs(issue.true_profit_effect) < 1:
             warn(f"answers {issue.check} {issue.ref}", "misstated, but the correction changes nothing")
 
-    position = cf.position()
     m1 = next((j for j in key.judgements if j.check == "M1"), None)
-    if m1 and m1.verdict == "supported" and position.provision_shortfall > 10_000:
-        short = _money(position.provision_shortfall)
-        warn("answers M1 PROVISION", f"supported, but the numbers need {short} more provision")
-    if m1 and m1.verdict == "misstated" and position.provision_shortfall <= 1:
-        err("answers M1 PROVISION", "misstated, but the provision booked already covers the loss")
+    if m1 is not None:
+        settled, low, _ = _m1_effects(key, cf)
+        where = "answers M1 PROVISION"
+        if m1.verdict == "supported" and settled < -PROVISION_TOL:
+            warn(where, f"supported, but the corrected numbers need {_money(-settled)} more provision")
+        if m1.verdict == "supported" and low is not None and low < -PROVISION_TOL:
+            warn(where, f"supported, but if the judgement calls go against management the "
+                        f"provision is {_money(-low)} short: should M1 be a judgement call?")
+        if m1.verdict == "misstated" and settled >= -1:
+            err(where, "misstated, but the provision booked covers the corrected loss")
+        if m1.verdict in ESCALATE and low is None:
+            err(where, f"{m1.verdict} needs another judgement with a range to vary")
     return out
+
+
+def _m1_effects(key, cf) -> tuple[float, float | None, float | None]:
+    """Provision effect on the corrected numbers, and at the two ends of the ranges."""
+    best = best_estimate(key)
+    rep, report = cf.inputs(), cf.report
+
+    def effect(c):
+        return None if c is None else engine.provision_effect(rep, c.apply(report))
+
+    return effect(best.settled), effect(best.low), effect(best.high)
 
 
 def check_portfolio(root: Path) -> list[Problem]:
@@ -216,6 +234,12 @@ def show_contract(root: Path, cid: str) -> str:
     if key_path.exists():
         key = read_key(key_path)
         label = compile_key(key, cf.report)
+        best = engine.position(best_estimate(key).settled.apply(cf.report))
+        lines += ["", "Best estimate (answer key's misstated items corrected)",
+                  f"  TP {_money(best.tp)}   EAC {_money(best.eac)}   POC {best.poc:.1%}   "
+                  f"margin {best.margin_pct:.1%}",
+                  f"  provision required {_money(best.provision_required)}, "
+                  f"booked {_money(p.provision_booked)}"]
         lines += ["", f"Answer key ({key.scenario})"]
         for i in label.issues:
             effect = "" if i.expected_verdict == "supported" else f"  effect {_money(i.true_profit_effect)}"

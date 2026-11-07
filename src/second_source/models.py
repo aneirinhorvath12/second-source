@@ -15,7 +15,7 @@ Check = Literal["T1", "E2", "M1"]
 CHECKS: dict[str, str] = {
     "T1": "Variation in TP without customer acceptance or an enforceable right (IFRS 15.18-21)",
     "E2": "Management EAC optimistic against earned value and physical progress",
-    "M1": "Loss-making contract without the onerous provision management's own numbers require",
+    "M1": "Contract onerous on the best estimate without the provision it requires (IAS 37.66-69)",
 }
 
 # Every contract is assessed on these refs; T1 adds one ref per variation in TP.

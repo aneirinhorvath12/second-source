@@ -2,8 +2,9 @@
 
 - `null`:  trusts management completely. The floor.
 - `rules`: triggers plus deterministic verdicts. It trusts the commercial team's
-           variation register and treats any EVM divergence as a misstatement,
-           which is roughly what analytics without judgement can do.
+           variation register, treats any EVM divergence as a misstatement, and
+           tests the provision on the EVM estimate, which is roughly what
+           analytics without judgement can do.
 
 Model-based systems (the investigator agent and the one-prompt baseline) live
 in `second_source.agent` and register themselves here when imported.
@@ -17,7 +18,7 @@ from dataclasses import replace
 from . import engine
 from .models import Finding
 from .store import ContractFile
-from .triggers import EAC_DIVERGENCE_TOL, candidates
+from .triggers import EAC_DIVERGENCE_TOL, PROVISION_TOL, candidates
 
 System = Callable[[ContractFile], list[Finding]]
 
@@ -29,6 +30,7 @@ def null_system(cf: ContractFile) -> list[Finding]:
 def rules_system(cf: ContractFile) -> list[Finding]:
     out: list[Finding] = []
     rep = cf.inputs()
+    best = rep  # the rules' own best estimate, for M1
     for c in candidates(cf):
         if c.check == "T1":
             v = next(v for v in cf.report.variations if v.id == c.ref)
@@ -37,24 +39,25 @@ def rules_system(cf: ContractFile) -> list[Finding]:
             corrected = replace(rep, variations_in_tp=rep.variations_in_tp - v.amount)
             out.append(Finding(contract_id=cf.contract_id, check="T1", ref=v.id,
                                verdict="judgement_call",
-                               profit_effect_low=engine.profit_effect(rep, corrected),
+                               profit_effect_low=engine.revenue_effect(rep, corrected),
                                profit_effect_high=0.0, confidence=0.5,
                                question=f"Is {v.id} agreed with the customer?",
                                rationale=f"Register status '{v.reported_status}'."))
         elif c.check == "E2":
             if c.numbers["eac_divergence"] <= EAC_DIVERGENCE_TOL:
                 continue
-            etc_evm = c.numbers["eac_evm"] - cf.report.cost_to_date
-            effect = engine.profit_effect(rep, replace(rep, etc=etc_evm))
+            best = replace(rep, etc=c.numbers["eac_evm"] - cf.report.cost_to_date)
+            effect = engine.revenue_effect(rep, best)
             out.append(Finding(contract_id=cf.contract_id, check="E2", ref="ETC", verdict="misstated",
                                profit_effect_low=effect, profit_effect_high=effect, confidence=0.6,
                                rationale=c.reason))
         elif c.check == "M1":
+            effect = engine.provision_effect(rep, best)
+            if effect >= -PROVISION_TOL:
+                continue
             out.append(Finding(contract_id=cf.contract_id, check="M1", ref="PROVISION",
-                               verdict="misstated",
-                               profit_effect_low=-c.numbers["shortfall"],
-                               profit_effect_high=-c.numbers["shortfall"], confidence=0.9,
-                               rationale=c.reason))
+                               verdict="misstated", profit_effect_low=effect,
+                               profit_effect_high=effect, confidence=0.9, rationale=c.reason))
     return out
 
 
