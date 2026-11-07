@@ -6,8 +6,9 @@
            tests the provision on the EVM estimate, which is roughly what
            analytics without judgement can do.
 
-Model-based systems (the investigator agent and the one-prompt baseline) live
-in `second_source.agent` and register themselves here when imported.
+These are harness v0's baselines. The investigator agent lives in
+`second_source.agent` and registers itself here when imported. The controller
+review (review.py) is separate: it returns figures and a confidence, not findings.
 """
 
 from __future__ import annotations

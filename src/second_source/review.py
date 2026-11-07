@@ -125,11 +125,14 @@ def review(cdirs: list[Path], out: Path, runs: int = 1, model: str = DEFAULT_MOD
     records = []
     for cdir in cdirs:
         req = build_request(cdir, model)
-        (out / f"{req.contract_id}.request.json").write_text(
+        request_path = out / f"{req.contract_id}.request.json"
+        request_path.write_text(
             json.dumps({"model": model, "max_tokens": MAX_TOKENS, "system": req.system,
                         "messages": req.messages}, indent=1))
         if dry_run:
-            if client is not None:
+            if client is None:
+                print(f"{req.contract_id}: wrote {request_path}; set ANTHROPIC_API_KEY to count its tokens")
+            else:
                 n = client.messages.count_tokens(model=model, system=req.system,
                                                  messages=req.messages).input_tokens
                 first = cost_usd(model, 0, n, 0, 18_000)

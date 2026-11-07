@@ -56,6 +56,12 @@ def test_repeat_runs_are_skipped_when_nothing_changed(tmp_path):
     assert [r["run"] for r in logged] == [1, 2]
 
 
+def test_dry_run_without_a_client_writes_the_request_and_calls_nothing(tmp_path):
+    assert review([HARD / "contracts" / "C017"], tmp_path, dry_run=True) == []
+    request = json.loads((tmp_path / "C017.request.json").read_text())
+    assert request["model"] == "claude-haiku-5-5" and not (tmp_path / "calls.jsonl").exists()
+
+
 def test_parse_figures_takes_the_last_json_block():
     assert parse_figures("no block") is None
     assert parse_figures(ANSWER)["provision"] == 3412000

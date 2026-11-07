@@ -3,7 +3,8 @@
     second-source check                       validate the portfolio after editing it
     second-source show C009                   numbers, triggers and answers for one contract
     second-source index                       rewrite the portfolio's INDEX.md
-    second-source run --system rules          run a system; findings go to runs/rules.jsonl
+    second-source review C017 --out runs/x    the controller review: one call per contract
+    second-source run --system rules          harness v0: findings go to runs/rules.jsonl
     second-source eval runs/null.jsonl runs/rules.jsonl
     second-source demo                        run null and rules, then score them (offline)
 """
@@ -12,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -113,12 +115,13 @@ def cmd_demo(args: argparse.Namespace) -> None:
 
 
 def cmd_review(args: argparse.Namespace) -> None:
-    import anthropic
-
     from .review import review
     root = Path(args.portfolio)
     cdirs = [root / "contracts" / c for c in args.contracts]
-    client = anthropic.Anthropic(max_retries=6)
+    client = None  # a dry run with no API key just writes the requests
+    if not args.dry_run or os.environ.get("ANTHROPIC_API_KEY"):
+        import anthropic
+        client = anthropic.Anthropic(max_retries=6)
     records = review(cdirs, Path(args.out), runs=args.runs, model=args.model, client=client,
                      dry_run=args.dry_run)
     if records:
