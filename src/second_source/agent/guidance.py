@@ -3,7 +3,11 @@
 The standards themselves are IFRS Foundation copyright and are not reproduced.
 """
 
-VERDICTS = """Verdicts (choose exactly one):
+VERDICTS = """The contract file is all the information available on this contract at the review date.
+Nothing has been left out or held back: if a document is referred to but is not in the file, it is
+not available to anyone reviewing the accounts. Weigh each treatment on what is in the file.
+
+Verdicts (choose exactly one):
 - supported: the evidence backs management's treatment.
 - misstated: the evidence shows the treatment is wrong. Quantify the correction.
 - judgement_call: the evidence supports a range of treatments. Give the range and the question

@@ -21,9 +21,11 @@ judgements:
     why: "Initially queried (2026-08-29_letter_HXC-AFP-098.md) but accepted at £1,013,038 in 2026-10-03_letter_HXC-AFP-099.md, before the period end."
   - check: E2
     ref: ETC
-    verdict: supported
+    verdict: misstated
     tag: e2_front_loaded
-    why: "CPI looks poor because cost to date includes materials bought but not yet installed; the ETC already nets them off."
+    correction:
+      uninstalled_materials: 4_834_000
+    why: "Aneirin's ruling (7 Nov 2026): progress is massively overstated. Cost to date includes £4,834,000 of materials on site not yet installed (2027-01-19_minutes_contract-review.md, 2026-12-18_memo_procurement-status.md). Take them out of progress and recognise them at zero margin (IFRS 15.B19(b), Example 19). The ETC itself already nets them off."
   - check: M1
     ref: PROVISION
     verdict: supported

@@ -24,7 +24,7 @@ judgements:
     tag: t1_post_period
     correction:
       variations: {VO-006: 0}
-    why: "2027-01-18_letter_SRL-CPD-074.md, after the period end, rejects it based on the 08 December 2026 inspection: evidence of conditions at the period end (an adjusting event)."
+    why: "Aneirin's ruling (7 Nov 2026): should not be recognised, despite the small amount. 2027-01-18_letter_SRL-CPD-074.md, after the period end, rejects it based on the 08 December 2026 inspection: evidence of conditions at the period end (an adjusting event)."
   - check: E2
     ref: ETC
     verdict: supported

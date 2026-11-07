@@ -1,4 +1,5 @@
 import random
+from dataclasses import replace
 from datetime import date
 
 import pytest
@@ -104,3 +105,20 @@ def test_ld_exposure_capped_and_net_of_eot():
     assert e.ld_exposure(1000, 50_000, date(2027, 3, 31), date(2027, 3, 1)) == 30_000
     assert e.ld_exposure(1000, 10_000, date(2027, 3, 31), date(2027, 3, 1)) == 10_000
     assert e.ld_exposure(1000, 10_000, date(2027, 2, 1), date(2027, 3, 1)) == 0
+
+
+def test_uninstalled_materials_follow_ifrs15_example_19():
+    # IFRS 15 IE Example 19: price 5.0m, expected cost 4.0m including elevators of 1.5m.
+    # Cost to date 2.0m includes the elevators, delivered but not installed.
+    i = e.Inputs(contract_price=5_000_000, cost_to_date=2_000_000, etc=2_000_000,
+                 uninstalled_materials=1_500_000)
+    p = e.position(i)
+    assert p.poc == pytest.approx(0.2)  # 0.5m of 2.5m, elevators excluded
+    assert p.revenue_to_date == pytest.approx(2_200_000)  # 0.2 x 3.5m + 1.5m at zero margin
+    # without the adjustment, progress is 50% and revenue 2.5m
+    assert e.revenue_effect(replace(i, uninstalled_materials=0), i) == pytest.approx(-300_000)
+
+
+def test_uninstalled_materials_cannot_exceed_cost_to_date():
+    with pytest.raises(ValueError):
+        e.position(e.Inputs(contract_price=10, cost_to_date=1, etc=1, uninstalled_materials=2))

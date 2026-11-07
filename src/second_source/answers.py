@@ -48,6 +48,8 @@ class Correction(BaseModel):
     etc: float | None = None
     claims_in_tp: float | None = None
     ld_deduction: float | None = None
+    uninstalled_materials: float | None = None
+    """Cost of uninstalled goods to take out of progress and recognise at zero margin."""
 
     def apply(self, report: CostReport) -> engine.Inputs:
         rep = report.inputs()
@@ -59,15 +61,15 @@ class Correction(BaseModel):
             self.variations.get(v.id, v.amount if v.included_in_tp else 0.0) for v in report.variations
         )
         changes: dict[str, float] = {"variations_in_tp": variations_in_tp}
-        for field in ("etc", "claims_in_tp", "ld_deduction"):
+        for field in ("etc", "claims_in_tp", "ld_deduction", "uninstalled_materials"):
             value = getattr(self, field)
             if value is not None:
                 changes[field] = value
         return replace(rep, **changes)
 
     def is_empty(self) -> bool:
-        return not self.variations and self.etc is None and self.claims_in_tp is None \
-            and self.ld_deduction is None
+        fields = ("etc", "claims_in_tp", "ld_deduction", "uninstalled_materials")
+        return not self.variations and all(getattr(self, f) is None for f in fields)
 
 
 class EffectRange(BaseModel):
@@ -117,7 +119,7 @@ def merge(corrections: list[Correction]) -> Correction:
             if ref in variations and variations[ref] != value:
                 raise ValueError(f"two judgements correct {ref} to different values")
             variations[ref] = value
-        for name in ("etc", "claims_in_tp", "ld_deduction"):
+        for name in ("etc", "claims_in_tp", "ld_deduction", "uninstalled_materials"):
             value = getattr(c, name)
             if value is not None:
                 if name in fields and fields[name] != value:

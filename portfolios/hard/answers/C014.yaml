@@ -17,14 +17,13 @@ judgements:
     ref: VO-003
     verdict: insufficient_evidence
     tag: t1_missing_attachment
-    correction:
-      variations: {VO-003: 0}
+    correction: {}  # management's figure is acceptable
     range:
       low:
         variations: {VO-003: 0}
       high: {}  # as reported
     request: "Letter SRL/DTF/074 (the ER's response to BRK/DTF/Q/033)"
-    why: "The ER's response exists (2026-10-10_email_2931.md covers letter SRL/DTF/074) but the letter itself is not in the file."
+    why: "Aneirin's ruling (7 Nov 2026): would accept management's figure, but expect a flag. The ER's response exists (2026-10-10_email_2931.md covers letter SRL/DTF/074) but the letter itself is not in the file."
   - check: E2
     ref: ETC
     verdict: supported

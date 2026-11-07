@@ -1,18 +1,16 @@
 # Answer key for C001. Systems never see this file.
 # Corrections say what the inputs should be; the engine computes the profit effects.
 contract_id: C001
-scenario: t1_ok_misfiled+t1_value_disputed+t1_oral_instruction+t1_ok_customer_ref+e2_recovery+m1_turns_on_judgements
-notes: "4 variations in TP; E2 e2_recovery; M1 m1_turns_on_judgements."
+scenario: t1_ok_misfiled+t1_value_disputed+t1_oral_instruction+t1_ok_customer_ref+e2_recovery+m1_after_correction
+notes: "4 variations in TP; E2 e2_recovery; M1 m1_after_correction."
 judgements:
   - check: T1
     ref: VO-001
-    verdict: judgement_call
+    verdict: misstated
     tag: t1_oral_instruction
-    range:
-      low:
-        variations: {VO-001: 813_000}
-      high: {}  # as reported
-    why: "Oral instruction confirmed in 2026-07-04_letter_BRK-HRG-L-0310.md with no dissent, so effective under clause 3.3; price unagreed, Employer's QS indicates about £813,000."
+    correction:
+      variations: {VO-001: 0}
+    why: "Aneirin's ruling (7 Nov 2026): no supporting evidence for the value, so deduct it, with low certainty. The only view from the Employer's QS is an informal steer of about £813,000, 'not a position' (2026-08-09_email_3785.md). Oral instruction confirmed in 2026-07-04_letter_BRK-HRG-L-0310.md with no dissent, so effective under clause 3.3; price unagreed, Employer's QS indicates about £813,000."
   - check: T1
     ref: VO-002
     verdict: supported
@@ -25,26 +23,20 @@ judgements:
     why: "2026-09-22_letter_NVE-HRG-133.md accepts ERI-029 at £843,372; 2026-08-26_letter_BRK-HRG-L-0315.md links ERI-029 to VO-003."
   - check: T1
     ref: VO-004
-    verdict: judgement_call
+    verdict: misstated
     tag: t1_value_disputed
-    range:
-      low:
-        variations: {VO-004: 361_200}
-      high: {}  # as reported
-    why: "Scope agreed (2026-11-12_letter_NVE-HRG-126.md) but value disputed: £361,200 offered vs £490,819 claimed; an estimate subject to the constraint."
+    correction:
+      variations: {VO-004: 0}
+    why: "Aneirin's ruling (7 Nov 2026): the amount can't be measured reliably, so it doesn't meet the recognition criteria. Scope agreed (2026-11-12_letter_NVE-HRG-126.md) but value disputed: £361,200 offered vs £490,819 claimed; an estimate subject to the constraint."
   - check: E2
     ref: ETC
-    verdict: judgement_call
+    verdict: misstated
     tag: e2_recovery
     correction:
       etc: 19_401_411
-    range:
-      low:
-        etc: 19_401_411
-      high: {}  # as reported
-    why: "ETC relies on £1,087,431 of savings that Corvan Piping Services hasn't agreed."
+    why: "Aneirin's ruling (7 Nov 2026): prudence is essential; without further communication the recovery-plan savings should not be recognised. ETC relies on £1,087,431 of savings that Corvan Piping Services hasn't agreed."
   - check: M1
     ref: PROVISION
-    verdict: judgement_call
-    tag: m1_turns_on_judgements
-    why: "The provision covers the loss on management's own numbers, but the loss grows if the unagreed Corvan savings fail or VO-001 and VO-004 settle at the Employer's values."
+    verdict: misstated
+    tag: m1_after_correction
+    why: "Aneirin's ruling (7 Nov 2026): VO-001 and VO-004 don't meet the criteria for recognition and the Corvan savings don't either, so the provision is tested without all three."

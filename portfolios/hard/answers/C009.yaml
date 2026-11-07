@@ -20,16 +20,13 @@ judgements:
     why: "2026-07-27_letter_NVE-MBT-126.md says the work is Contractor's design under clause 2.3 and no adjustment is due: a rejection, though it never says so."
   - check: T1
     ref: VO-003
-    verdict: insufficient_evidence
+    verdict: judgement_call
     tag: t1_no_response
-    correction:
-      variations: {VO-003: 0}
     range:
       low:
         variations: {VO-003: 0}
       high: {}  # as reported
-    request: "The ER's written acceptance of quotation BRK/MBT/Q/047"
-    why: "Quotation submitted; minutes show it is still awaited; no acceptance anywhere."
+    why: "Aneirin's ruling (7 Nov 2026): highly judgemental; any number of treatments are valid here, including full recognition. Quotation submitted; minutes show it is still awaited; no acceptance anywhere."
   - check: T1
     ref: VO-005
     verdict: judgement_call

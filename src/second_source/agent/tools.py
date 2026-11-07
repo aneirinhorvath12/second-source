@@ -19,7 +19,7 @@ from ..models import Citation, Finding
 from ..store import ContractFile
 from ..triggers import schedule_numbers
 
-OVERRIDABLE = ["variations_in_tp", "claims_in_tp", "ld_deduction", "etc"]
+OVERRIDABLE = ["variations_in_tp", "claims_in_tp", "ld_deduction", "etc", "uninstalled_materials"]
 
 _OVERRIDES_SCHEMA = {
     "type": "object",

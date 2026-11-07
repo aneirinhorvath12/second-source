@@ -12,7 +12,7 @@ judgements:
     ref: VO-002
     verdict: supported
     tag: t1_ok_misfiled
-    why: "Accepted in 2026-09-29_letter_TPC-RGR-146.md. The rejection of a 'VO-002' in 2026-10-09_letter_HXC-FHP-149.md is about Fennick Hydrogen Pilot, a different contract."
+    why: "Accepted in 2026-09-29_letter_TPC-RGR-146.md. The rejection of a 'VO-002' in 2026-10-09_letter_EMU-FHP-149.md is about Fennick Hydrogen Pilot, a different contract."
   - check: T1
     ref: VO-003
     verdict: supported

@@ -18,9 +18,11 @@ judgements:
     why: "Accepted in 2026-08-11_letter_SRL-OLA-083.md, then ERI-023 withdrawn before work started (2026-09-13_letter_SRL-OLA-086.md); clause 14.5 means nothing is payable."
   - check: E2
     ref: ETC
-    verdict: supported
+    verdict: misstated
     tag: e2_front_loaded
-    why: "CPI looks poor because cost to date includes materials bought but not yet installed; the ETC already nets them off."
+    correction:
+      uninstalled_materials: 5_716_000
+    why: "Aneirin's ruling (7 Nov 2026): same as C008. Cost to date includes £5,716,000 of materials on site not yet installed (2027-01-21_minutes_contract-review.md, 2026-12-17_memo_procurement-status.md). Take them out of progress and recognise them at zero margin (IFRS 15.B19(b), Example 19). The ETC itself already nets them off."
   - check: M1
     ref: PROVISION
     verdict: supported

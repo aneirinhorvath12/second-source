@@ -2,7 +2,9 @@
 
 This folder is the dataset. Every contract, document and answer is a plain file you can read and edit, and the evals score systems against exactly what's here.
 
-[`hard/`](hard/INDEX.md) holds 20 fixed-price contracts of about 130k tokens each, with 60–80 documents per contract: several issues per contract, buried in a full project file, with traps.
+[`hard/`](hard/INDEX.md) holds 21 fixed-price contracts of about 75k to 130k tokens each, with 60–90 documents per contract: several issues per contract, buried in a full project file, with traps.
+
+Each contract folder is all the information available on that contract at the review date. Nothing is left out: if a document is referred to but isn't in the folder, it doesn't exist for anyone reviewing the accounts, and the answer key is written on that basis.
 
 ### What makes it hard
 

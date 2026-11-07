@@ -18,7 +18,7 @@ PM confident productivity will return to plan with the new supervision team; no 
 
 Variation register reviewed (see cost report):
 
-- VO-001 Extended scaffold hire for the Employer's inspection campaign: £1,931,740, Instructed
+- VO-001 Additional work for the abandoned brick culvert found in excavation: £1,931,740, Instructed
 - VO-002 Upgrade of the HVAC in the control building to N+1: £795,841, Approved
 - VO-003 Temporary power supply extended beyond the agreed period: £1,883,483, Agreed
 - VO-004 Out-of-hours working to suit the Employer's shutdown window: £542,639, Under review (not in forecast)

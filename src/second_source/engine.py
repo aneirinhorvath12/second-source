@@ -10,6 +10,8 @@ Conventions (per contract, at a period end):
     TP   transaction price = contract price + variations in TP + claims in TP - expected LDs
     POC  C / EAC (input method, IFRS 15.B18)
     R    cumulative revenue = POC x TP
+    U    uninstalled materials in C, if taken out of progress (IFRS 15.B19(b), Example 19):
+         POC = (C - U) / (EAC - U) and R = POC x (TP - U) + U, so U is recognised at zero margin
     L    expected loss = max(0, EAC - TP)
     Provision required = (1 - POC) x L  (revenue at POC already books POC x L; IAS 37.66-69)
 
@@ -35,6 +37,8 @@ class Inputs:
     cost_to_date: float = 0.0
     etc: float = 0.0
     provision_booked: float = 0.0
+    uninstalled_materials: float = 0.0
+    """Cost of goods in cost to date not yet installed, taken out of progress (IFRS 15.B19(b))."""
 
 
 @dataclass(frozen=True)
@@ -60,10 +64,13 @@ def transaction_price(i: Inputs) -> float:
 def position(i: Inputs) -> Position:
     if i.cost_to_date < 0 or i.etc < 0:
         raise ValueError("cost_to_date and etc must be non-negative")
+    u = i.uninstalled_materials
+    if not 0 <= u <= i.cost_to_date:
+        raise ValueError("uninstalled_materials must be between 0 and cost_to_date")
     tp = transaction_price(i)
     eac = i.cost_to_date + i.etc
-    poc = 0.0 if eac == 0 else min(1.0, i.cost_to_date / eac)
-    revenue = poc * tp
+    poc = 0.0 if eac - u <= 0 else min(1.0, (i.cost_to_date - u) / (eac - u))
+    revenue = poc * (tp - u) + u
     margin = tp - eac
     loss = max(0.0, eac - tp)
     required = (1.0 - poc) * loss

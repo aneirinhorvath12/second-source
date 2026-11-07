@@ -24,7 +24,7 @@ provision_booked: 0  # onerous contract provision
 commentary: "ETC reflects remaining budget. New supervision team expected to restore productivity to plan. Forecast shows a shortfall at completion, which the board expects to recover through the prolongation claim in preparation. No provision considered necessary."
 variations:  # the variation register
   - id: VO-001
-    description: "Extended scaffold hire for the Employer's inspection campaign"
+    description: "Additional work for the abandoned brick culvert found in excavation"
     amount: 1_931_740
     included_in_tp: true
     reported_status: "Instructed"
