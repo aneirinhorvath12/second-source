@@ -1,0 +1,27 @@
+{
+  "contract_id": "C005",
+  "period_end": "2026-12-31",
+  "contract_price": 60871000.0,
+  "variations": [
+    {
+      "id": "VO-001",
+      "description": "Extra civil works for unforeseen ground conditions at the north pad",
+      "amount": 1327000.0,
+      "included_in_tp": true,
+      "reported_status": "Approved"
+    },
+    {
+      "id": "VO-002",
+      "description": "Additional pipe supports required by revised stress analysis",
+      "amount": 2985000.0,
+      "included_in_tp": true,
+      "reported_status": "Approved (commercial view)"
+    }
+  ],
+  "claims_in_tp": 0.0,
+  "ld_deduction": 0.0,
+  "cost_to_date": 17375000.0,
+  "etc": 37831000.0,
+  "provision_booked": 0.0,
+  "commentary": "Project performing in line with forecast."
+}

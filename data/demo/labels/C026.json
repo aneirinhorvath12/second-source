@@ -1,0 +1,53 @@
+{
+  "contract_id": "C026",
+  "scenario": "clean",
+  "true_etc": 58086000.0,
+  "true_cpi": 0.9729215396278499,
+  "true_spi": 1.004671595468169,
+  "issues": [
+    {
+      "contract_id": "C026",
+      "check": "T1",
+      "ref": "VO-001",
+      "expected_verdict": "supported",
+      "true_profit_effect": 0.0,
+      "effect_range": null,
+      "scenario": "t1_approved",
+      "withheld_document": null,
+      "note": "Customer accepted in writing."
+    },
+    {
+      "contract_id": "C026",
+      "check": "T1",
+      "ref": "VO-002",
+      "expected_verdict": "supported",
+      "true_profit_effect": 0.0,
+      "effect_range": null,
+      "scenario": "t1_approved",
+      "withheld_document": null,
+      "note": "Customer accepted in writing."
+    },
+    {
+      "contract_id": "C026",
+      "check": "E2",
+      "ref": "ETC",
+      "expected_verdict": "supported",
+      "true_profit_effect": 0.0,
+      "effect_range": null,
+      "scenario": "e2_ok",
+      "withheld_document": null,
+      "note": ""
+    },
+    {
+      "contract_id": "C026",
+      "check": "M1",
+      "ref": "PROVISION",
+      "expected_verdict": "supported",
+      "true_profit_effect": 0.0,
+      "effect_range": null,
+      "scenario": "m1_ok",
+      "withheld_document": null,
+      "note": ""
+    }
+  ]
+}

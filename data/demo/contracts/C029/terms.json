@@ -1,0 +1,10 @@
+{
+  "contract_id": "C029",
+  "name": "Tarrow Estuary Jetty",
+  "customer": "Eastmarch Utilities",
+  "contract_price": 32179000.0,
+  "start_date": "2026-02-18",
+  "completion_date": "2028-05-20",
+  "ld_rate_per_day": 25000.0,
+  "ld_cap": 3218000.0
+}

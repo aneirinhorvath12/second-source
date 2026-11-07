@@ -65,7 +65,7 @@ SYSTEMS: dict[str, System] = {"null": null_system, "rules": rules_system}
 
 
 def get_system(name: str) -> System:
-    if name not in SYSTEMS and name in {"agent", "one_prompt"}:
+    if name not in SYSTEMS and name == "agent":
         from . import agent  # noqa: F401  registers the model-based systems
     try:
         return SYSTEMS[name]

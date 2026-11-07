@@ -1,0 +1,10 @@
+{
+  "contract_id": "C024",
+  "name": "Ennerby Steam Network",
+  "customer": "Blythe Industrial Holdings",
+  "contract_price": 81258000.0,
+  "start_date": "2025-07-01",
+  "completion_date": "2027-07-02",
+  "ld_rate_per_day": 32000.0,
+  "ld_cap": 12189000.0
+}

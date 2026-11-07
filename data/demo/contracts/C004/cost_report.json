@@ -1,0 +1,20 @@
+{
+  "contract_id": "C004",
+  "period_end": "2026-12-31",
+  "contract_price": 68528000.0,
+  "variations": [
+    {
+      "id": "VO-001",
+      "description": "Relocation of the control room following employer's layout change",
+      "amount": 2700000.0,
+      "included_in_tp": true,
+      "reported_status": "Approved"
+    }
+  ],
+  "claims_in_tp": 0.0,
+  "ld_deduction": 0.0,
+  "cost_to_date": 22360000.0,
+  "etc": 41346000.0,
+  "provision_booked": 0.0,
+  "commentary": "ETC reflects remaining budget. Team confident of recovering productivity."
+}

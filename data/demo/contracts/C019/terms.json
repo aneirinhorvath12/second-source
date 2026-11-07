@@ -1,0 +1,10 @@
+{
+  "contract_id": "C019",
+  "name": "Pellow Wind Substation",
+  "customer": "Blythe Industrial Holdings",
+  "contract_price": 26921000.0,
+  "start_date": "2026-01-11",
+  "completion_date": "2027-10-12",
+  "ld_rate_per_day": 13000.0,
+  "ld_cap": 4038000.0
+}

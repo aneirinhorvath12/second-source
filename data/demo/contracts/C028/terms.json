@@ -1,0 +1,10 @@
+{
+  "contract_id": "C028",
+  "name": "Arden Valley Biomass Plant",
+  "customer": "Norvale Energy plc",
+  "contract_price": 138777000.0,
+  "start_date": "2026-02-26",
+  "completion_date": "2028-01-27",
+  "ld_rate_per_day": 86000.0,
+  "ld_cap": 13878000.0
+}

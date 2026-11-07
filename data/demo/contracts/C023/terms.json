@@ -1,0 +1,10 @@
+{
+  "contract_id": "C023",
+  "name": "Calder Moss Battery Storage",
+  "customer": "Caledon Power Networks",
+  "contract_price": 162789000.0,
+  "start_date": "2025-07-31",
+  "completion_date": "2028-07-31",
+  "ld_rate_per_day": 80000.0,
+  "ld_cap": 16279000.0
+}

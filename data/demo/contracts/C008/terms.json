@@ -1,0 +1,10 @@
+{
+  "contract_id": "C008",
+  "name": "Ashby Fell Pumping Station",
+  "customer": "Ardent Water Ltd",
+  "contract_price": 79266000.0,
+  "start_date": "2025-09-25",
+  "completion_date": "2027-09-26",
+  "ld_rate_per_day": 27000.0,
+  "ld_cap": 3963000.0
+}

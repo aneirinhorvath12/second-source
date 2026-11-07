@@ -1,0 +1,20 @@
+{
+  "contract_id": "C030",
+  "period_end": "2026-12-31",
+  "contract_price": 149292000.0,
+  "variations": [
+    {
+      "id": "VO-001",
+      "description": "Additional pipe supports required by revised stress analysis",
+      "amount": 1509000.0,
+      "included_in_tp": true,
+      "reported_status": "Approved"
+    }
+  ],
+  "claims_in_tp": 0.0,
+  "ld_deduction": 0.0,
+  "cost_to_date": 124968000.0,
+  "etc": 41642000.0,
+  "provision_booked": 0.0,
+  "commentary": "Productivity below plan; ETC reforecast to reflect current performance."
+}

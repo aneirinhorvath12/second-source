@@ -1,0 +1,10 @@
+{
+  "contract_id": "C003",
+  "name": "Kessock Substation",
+  "customer": "Ardent Water Ltd",
+  "contract_price": 114823000.0,
+  "start_date": "2025-05-07",
+  "completion_date": "2028-02-06",
+  "ld_rate_per_day": 38000.0,
+  "ld_cap": 5741000.0
+}

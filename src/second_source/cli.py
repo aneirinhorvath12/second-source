@@ -68,7 +68,7 @@ def cmd_run(args: argparse.Namespace) -> Path:
     meta = {"system": args.system, "portfolio": args.portfolio, "contracts": len(contracts),
             "contract_ids": [c.contract_id for c in contracts], "findings": n,
             "seconds": round(time.time() - started, 1)}
-    if args.system in {"agent", "one_prompt"}:
+    if args.system == "agent":
         from .agent.usage import USAGE
         meta["usage"] = USAGE.summary()
     out.with_suffix(".meta.json").write_text(json.dumps(meta, indent=2))
@@ -140,7 +140,7 @@ def main(argv: list[str] | None = None) -> None:
     add("show", "numbers, triggers and answers for one contract", cmd_show).add_argument("contract")
 
     r = add("run", "run a system over a portfolio", cmd_run)
-    r.add_argument("--system", required=True, help="null | rules | agent | one_prompt")
+    r.add_argument("--system", required=True, help="null | rules | agent")
     r.add_argument("--out")
     r.add_argument("--contracts", help="comma-separated contract ids")
     r.add_argument("--limit", type=int)

@@ -1,0 +1,27 @@
+{
+  "contract_id": "C019",
+  "period_end": "2026-12-31",
+  "contract_price": 26921000.0,
+  "variations": [
+    {
+      "id": "VO-001",
+      "description": "Acceleration of mechanical completion at the employer's request",
+      "amount": 572000.0,
+      "included_in_tp": false,
+      "reported_status": "Submitted"
+    },
+    {
+      "id": "VO-002",
+      "description": "Temporary power supply extended beyond the agreed period",
+      "amount": 1190000.0,
+      "included_in_tp": true,
+      "reported_status": "Agreed in principle"
+    }
+  ],
+  "claims_in_tp": 0.0,
+  "ld_deduction": 0.0,
+  "cost_to_date": 12933000.0,
+  "etc": 10779000.0,
+  "provision_booked": 0.0,
+  "commentary": "Project performing in line with forecast."
+}

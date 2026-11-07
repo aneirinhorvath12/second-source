@@ -1,0 +1,10 @@
+{
+  "contract_id": "C015",
+  "name": "Dunmere Tank Farm",
+  "customer": "Ardent Water Ltd",
+  "contract_price": 21865000.0,
+  "start_date": "2025-08-17",
+  "completion_date": "2027-07-18",
+  "ld_rate_per_day": 9000.0,
+  "ld_cap": 1093000.0
+}

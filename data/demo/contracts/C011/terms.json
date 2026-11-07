@@ -1,0 +1,10 @@
+{
+  "contract_id": "C011",
+  "name": "Saltby Carbon Capture Unit",
+  "customer": "Tamsin Petrochemicals",
+  "contract_price": 158519000.0,
+  "start_date": "2025-08-01",
+  "completion_date": "2028-04-01",
+  "ld_rate_per_day": 115000.0,
+  "ld_cap": 7926000.0
+}

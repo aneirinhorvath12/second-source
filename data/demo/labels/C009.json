@@ -1,0 +1,42 @@
+{
+  "contract_id": "C009",
+  "scenario": "m1_no_provision",
+  "true_etc": 45843000.0,
+  "true_cpi": 0.7878232921205303,
+  "true_spi": 0.9104698822504391,
+  "issues": [
+    {
+      "contract_id": "C009",
+      "check": "T1",
+      "ref": "VO-001",
+      "expected_verdict": "supported",
+      "true_profit_effect": 0.0,
+      "effect_range": null,
+      "scenario": "t1_approved",
+      "withheld_document": null,
+      "note": "Customer accepted in writing."
+    },
+    {
+      "contract_id": "C009",
+      "check": "E2",
+      "ref": "ETC",
+      "expected_verdict": "supported",
+      "true_profit_effect": 0.0,
+      "effect_range": null,
+      "scenario": "e2_ok",
+      "withheld_document": null,
+      "note": ""
+    },
+    {
+      "contract_id": "C009",
+      "check": "M1",
+      "ref": "PROVISION",
+      "expected_verdict": "misstated",
+      "true_profit_effect": -5018847.369758577,
+      "effect_range": null,
+      "scenario": "m1_no_provision",
+      "withheld_document": null,
+      "note": "Management's own EAC exceeds TP; no onerous provision booked."
+    }
+  ]
+}

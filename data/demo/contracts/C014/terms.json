@@ -1,0 +1,10 @@
+{
+  "contract_id": "C014",
+  "name": "Hartfield Process Control Retrofit",
+  "customer": "Norvale Energy plc",
+  "contract_price": 118541000.0,
+  "start_date": "2024-12-09",
+  "completion_date": "2027-10-10",
+  "ld_rate_per_day": 52000.0,
+  "ld_cap": 11854000.0
+}

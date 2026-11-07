@@ -1,0 +1,10 @@
+{
+  "contract_id": "C013",
+  "name": "Kilbrae Offshore Module",
+  "customer": "Caledon Power Networks",
+  "contract_price": 66521000.0,
+  "start_date": "2025-10-29",
+  "completion_date": "2027-09-29",
+  "ld_rate_per_day": 42000.0,
+  "ld_cap": 3326000.0
+}

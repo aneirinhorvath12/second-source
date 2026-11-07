@@ -1,7 +1,7 @@
 """The controller review: one contract file in, one model's figures and confidence out.
 
-    second-source review C002 C021 --runs 3 --out runs/review1 --dry-run
-    second-source review C002 C021 --runs 3 --out runs/review1
+    second-source review C002 C021 --runs 3 --out runs/scratch --dry-run
+    second-source review C002 C021 --runs 3 --out results/run2
 
 Each call sends the prompt in prompts/controller.md as the system prompt, then every
 document in the contract file, then the layout in prompts/output_format.md. There are no
@@ -24,8 +24,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from .agent.one_prompt import render_file
-from .store import load_contract
+from .store import ContractFile, load_contract
 
 PROMPTS = Path(__file__).resolve().parents[2] / "prompts"
 DEFAULT_MODEL = "claude-haiku-5-5"
@@ -47,6 +46,14 @@ def cost_usd(model: str, inp: int, cache_write: int, cache_read: int, out: int) 
         if limit is None or prompt <= limit:
             return (inp * p_in + cache_write * p_cw + cache_read * p_cr + out * p_out) / 1e6
     raise AssertionError("unreachable")
+
+
+def render_file(cf: ContractFile) -> str:
+    """Every file in the contract folder, each wrapped in a <document> tag."""
+    parts = [f"<document name='{n}'>\n{t}\n</document>" for n, t in cf.sources().items()]
+    parts.append(f"<document name='ledger_summary'>\nTotal actual cost per ledger: "
+                 f"{cf.ledger_total:,.2f}\n</document>")
+    return "\n\n".join(parts)
 
 
 @dataclass

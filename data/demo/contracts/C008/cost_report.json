@@ -1,0 +1,20 @@
+{
+  "contract_id": "C008",
+  "period_end": "2026-12-31",
+  "contract_price": 79266000.0,
+  "variations": [
+    {
+      "id": "VO-001",
+      "description": "Additional instrumentation loops added in design freeze 2",
+      "amount": 2750000.0,
+      "included_in_tp": false,
+      "reported_status": "Submitted"
+    }
+  ],
+  "claims_in_tp": 0.0,
+  "ld_deduction": 0.0,
+  "cost_to_date": 50909000.0,
+  "etc": 38286000.0,
+  "provision_booked": 0.0,
+  "commentary": "Productivity below plan; ETC reforecast to reflect current performance."
+}

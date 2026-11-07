@@ -1,0 +1,20 @@
+{
+  "contract_id": "C017",
+  "period_end": "2026-12-31",
+  "contract_price": 86267000.0,
+  "variations": [
+    {
+      "id": "VO-001",
+      "description": "Temporary power supply extended beyond the agreed period",
+      "amount": 1183000.0,
+      "included_in_tp": true,
+      "reported_status": "Approved"
+    }
+  ],
+  "claims_in_tp": 0.0,
+  "ld_deduction": 0.0,
+  "cost_to_date": 36085000.0,
+  "etc": 51974000.0,
+  "provision_booked": 359000.0,
+  "commentary": "ETC assumes recovery plan savings (resequencing and subcontract renegotiation)."
+}
