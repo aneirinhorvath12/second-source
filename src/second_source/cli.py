@@ -112,6 +112,19 @@ def cmd_demo(args: argparse.Namespace) -> None:
                                 json=f"{args.runs}/report.json"))
 
 
+def cmd_review(args: argparse.Namespace) -> None:
+    import anthropic
+
+    from .review import review
+    root = Path(args.portfolio)
+    cdirs = [root / "contracts" / c for c in args.contracts]
+    client = anthropic.Anthropic(max_retries=6)
+    records = review(cdirs, Path(args.out), runs=args.runs, model=args.model, client=client,
+                     dry_run=args.dry_run)
+    if records:
+        print(f"{len(records)} calls, ${sum(r['cost_usd'] for r in records):.2f}")
+
+
 def main(argv: list[str] | None = None) -> None:
     p = argparse.ArgumentParser(prog="second-source")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -136,6 +149,13 @@ def main(argv: list[str] | None = None) -> None:
     e.add_argument("runs", nargs="+")
     e.add_argument("--report")
     e.add_argument("--json")
+
+    v = add("review", "the controller review: contract file in, figures and confidence out", cmd_review)
+    v.add_argument("contracts", nargs="+")
+    v.add_argument("--out", required=True)
+    v.add_argument("--runs", type=int, default=1)
+    v.add_argument("--model", default="claude-haiku-5-5")
+    v.add_argument("--dry-run", action="store_true", help="write the requests and count tokens; no answers")
 
     d = add("demo", "run the offline systems over a portfolio and score them", cmd_demo)
     d.add_argument("--runs", default="runs/demo")
